@@ -7,13 +7,13 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'TechBuild - Custom Web & SaaS Solutions',
+  title: 'techbuild-labs - Custom Web & SaaS Solutions',
   description: 'We build fast, scalable web applications and SaaS products for growing businesses. Expert full-stack development, proven results.',
   metadataBase: new URL('https://techbuild.dev'),
   openGraph: {
     type: 'website',
     url: 'https://techbuild.dev',
-    title: 'TechBuild - Custom Web & SaaS Solutions',
+    title: 'techbuild-labs - Custom Web & SaaS Solutions',
     description: 'We build fast, scalable web applications and SaaS products for growing businesses.',
     images: [
       {

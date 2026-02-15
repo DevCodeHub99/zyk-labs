@@ -3,6 +3,7 @@
 import { useState, useEffect } from 'react'
 import { Menu, X, Moon, Sun } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import Logo from '@/components/Logo'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -38,29 +39,27 @@ export default function Navigation() {
   return (
     <nav className="sticky top-0 z-50 bg-background/95 backdrop-blur-sm border-b border-border">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between h-16">
-          {/* Logo */}
-          <div className="flex-shrink-0">
-            <a href="#" className="font-bold text-xl text-primary">
-              TechBuild
-            </a>
+        <div className="flex items-center justify-between h-16 gap-4">
+          {/* Logo - fixed width to prevent layout shift */}
+          <div className="flex-shrink-0 w-[320px]">
+            <Logo />
           </div>
 
-          {/* Desktop Menu */}
-          <div className="hidden md:flex items-center gap-8">
+          {/* Desktop Menu - centered with fixed positioning */}
+          <div className="hidden md:flex items-center gap-8 flex-1 justify-center">
             {navItems.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
-                className="text-sm text-foreground/70 hover:text-foreground transition-colors"
+                className="text-sm text-foreground/70 hover:text-foreground transition-colors whitespace-nowrap"
               >
                 {item.label}
               </a>
             ))}
           </div>
 
-          {/* CTA Buttons */}
-          <div className="hidden md:flex items-center gap-4">
+          {/* CTA Buttons - fixed width */}
+          <div className="hidden md:flex items-center gap-4 flex-shrink-0">
             {isMounted && (
               <button
                 onClick={toggleTheme}
@@ -73,11 +72,11 @@ export default function Navigation() {
             <Button
               asChild
               variant="outline"
-              className="text-primary border-primary hover:bg-primary hover:text-primary-foreground bg-transparent"
+              className="text-primary border-primary hover:bg-primary hover:text-primary-foreground bg-transparent whitespace-nowrap"
             >
               <a href="#contact">Contact</a>
             </Button>
-            <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground">
+            <Button asChild className="bg-accent hover:bg-accent/90 text-accent-foreground whitespace-nowrap">
               <a href="#contact">Book a Call</a>
             </Button>
           </div>

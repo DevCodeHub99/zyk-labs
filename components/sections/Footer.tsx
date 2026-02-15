@@ -1,6 +1,7 @@
 'use client'
 
 import { Github, Linkedin, Twitter, Mail } from 'lucide-react'
+import Logo from '@/components/Logo'
 
 export default function Footer() {
   const currentYear = new Date().getFullYear()
@@ -32,7 +33,9 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <h3 className="font-bold text-xl mb-4">TechBuild</h3>
+            <div className="mb-4 [&_*]:text-primary-foreground [&_*]:from-primary-foreground [&_*]:via-primary-foreground [&_*]:to-primary-foreground/80">
+              <Logo />
+            </div>
             <p className="text-sm text-primary-foreground/70">Building fast, scalable web applications for growing businesses.</p>
           </div>
 
@@ -88,7 +91,7 @@ export default function Footer() {
         {/* Bottom */}
         <div className="border-t border-primary-foreground/10 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-            <p className="text-primary-foreground/70">&copy; {currentYear} TechBuild. All rights reserved.</p>
+            <p className="text-primary-foreground/70">&copy; {currentYear} techbuild-labs. All rights reserved.</p>
             <div className="flex gap-6 text-primary-foreground/70">
               <a href="#" className="hover:text-primary-foreground transition-colors">
                 Privacy Policy

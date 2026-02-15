@@ -1,6 +1,19 @@
 'use client'
 
-import { Code2, Globe, Zap, Palette, BarChart3, Wrench } from 'lucide-react'
+import {
+  Code2,
+  Globe,
+  Zap,
+  Palette,
+  BarChart3,
+  Wrench,
+  Megaphone,
+  ShoppingCart,
+  Smartphone,
+  Cloud,
+  Bot,
+  Share2,
+} from 'lucide-react'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 
@@ -11,42 +24,84 @@ export default function Services() {
       title: 'Custom Web Applications',
       description: 'Production-ready applications built with modern frameworks. Scalable, secure, and optimized for performance.',
       features: ['React/Next.js', 'TypeScript', 'Database Design', 'Responsive Design'],
-      price: 'From $15k',
+      price: 'From ₹50,000',
     },
     {
       icon: Code2,
       title: 'SaaS Development',
       description: 'Complete SaaS solutions from MVP to scale. Authentication, billing, and multi-tenant architecture included.',
       features: ['Full Stack', 'Payment Integration', 'User Management', 'Analytics'],
-      price: 'From $25k',
+      price: 'From ₹3,00,000',
     },
     {
       icon: Zap,
       title: 'API & Backend Systems',
       description: 'Robust backend infrastructure and APIs designed for reliability and performance at scale.',
       features: ['Node.js/Python', 'REST/GraphQL', 'Database Optimization', 'Security'],
-      price: 'From $10k',
+      price: 'From ₹40,000',
     },
     {
       icon: Palette,
       title: 'UI/UX Engineering',
       description: 'Custom interface design and implementation focused on user experience and conversion.',
       features: ['Design Systems', 'Component Libraries', 'Accessibility', 'Performance'],
-      price: 'From $8k',
+      price: 'From ₹25,000',
     },
     {
       icon: BarChart3,
       title: 'Performance Optimization',
       description: 'Speed up existing applications and optimize for conversion. Lighthouse scores 90+.',
       features: ['Load Time Optimization', 'SEO', 'Caching Strategy', 'Monitoring'],
-      price: 'From $5k',
+      price: 'From ₹15,000',
     },
     {
       icon: Wrench,
       title: 'Ongoing Maintenance',
       description: 'Keep your application running smoothly with monitoring, updates, and priority support.',
       features: ['24/7 Monitoring', 'Bug Fixes', 'Updates & Security', 'Technical Support'],
-      price: 'From $2k/mo',
+      price: 'From ₹5,000/mo',
+    },
+    {
+      icon: Megaphone,
+      title: 'Digital Marketing',
+      description: 'Result-driven digital marketing strategies to boost your online presence, generate leads, and grow your brand.',
+      features: ['Google & Meta Ads', 'SEO & Content Marketing', 'Email Campaigns', 'Analytics & Reporting'],
+      price: 'From ₹15,000/mo',
+    },
+    {
+      icon: ShoppingCart,
+      title: 'E-Commerce Admin Handling',
+      description: 'End-to-end e-commerce store management — product listings, orders, inventory, and customer support handled for you.',
+      features: ['Product Catalog Management', 'Order & Inventory Tracking', 'Payment Gateway Setup', 'Customer Support'],
+      price: 'From ₹10,000/mo',
+    },
+    {
+      icon: Smartphone,
+      title: 'Mobile App Development',
+      description: 'Cross-platform mobile applications for iOS and Android, built with performance and native-like experience.',
+      features: ['React Native / Flutter', 'Push Notifications', 'App Store Deployment', 'Offline Support'],
+      price: 'From ₹75,000',
+    },
+    {
+      icon: Cloud,
+      title: 'Cloud & DevOps',
+      description: 'Cloud infrastructure setup, CI/CD pipelines, and server management for reliable deployments.',
+      features: ['AWS / Azure / GCP', 'Docker & Kubernetes', 'CI/CD Pipelines', 'Auto Scaling'],
+      price: 'From ₹20,000',
+    },
+    {
+      icon: Bot,
+      title: 'Chatbot & AI Solutions',
+      description: 'Intelligent chatbots and AI-powered tools to automate customer engagement and streamline business workflows.',
+      features: ['WhatsApp & Web Chatbots', 'AI Content Generation', 'Lead Qualification Bots', 'CRM Integration'],
+      price: 'From ₹30,000',
+    },
+    {
+      icon: Share2,
+      title: 'Social Media Management',
+      description: 'Complete social media presence management — content creation, scheduling, engagement, and performance tracking.',
+      features: ['Content Calendar', 'Graphic Design & Reels', 'Community Management', 'Monthly Reports'],
+      price: 'From ₹12,000/mo',
     },
   ]
 
