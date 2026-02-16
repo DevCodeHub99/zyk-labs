@@ -1,100 +1,87 @@
 'use client'
 
 import { Card } from '@/components/ui/card'
-import { Star } from 'lucide-react'
+import { Quote } from 'lucide-react'
 
 export default function Testimonials() {
-  const testimonials = [
-    {
-      quote:
-        "TechBuild completely transformed our product. They delivered on time, communicated clearly, and the code quality is exceptional. Highly recommended.",
-      author: 'Sarah Chen',
-      role: 'Founder & CEO',
-      company: 'CloudStart Inc.',
-      rating: 5,
-    },
-    {
-      quote:
-        'We tried other agencies, but TechBuild delivered results we actually expected. They understood our business goals, not just technical requirements.',
-      author: 'Michael Rodriguez',
-      role: 'Product Director',
-      company: 'RetailFlow',
-      rating: 5,
-    },
-    {
-      quote:
-        "Working with TechBuild was a breath of fresh air. Fast communication, no drama, and a team that actually cares about getting things right.",
-      author: 'Emily Watson',
-      role: 'CTO',
-      company: 'DataVault Systems',
-      rating: 5,
-    },
-    {
-      quote:
-        "The level of professionalism and attention to detail is impressive. They built exactly what we needed, and the app has been rock-solid in production.",
-      author: 'James Park',
-      role: 'VP Engineering',
-      company: 'TaskMaster Inc.',
-      rating: 5,
-    },
-  ]
+    const testimonials = [
+        {
+            quote: "TechBuild Labs completely transformed our legacy system into a high-speed SaaS platform. Their attention to detail and technical expertise is unmatched.",
+            author: "Sarah Jenkins",
+            role: "CTO, FinSights",
+            company: "FinSights",
+            logo: "FS"
+        },
+        {
+            quote: "We needed a partner who could move fast without breaking things. The team delivered our MVP in 4 weeks, and it scaled perfectly to 10k users.",
+            author: "Michael Chang",
+            role: "Founder, GrowthRocket",
+            company: "GrowthRocket",
+            logo: "GR"
+        },
+        {
+            quote: "The best engineering team we've worked with. Professional, transparent, and they actually write clean, maintainable code.",
+            author: "David Miller",
+            role: "Director of Product, HealthPlus",
+            company: "HealthPlus",
+            logo: "HP"
+        }
+    ]
 
-  return (
-    <section className="py-20 md:py-32 bg-background">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-primary text-balance">What Our Clients Say</h2>
-          <p className="text-lg text-foreground/60 max-w-2xl mx-auto text-balance">
-            Don't just take our word for it. Here's what our clients think.
-          </p>
-        </div>
+    const clients = [
+        "Acme Corp", "GlobalTech", "Nebula", "Velocity", "FoxRun", "Circle"
+    ]
 
-        <div className="grid md:grid-cols-2 gap-6">
-          {testimonials.map((testimonial, index) => (
-            <Card key={index} className="border-border bg-card p-8">
-              <div className="space-y-6">
-                {/* Rating */}
-                <div className="flex gap-1">
-                  {Array.from({ length: testimonial.rating }).map((_, i) => (
-                    <Star key={i} className="w-5 h-5 fill-accent text-accent" />
-                  ))}
+    return (
+        <section id="testimonials" className="py-20 md:py-32 bg-secondary/30 relative overflow-hidden">
+            {/* Background Decor */}
+            <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
+
+            <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+                <div className="text-center space-y-4 mb-16">
+                    <div className="inline-flex items-center rounded-full border border-primary/10 bg-primary/5 px-3 py-1 text-sm font-medium text-primary">
+                        Testimonials
+                    </div>
+                    <h2 className="text-3xl md:text-5xl font-bold text-primary tracking-tight">Trusted by Tech Leaders</h2>
+                    <p className="text-lg text-foreground/60 max-w-2xl mx-auto text-balance">
+                        See what our partners have to say about working with us.
+                    </p>
                 </div>
 
-                {/* Quote */}
-                <p className="text-lg text-foreground/80 leading-relaxed italic">"{testimonial.quote}"</p>
+                <div className="grid md:grid-cols-3 gap-8 mb-20">
+                    {testimonials.map((item, i) => (
+                        <Card key={i} className="border-border bg-card p-8 hover:border-accent/30 transition-all hover:shadow-lg relative group">
+                            <Quote className="absolute top-8 right-8 w-10 h-10 text-primary/5 group-hover:text-accent/10 transition-colors" />
 
-                {/* Author */}
-                <div className="pt-4 border-t border-border">
-                  <p className="font-semibold text-primary">{testimonial.author}</p>
-                  <p className="text-sm text-foreground/60">
-                    {testimonial.role} at {testimonial.company}
-                  </p>
+                            <div className="mb-6 flex items-center gap-3">
+                                <div className="w-12 h-12 rounded-full bg-gradient-to-br from-primary to-primary/80 flex items-center justify-center text-primary-foreground font-bold text-lg">
+                                    {item.logo}
+                                </div>
+                                <div>
+                                    <div className="font-bold text-primary">{item.author}</div>
+                                    <div className="text-sm text-foreground/60">{item.role}</div>
+                                </div>
+                            </div>
+
+                            <blockquote className="text-foreground/80 leading-relaxed relative z-10">
+                                "{item.quote}"
+                            </blockquote>
+                        </Card>
+                    ))}
                 </div>
-              </div>
-            </Card>
-          ))}
-        </div>
 
-        {/* Stats */}
-        <div className="mt-16 grid grid-cols-2 md:grid-cols-4 gap-6 text-center">
-          <div>
-            <div className="text-3xl font-bold text-accent">40+</div>
-            <p className="text-sm text-foreground/60 mt-2">Projects Delivered</p>
-          </div>
-          <div>
-            <div className="text-3xl font-bold text-accent">30+</div>
-            <p className="text-sm text-foreground/60 mt-2">Happy Clients</p>
-          </div>
-          <div>
-            <div className="text-3xl font-bold text-accent">4.9</div>
-            <p className="text-sm text-foreground/60 mt-2">Average Rating</p>
-          </div>
-          <div>
-            <div className="text-3xl font-bold text-accent">98%</div>
-            <p className="text-sm text-foreground/60 mt-2">Satisfaction</p>
-          </div>
-        </div>
-      </div>
-    </section>
-  )
+                {/* Client Logos Strip */}
+                <div className="border-t border-border/50 pt-16">
+                    <p className="text-center text-sm font-semibold text-foreground/40 uppercase tracking-widest mb-8">Powering Next-Gen Companies</p>
+                    <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
+                        {clients.map((client) => (
+                            <div key={client} className="text-xl md:text-2xl font-bold text-foreground/40 hover:text-primary transition-colors cursor-default">
+                                {client}
+                            </div>
+                        ))}
+                    </div>
+                </div>
+            </div>
+        </section>
+    )
 }

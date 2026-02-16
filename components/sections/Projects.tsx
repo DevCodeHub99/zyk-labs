@@ -2,99 +2,124 @@
 
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, ExternalLink, BarChart3, ShoppingBag, Layout, Smartphone } from 'lucide-react'
 
 export default function Projects() {
   const projects = [
     {
-      title: 'CloudSync Platform',
-      category: 'SaaS',
-      description: 'Real-time collaboration SaaS platform',
-      results: '3x faster load times, 50% cost reduction',
-      tech: ['React', 'Node.js', 'PostgreSQL', 'WebSockets'],
-      image: 'bg-gradient-to-br from-blue-500/20 to-blue-600/20',
+      title: 'NexDash Analytics',
+      category: 'SaaS Platform',
+      description: 'A comprehensive analytics dashboard for enterprise data visualization. Features real-time websocket updates and custom reporting engines.',
+      tech: ['React', 'Next.js', 'PostgreSQL', 'D3.js'],
+      color: 'from-blue-600 to-indigo-600',
+      icon: BarChart3,
+      link: '#'
     },
     {
-      title: 'RetailFlow',
+      title: 'LuxeCart Commerce',
       category: 'E-Commerce',
-      description: 'Multi-channel inventory management system',
-      results: '$2M additional revenue in year 1',
-      tech: ['Next.js', 'Python', 'Redis', 'Stripe'],
-      image: 'bg-gradient-to-br from-emerald-500/20 to-emerald-600/20',
+      description: 'Headless e-commerce solution built for a luxury fashion brand. optimized for core web vitals and conversion rates.',
+      tech: ['Next.js', 'Shopify', 'Tailwind', 'Redis'],
+      color: 'from-emerald-500 to-teal-500',
+      icon: ShoppingBag,
+      link: '#'
     },
     {
-      title: 'DataVault Analytics',
-      category: 'Enterprise Tool',
-      description: 'Advanced analytics dashboard for enterprises',
-      results: '90+ Lighthouse score, 99.9% uptime',
-      tech: ['React', 'D3.js', 'AWS', 'GraphQL'],
-      image: 'bg-gradient-to-br from-purple-500/20 to-purple-600/20',
+      title: 'FinFlow App',
+      category: 'Fintech',
+      description: 'Mobile-first banking application with secure biometric authentication and instant peer-to-peer payments.',
+      tech: ['React Native', 'Node.js', 'Firebase', 'TypeScript'],
+      color: 'from-purple-600 to-pink-600',
+      icon: Smartphone,
+      link: '#'
     },
     {
-      title: 'TaskMaster App',
-      category: 'Productivity',
-      description: 'Team task and project management tool',
-      results: '1M+ users, 4.8★ rating',
-      tech: ['React Native', 'Firebase', 'TypeScript'],
-      image: 'bg-gradient-to-br from-orange-500/20 to-orange-600/20',
+      title: 'HealthTrack Pro',
+      category: 'Healthcare',
+      description: 'HIPAA-compliant patient management system for multi-location clinics. Integrated appointment scheduling and telemedicine.',
+      tech: ['React', 'Python', 'AWS', 'Docker'],
+      color: 'from-orange-500 to-red-500',
+      icon: Layout,
+      link: '#'
     },
   ]
 
   return (
-    <section id="projects" className="py-20 md:py-32 bg-background">
+    <section id="projects" className="py-20 md:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="text-center space-y-4 mb-16">
-          <h2 className="text-3xl md:text-5xl font-bold text-primary text-balance">Our Latest Projects</h2>
-          <p className="text-lg text-foreground/60 max-w-2xl mx-auto text-balance">
-            Real projects, real results. Here's what we've built for our clients.
-          </p>
+        <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
+          <div className="space-y-4 max-w-2xl">
+            <div className="inline-flex items-center rounded-full border border-primary/10 bg-primary/5 px-3 py-1 text-sm font-medium text-primary">
+              Portfolio
+            </div>
+            <h2 className="text-3xl md:text-5xl font-bold text-primary tracking-tight">Featured Projects</h2>
+            <p className="text-lg text-foreground/60 leading-relaxed text-balance">
+              Take a look at some of our recent work. We build software that matters.
+            </p>
+          </div>
+          <Button asChild variant="outline" className="hidden md:inline-flex border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+            <a href="#github" className="flex items-center gap-2">
+              View Github <ExternalLink className="w-4 h-4" />
+            </a>
+          </Button>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-6 mb-12">
-          {projects.map((project) => (
-            <Card key={project.title} className="border-border bg-card overflow-hidden hover:border-accent/30 transition-colors">
-              <div className={`h-48 ${project.image} flex items-center justify-center`} />
-              <div className="p-8">
-                <div className="flex items-center justify-between mb-4">
-                  <span className="text-xs font-semibold text-accent uppercase tracking-wider">{project.category}</span>
-                </div>
-                <h3 className="text-2xl font-bold text-primary mb-2">{project.title}</h3>
-                <p className="text-foreground/70 text-sm mb-4">{project.description}</p>
-
-                <div className="space-y-4">
-                  <div>
-                    <p className="text-xs font-semibold text-foreground/50 mb-2 uppercase tracking-wider">Results</p>
-                    <p className="text-sm font-semibold text-accent">{project.results}</p>
-                  </div>
-
-                  <div>
-                    <p className="text-xs font-semibold text-foreground/50 mb-2 uppercase tracking-wider">Tech Stack</p>
-                    <div className="flex flex-wrap gap-2">
-                      {project.tech.map((tech) => (
-                        <span
-                          key={tech}
-                          className="inline-block px-2.5 py-1 text-xs rounded-full bg-secondary text-foreground/70"
-                        >
-                          {tech}
-                        </span>
-                      ))}
+        <div className="grid md:grid-cols-2 gap-8 mb-16">
+          {projects.map((item) => {
+            const Icon = item.icon
+            return (
+              <Card key={item.title} className="group border-border bg-card overflow-hidden hover:border-accent/40 transition-all duration-300 hover:shadow-xl hover:shadow-accent/5">
+                {/* Visual Placeholder */}
+                <div className={`h-64 bg-gradient-to-br ${item.color} relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500`}>
+                  <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
+                  <div className="absolute inset-0 flex items-center justify-center">
+                    <div className="bg-white/20 backdrop-blur-md p-6 rounded-2xl shadow-lg border border-white/20">
+                      <Icon className="w-12 h-12 text-white" />
                     </div>
                   </div>
+
+                  {/* Overlay Link */}
+                  <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
+                    <Button variant="secondary" className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
+                      View Case Study
+                    </Button>
+                  </div>
                 </div>
 
-                <Button asChild variant="ghost" className="mt-6 w-full justify-center text-accent hover:bg-secondary">
-                  <a href="#contact" className="flex items-center gap-2">
-                    View Case Study <ArrowRight size={16} />
-                  </a>
-                </Button>
-              </div>
-            </Card>
-          ))}
+                <div className="p-8">
+                  <div className="flex items-center justify-between mb-4">
+                    <span className="text-xs font-bold text-accent uppercase tracking-wider bg-accent/10 px-2 py-1 rounded">
+                      {item.category}
+                    </span>
+                  </div>
+
+                  <h3 className="text-2xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">
+                    {item.title}
+                  </h3>
+
+                  <p className="text-foreground/70 text-sm leading-relaxed mb-6 line-clamp-2">
+                    {item.description}
+                  </p>
+
+                  <div className="flex flex-wrap gap-2 pt-6 border-t border-border/50">
+                    {item.tech.map((tech) => (
+                      <span
+                        key={tech}
+                        className="inline-flex px-2.5 py-1 text-xs font-medium rounded-md bg-secondary text-secondary-foreground"
+                      >
+                        {tech}
+                      </span>
+                    ))}
+                  </div>
+                </div>
+              </Card>
+            )
+          })}
         </div>
 
-        <div className="text-center">
-          <Button asChild size="lg" className="bg-accent hover:bg-accent/90 text-accent-foreground">
-            <a href="#contact">See All Projects</a>
+        <div className="text-center md:hidden">
+          <Button asChild size="lg" variant="outline" className="w-full border-primary text-primary">
+            <a href="#github">View Github</a>
           </Button>
         </div>
       </div>

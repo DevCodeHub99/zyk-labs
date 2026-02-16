@@ -2,87 +2,76 @@
 @tailwind components;
 @tailwind utilities;
 
-body {
-  font-family: Arial, Helvetica, sans-serif;
-}
-
-@layer utilities {
-  .text-balance {
-    text-wrap: balance;
-  }
-}
-
 @layer base {
   :root {
-    /* Light Mode - Professional Enterprise Theme */
-    --background: 0 0% 99.5%;
-    --foreground: 217 32% 17%;
+    /* Light Mode - Premium Tech Theme */
+    --background: 210 40% 98%;
+    /* Very light cool grey */
+    --foreground: 222 47% 11%;
+    /* Deep midnight blue */
+
     --card: 0 0% 100%;
-    --card-foreground: 217 32% 17%;
+    --card-foreground: 222 47% 11%;
+
     --popover: 0 0% 100%;
-    --popover-foreground: 217 32% 17%;
-    --primary: 217 32% 17%;
-    --primary-foreground: 0 0% 100%;
-    --secondary: 216 14% 94%;
-    --secondary-foreground: 217 32% 17%;
-    --muted: 216 14% 90%;
-    --muted-foreground: 217 10% 45%;
-    --accent: 206 100% 50%;
-    --accent-foreground: 0 0% 100%;
+    --popover-foreground: 222 47% 11%;
+
+    --primary: 222 47% 11%;
+    /* Deep Midnight Blue */
+    --primary-foreground: 210 40% 98%;
+
+    --secondary: 210 40% 96.1%;
+    --secondary-foreground: 222 47% 11%;
+
+    --muted: 210 40% 96.1%;
+    --muted-foreground: 215.4 16.3% 46.9%;
+
+    --accent: 221 83% 53%;
+    /* Vibrant Blue like Tailwind Blue-600 */
+    --accent-foreground: 210 40% 98%;
+
     --destructive: 0 84.2% 60.2%;
-    --destructive-foreground: 0 0% 98%;
-    --border: 216 14% 91%;
-    --input: 216 14% 91%;
-    --ring: 206 100% 50%;
-    --chart-1: 206 100% 50%;
-    --chart-2: 217 32% 17%;
-    --chart-3: 216 14% 70%;
-    --chart-4: 206 85% 57%;
-    --chart-5: 217 32% 35%;
-    --radius: 0.5rem;
-    --sidebar-background: 0 0% 99.5%;
-    --sidebar-foreground: 217 32% 17%;
-    --sidebar-primary: 206 100% 50%;
-    --sidebar-primary-foreground: 0 0% 100%;
-    --sidebar-accent: 216 14% 94%;
-    --sidebar-accent-foreground: 217 32% 17%;
-    --sidebar-border: 216 14% 91%;
-    --sidebar-ring: 206 100% 50%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 214.3 31.8% 91.4%;
+    --input: 214.3 31.8% 91.4%;
+    --ring: 221 83% 53%;
+
+    --radius: 0.75rem;
   }
+
   .dark {
-    /* Dark Mode - Professional Enterprise Theme */
-    --background: 220 23% 10%;
-    --foreground: 0 0% 96%;
-    --card: 220 23% 14%;
-    --card-foreground: 0 0% 96%;
-    --popover: 220 23% 14%;
-    --popover-foreground: 0 0% 96%;
-    --primary: 0 0% 96%;
-    --primary-foreground: 220 23% 10%;
-    --secondary: 220 15% 25%;
-    --secondary-foreground: 0 0% 96%;
-    --muted: 220 15% 25%;
-    --muted-foreground: 220 10% 60%;
-    --accent: 206 100% 50%;
-    --accent-foreground: 0 0% 100%;
-    --destructive: 0 72% 51%;
-    --destructive-foreground: 0 0% 100%;
-    --border: 220 15% 22%;
-    --input: 220 15% 22%;
-    --ring: 206 100% 50%;
-    --chart-1: 206 100% 50%;
-    --chart-2: 0 0% 96%;
-    --chart-3: 220 15% 50%;
-    --chart-4: 206 85% 57%;
-    --chart-5: 0 0% 85%;
-    --sidebar-background: 220 23% 10%;
-    --sidebar-foreground: 0 0% 96%;
-    --sidebar-primary: 206 100% 50%;
-    --sidebar-primary-foreground: 220 23% 10%;
-    --sidebar-accent: 220 15% 25%;
-    --sidebar-accent-foreground: 0 0% 96%;
-    --sidebar-border: 220 15% 22%;
-    --sidebar-ring: 206 100% 50%;
+    /* Dark Mode - Deep Space Theme */
+    --background: 222 47% 11%;
+    /* Deep Midnight Blue */
+    --foreground: 210 40% 98%;
+
+    --card: 217 33% 17%;
+    /* Slightly lighter navy */
+    --card-foreground: 210 40% 98%;
+
+    --popover: 217 33% 17%;
+    --popover-foreground: 210 40% 98%;
+
+    --primary: 210 40% 98%;
+    --primary-foreground: 222 47% 11%;
+
+    --secondary: 217 33% 17%;
+    --secondary-foreground: 210 40% 98%;
+
+    --muted: 217 33% 17%;
+    --muted-foreground: 215 20.2% 65.1%;
+
+    --accent: 217 91% 60%;
+    /* Electric Blue */
+    --accent-foreground: 222 47% 11%;
+
+    --destructive: 0 62.8% 30.6%;
+    --destructive-foreground: 210 40% 98%;
+
+    --border: 217 33% 17%;
+    --input: 217 33% 17%;
+    --ring: 224 76% 48%;
   }
 }
 
@@ -90,7 +79,16 @@ body {
   * {
     @apply border-border;
   }
+
   body {
     @apply bg-background text-foreground;
+    background-image: linear-gradient(to right, #80808012 1px, transparent 1px),
+      linear-gradient(to bottom, #80808012 1px, transparent 1px);
+    background-size: 24px 24px;
+  }
+
+  /* Smooth scrolling for anchor links */
+  html {
+    scroll-behavior: smooth;
   }
 }

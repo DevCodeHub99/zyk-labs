@@ -4,12 +4,12 @@ import { BarChart3, TrendingUp, Users, Activity, Settings, Bell, Search, Chevron
 
 export default function DashboardMockup() {
   return (
-    <div className="relative w-full h-96 md:h-full hidden md:flex items-center justify-center perspective">
+    <div className="relative w-full h-[550px] md:h-full hidden md:flex items-center justify-center perspective">
       {/* Outer glow effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent/15 via-transparent to-accent/10 rounded-3xl blur-3xl" />
 
       {/* Browser frame */}
-      <div className="relative w-full h-80 bg-white dark:bg-[#1a2332] rounded-2xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-800 transform hover:scale-105 transition-transform duration-500">
+      <div className="relative w-full h-[460px] bg-white dark:bg-[#1a2332] rounded-2xl shadow-2xl overflow-hidden border border-gray-200 dark:border-gray-800 transform hover:scale-105 transition-transform duration-500">
         {/* Browser header */}
         <div className="bg-gradient-to-r from-gray-50 to-gray-100 dark:from-[#232f3e] dark:to-[#1a2332] border-b border-gray-200 dark:border-gray-800 px-4 py-3 flex items-center justify-between">
           <div className="flex items-center gap-2">
@@ -32,11 +32,10 @@ export default function DashboardMockup() {
                 {['Dashboard', 'Analytics', 'Projects', 'Users'].map((item) => (
                   <div
                     key={item}
-                    className={`text-sm px-3 py-2 rounded-lg transition-colors ${
-                      item === 'Dashboard'
+                    className={`text-sm px-3 py-2 rounded-lg transition-colors ${item === 'Dashboard'
                         ? 'bg-accent text-white font-medium'
                         : 'text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800'
-                    }`}
+                      }`}
                   >
                     {item}
                   </div>
@@ -56,7 +55,7 @@ export default function DashboardMockup() {
           </div>
 
           {/* Main content area */}
-          <div className="flex-1 p-4 bg-white dark:bg-[#0f1419] overflow-y-auto space-y-3">
+          <div className="flex-1 p-4 bg-white dark:bg-[#0f1419] overflow-hidden space-y-3">
             {/* Top bar */}
             <div className="flex items-center justify-between mb-4">
               <div>
