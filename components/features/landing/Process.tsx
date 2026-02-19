@@ -1,35 +1,11 @@
 'use client'
 
-import { Search, Code2, Rocket, TrendingUp } from 'lucide-react'
+import { siteConfig } from '@/config/site'
 import { Card } from '@/components/ui/card'
 
 export default function Process() {
-  const steps = [
-    {
-      number: '01',
-      icon: Search,
-      title: 'Strategy & Design',
-      description: 'We align on goals, map out user flows, and design high-fidelity prototypes so you know exactly what we\'re building.',
-    },
-    {
-      number: '02',
-      icon: Code2,
-      title: 'Agile Development',
-      description: 'We build in two-week sprints, giving you regular demos and a deployable product at every stage.',
-    },
-    {
-      number: '03',
-      icon: Rocket,
-      title: 'Launch',
-      description: 'After rigorous testing and security audits, we deploy your application to a scalable cloud infrastructure.',
-    },
-    {
-      number: '04',
-      icon: TrendingUp,
-      title: 'Growth',
-      description: 'We don\'t disappear. We monitor performance, handle updates, and help you plan the next big feature.',
-    },
-  ]
+  const { process } = siteConfig
+  const { steps } = process
 
   return (
     <section id="process" className="py-20 md:py-32 bg-secondary/30 relative overflow-hidden">
@@ -37,11 +13,11 @@ export default function Process() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
         <div className="text-center space-y-4 mb-20">
           <div className="inline-flex items-center rounded-full border border-primary/10 bg-primary/5 px-3 py-1 text-sm font-medium text-primary">
-            How We Work
+            {process.badge}
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-primary tracking-tight">Simple, Transparent Process</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-primary tracking-tight">{process.title}</h2>
           <p className="text-lg text-foreground/60 max-w-2xl mx-auto text-balance">
-            We've refined our workflow to deliver high-quality results without the headaches.
+            {process.description}
           </p>
         </div>
 

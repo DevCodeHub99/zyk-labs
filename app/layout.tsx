@@ -1,19 +1,20 @@
 import React from "react"
 import type { Metadata } from 'next'
 import { Inter } from 'next/font/google'
+import { Toaster } from '@/components/ui/sonner'
 
 import './globals.css'
 
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'techbuild-labs - Custom Web & SaaS Solutions',
+  title: 'Zyk Labs - Custom Web & SaaS Solutions',
   description: 'We build fast, scalable web applications and SaaS products for growing businesses. Expert full-stack development, proven results.',
   metadataBase: new URL('https://techbuild.dev'),
   openGraph: {
     type: 'website',
     url: 'https://techbuild.dev',
-    title: 'techbuild-labs - Custom Web & SaaS Solutions',
+    title: 'Zyk Labs - Custom Web & SaaS Solutions',
     description: 'We build fast, scalable web applications and SaaS products for growing businesses.',
     images: [
       {
@@ -54,7 +55,10 @@ export default function RootLayout({
       <head>
         <ThemeScript />
       </head>
-      <body className={`${inter.className} font-sans antialiased bg-background text-foreground`}>{children}</body>
+      <body className={`${inter.className} font-sans antialiased bg-background text-foreground`}>
+        {children}
+        <Toaster />
+      </body>
     </html>
   )
 }

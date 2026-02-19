@@ -1,31 +1,11 @@
 'use client'
 
-import { Github, Linkedin, Twitter, Mail } from 'lucide-react'
-import Logo from '@/components/Logo'
+import { siteConfig } from '@/config/site'
+import Logo from '@/components/shared/Logo'
 
 export default function Footer() {
-  const currentYear = new Date().getFullYear()
-
-  const links = {
-    services: [
-      { label: 'Web Applications', href: '#services' },
-      { label: 'SaaS Development', href: '#services' },
-      { label: 'API Development', href: '#services' },
-      { label: 'UI/UX Engineering', href: '#services' },
-    ],
-    company: [
-      { label: 'About', href: '#team' },
-      { label: 'Process', href: '#process' },
-      { label: 'Pricing', href: '#pricing' },
-      { label: 'Contact', href: '#contact' },
-    ],
-    social: [
-      { icon: Github, href: '#', label: 'GitHub' },
-      { icon: Linkedin, href: '#', label: 'LinkedIn' },
-      { icon: Twitter, href: '#', label: 'Twitter' },
-      { icon: Mail, href: 'mailto:hello@techbuild.dev', label: 'Email' },
-    ],
-  }
+  const { footer } = siteConfig
+  const { links } = footer
 
   return (
     <footer className="bg-primary text-primary-foreground py-16">
@@ -36,7 +16,7 @@ export default function Footer() {
             <div className="mb-4 [&_*]:text-primary-foreground [&_*]:from-primary-foreground [&_*]:via-primary-foreground [&_*]:to-primary-foreground/80">
               <Logo />
             </div>
-            <p className="text-sm text-primary-foreground/70">Building fast, scalable web applications for growing businesses.</p>
+            <p className="text-sm text-primary-foreground/70">{footer.tagline}</p>
           </div>
 
           {/* Services */}
@@ -91,14 +71,13 @@ export default function Footer() {
         {/* Bottom */}
         <div className="border-t border-primary-foreground/10 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-            <p className="text-primary-foreground/70">&copy; {currentYear} techbuild-labs. All rights reserved.</p>
+            <p className="text-primary-foreground/70">{footer.copyright}</p>
             <div className="flex gap-6 text-primary-foreground/70">
-              <a href="#" className="hover:text-primary-foreground transition-colors">
-                Privacy Policy
-              </a>
-              <a href="#" className="hover:text-primary-foreground transition-colors">
-                Terms of Service
-              </a>
+              {links.legal.map((link) => (
+                <a key={link.label} href={link.href} className="hover:text-primary-foreground transition-colors">
+                  {link.label}
+                </a>
+              ))}
             </div>
           </div>
         </div>

@@ -1,28 +1,33 @@
-'use client'
-
-import React, { useState } from "react"
+import { siteConfig } from '@/config/site'
+import React, { useState, useEffect } from "react"
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Mail, Phone, MapPin, Calendar, ArrowRight, Linkedin, Github, Twitter, CheckCircle } from 'lucide-react'
+import { Mail, Calendar, CheckCircle } from 'lucide-react'
+import { getCalApi } from "@calcom/embed-react";
 
 export default function Contact() {
+  const { contact } = siteConfig
   const [formData, setFormData] = useState({
     name: '',
     email: '',
     company: '',
     message: '',
   })
+
+  useEffect(() => {
+    (async function () {
+      const cal = await getCalApi({ "namespace": "30min" });
+      cal("ui", { "styles": { "branding": { "brandColor": "#000000" } }, "hideEventTypeDetails": false, "layout": "month_view" });
+    })();
+  }, []);
+
   const [status, setStatus] = useState<'idle' | 'submitting' | 'success' | 'error'>('idle')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
     setStatus('submitting')
 
-    // --------------------------------------------------------------------------------
-    // TODO: Replace 'YOUR_FORMSPREE_ID' with your actual Formspree Form ID
-    // Get one at https://formspree.io/
-    // --------------------------------------------------------------------------------
-    const FORMSPREE_ID = 'xykdjgqj'
+    const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID || 'xykdjgqj'
 
     try {
       const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
@@ -59,11 +64,11 @@ export default function Contact() {
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4 mb-20">
           <div className="inline-flex items-center rounded-full border border-primary/10 bg-primary/5 px-3 py-1 text-sm font-medium text-primary">
-            Contact Us
+            {contact.badge}
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-primary tracking-tight">Let's Build Something Great</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-primary tracking-tight">{contact.title}</h2>
           <p className="text-lg text-foreground/60 max-w-2xl mx-auto text-balance">
-            Have a project in mind? We'd love to hear about it. Send us a message or schedule a call.
+            {contact.description}
           </p>
         </div>
 
@@ -75,37 +80,47 @@ export default function Contact() {
                 <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent mb-4">
                   <Mail size={20} />
                 </div>
-                <h3 className="font-bold text-primary mb-1">Email Us</h3>
-                <p className="text-sm text-foreground/60 mb-2">For general inquiries</p>
-                <a href="mailto:hello@techbuild.dev" className="text-accent hover:underline font-medium">hello@techbuild.dev</a>
+                <h3 className="font-bold text-primary mb-1">{contact.email.label}</h3>
+                <p className="text-sm text-foreground/60 mb-2">{contact.email.subtext}</p>
+                <a href={`mailto:${contact.email.value}`} className="text-accent hover:underline font-medium">{contact.email.value}</a>
               </Card>
 
               <Card className="p-6 border-border bg-card hover:border-accent/40 transition-colors shadow-sm">
                 <div className="w-10 h-10 rounded-full bg-accent/10 flex items-center justify-center text-accent mb-4">
                   <Calendar size={20} />
                 </div>
-                <h3 className="font-bold text-primary mb-1">Book a Call</h3>
-                <p className="text-sm text-foreground/60 mb-2">Free 30-min discovery</p>
-                <a href="#" className="text-accent hover:underline font-medium">Schedule now</a>
+                <h3 className="font-bold text-primary mb-1">{contact.booking.label}</h3>
+                <p className="text-sm text-foreground/60 mb-2">{contact.booking.subtext}</p>
+                <button
+                  data-cal-namespace="30min"
+                  data-cal-link={`${process.env.NEXT_PUBLIC_CAL_LINK || "techbuild-labs/30min"}?name=&email=`}
+                  data-cal-config='{"layout":"month_view"}'
+                  className="text-accent hover:underline font-medium bg-transparent border-none p-0 cursor-pointer text-left"
+                >
+                  {contact.booking.cta}
+                </button>
               </Card>
             </div>
 
             <Card className="p-8 border-border bg-primary text-primary-foreground relative overflow-hidden">
               <div className="relative z-10">
-                <h3 className="text-xl font-bold mb-4">Ready to start?</h3>
+                <h3 className="text-xl font-bold mb-4">{contact.promo.title}</h3>
                 <p className="text-primary-foreground/80 mb-6 leading-relaxed">
-                  We are currently accepting new projects for Q2. Secure your spot on our development roadmap.
+                  {contact.promo.description}
                 </p>
                 <div className="flex gap-4">
-                  <a href="#" className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white">
-                    <Linkedin size={20} />
-                  </a>
-                  <a href="#" className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white">
-                    <Github size={20} />
-                  </a>
-                  <a href="#" className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white">
-                    <Twitter size={20} />
-                  </a>
+                  {contact.social.map((social, index) => {
+                    const Icon = social.icon
+                    return (
+                      <a
+                        key={index}
+                        href={social.href}
+                        className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white"
+                      >
+                        <Icon size={20} />
+                      </a>
+                    )
+                  })}
                 </div>
               </div>
               {/* Decoration */}

@@ -1,22 +1,22 @@
 'use client'
 
-import Navigation from '@/components/sections/Navigation'
-import Hero from '@/components/sections/Hero'
-import Services from '@/components/sections/Services'
-import Projects from '@/components/sections/Projects'
-import Process from '@/components/sections/Process'
-import WhyChooseUs from '@/components/sections/WhyChooseUs'
-import Testimonials from '@/components/sections/Testimonials'
-import Team from '@/components/sections/Team'
-import Contact from '@/components/sections/Contact'
-import Footer from '@/components/sections/Footer'
+import Navbar from '@/components/layout/Navbar'
+import Footer from '@/components/layout/Footer'
 
-import Pricing from '@/components/sections/Pricing'
+import Hero from '@/components/features/landing/Hero'
+import Services from '@/components/features/landing/Services'
+import Projects from '@/components/features/landing/Projects'
+import Process from '@/components/features/landing/Process'
+import WhyChooseUs from '@/components/features/landing/WhyChooseUs'
+import Testimonials from '@/components/features/landing/Testimonials'
+import Team from '@/components/features/landing/Team'
+import Contact from '@/components/features/landing/Contact'
+import Pricing from '@/components/features/landing/Pricing'
 
 export default function Home() {
   return (
     <main className="w-full selection:bg-accent selection:text-white">
-      <Navigation />
+      <Navbar />
       <Hero />
       <Services />
       <Pricing />

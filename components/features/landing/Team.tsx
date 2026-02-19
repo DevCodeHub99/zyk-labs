@@ -1,64 +1,27 @@
-'use client'
-
+import { siteConfig } from '@/config/site'
 import { Card } from '@/components/ui/card'
-import { Github, Linkedin, Mail, Twitter } from 'lucide-react'
+import { Github, Linkedin, Twitter } from 'lucide-react'
 
 export default function Team() {
-  const team = [
-    {
-      name: 'Alex Rivera',
-      role: 'Founder / Lead Engineering',
-      bio: 'Ex-Google engineer with 10+ years in distributed systems. Passionate about building scalable architectures and mentoring developers.',
-      social: {
-        github: '#',
-        linkedin: '#',
-        twitter: '#',
-      },
-      initials: 'AR',
-      bg: 'bg-blue-500'
-    },
-    {
-      name: 'Sarah Chen',
-      role: 'Head of Design',
-      bio: 'Award-winning product designer focused on creating intuitive, human-centered digital experiences. Bridging the gap between design and code.',
-      social: {
-        github: '#',
-        linkedin: '#',
-        twitter: '#',
-      },
-      initials: 'SC',
-      bg: 'bg-purple-500'
-    },
-    {
-      name: 'Marcus Johnson',
-      role: 'Senior Full Stack Dev',
-      bio: 'Expert in React ecosystem and cloud infrastructure. Loves solving complex performance bottlenecks for high-traffic applications.',
-      social: {
-        github: '#',
-        linkedin: '#',
-        twitter: '#',
-      },
-      initials: 'MJ',
-      bg: 'bg-emerald-500'
-    },
-  ]
+  const { team } = siteConfig
+  const { members, about } = team
 
   return (
     <section id="team" className="py-20 md:py-32">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="text-center space-y-4 mb-16">
           <div className="inline-flex items-center rounded-full border border-primary/10 bg-primary/5 px-3 py-1 text-sm font-medium text-primary">
-            Our People
+            {team.badge}
           </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-primary tracking-tight">Meet the Experts</h2>
+          <h2 className="text-3xl md:text-5xl font-bold text-primary tracking-tight">{team.title}</h2>
           <p className="text-lg text-foreground/60 max-w-2xl mx-auto text-balance">
-            A small, focused team of senior engineers and designers dedicated to your success.
+            {team.description}
           </p>
         </div>
 
-        <div className="grid md:grid-cols-3 gap-8 mb-20">
-          {team.map((member) => (
-            <Card key={member.name} className="group border-border bg-card overflow-hidden hover:border-accent/30 transition-all hover:shadow-xl hover:-translate-y-1">
+        <div className="flex flex-wrap justify-center gap-8 mb-20">
+          {members.map((member) => (
+            <Card key={member.name} className="w-full max-w-sm group border-border bg-card overflow-hidden hover:border-accent/30 transition-all hover:shadow-xl hover:-translate-y-1">
               <div className="h-32 bg-secondary/50 relative overflow-hidden">
                 <div className="absolute inset-0 bg-gradient-to-br from-transparent to-black/5" />
                 <div className="absolute -bottom-10 left-1/2 -translate-x-1/2">
@@ -100,26 +63,21 @@ export default function Team() {
 
           <div className="relative z-10 text-center md:text-left md:flex items-center gap-12">
             <div className="space-y-6 flex-1">
-              <h3 className="text-2xl md:text-3xl font-bold">Why We Started TechBuild</h3>
+              <h3 className="text-2xl md:text-3xl font-bold">{about.title}</h3>
               <div className="space-y-4 text-primary-foreground/80 leading-relaxed">
-                <p>
-                  After years of working at large agencies, we realized that the best software is built by small, autonomous teams of experts—not by massive departments bogged down by bureaucracy.
-                </p>
-                <p>
-                  We founded TechBuild Labs to provide direct access to senior talent without the overhead. We believe in transparency, technical excellence, and building products that solve real problems.
-                </p>
+                {about.content.map((paragraph, index) => (
+                  <p key={index}>{paragraph}</p>
+                ))}
               </div>
             </div>
             <div className="mt-8 md:mt-0 flex-shrink-0">
               <div className="stats grid grid-cols-2 gap-8 text-center">
-                <div>
-                  <div className="text-4xl font-bold text-accent">50+</div>
-                  <div className="text-sm text-primary-foreground/60 mt-1">Projects Delivered</div>
-                </div>
-                <div>
-                  <div className="text-4xl font-bold text-accent">100%</div>
-                  <div className="text-sm text-primary-foreground/60 mt-1">Client Satisfaction</div>
-                </div>
+                {about.stats.map((stat) => (
+                  <div key={stat.label}>
+                    <div className="text-4xl font-bold text-accent">{stat.value}</div>
+                    <div className="text-sm text-primary-foreground/60 mt-1">{stat.label}</div>
+                  </div>
+                ))}
               </div>
             </div>
           </div>

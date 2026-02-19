@@ -1,48 +1,13 @@
 'use client'
 
+import { siteConfig } from '@/config/site'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, ExternalLink, BarChart3, ShoppingBag, Layout, Smartphone } from 'lucide-react'
+import { ExternalLink } from 'lucide-react'
 
 export default function Projects() {
-  const projects = [
-    {
-      title: 'NexDash Analytics',
-      category: 'SaaS Platform',
-      description: 'A comprehensive analytics dashboard for enterprise data visualization. Features real-time websocket updates and custom reporting engines.',
-      tech: ['React', 'Next.js', 'PostgreSQL', 'D3.js'],
-      color: 'from-blue-600 to-indigo-600',
-      icon: BarChart3,
-      link: '#'
-    },
-    {
-      title: 'LuxeCart Commerce',
-      category: 'E-Commerce',
-      description: 'Headless e-commerce solution built for a luxury fashion brand. optimized for core web vitals and conversion rates.',
-      tech: ['Next.js', 'Shopify', 'Tailwind', 'Redis'],
-      color: 'from-emerald-500 to-teal-500',
-      icon: ShoppingBag,
-      link: '#'
-    },
-    {
-      title: 'FinFlow App',
-      category: 'Fintech',
-      description: 'Mobile-first banking application with secure biometric authentication and instant peer-to-peer payments.',
-      tech: ['React Native', 'Node.js', 'Firebase', 'TypeScript'],
-      color: 'from-purple-600 to-pink-600',
-      icon: Smartphone,
-      link: '#'
-    },
-    {
-      title: 'HealthTrack Pro',
-      category: 'Healthcare',
-      description: 'HIPAA-compliant patient management system for multi-location clinics. Integrated appointment scheduling and telemedicine.',
-      tech: ['React', 'Python', 'AWS', 'Docker'],
-      color: 'from-orange-500 to-red-500',
-      icon: Layout,
-      link: '#'
-    },
-  ]
+  const { projects } = siteConfig
+  const { items } = projects
 
   return (
     <section id="projects" className="py-20 md:py-32">
@@ -50,22 +15,22 @@ export default function Projects() {
         <div className="flex flex-col md:flex-row justify-between items-end mb-16 gap-6">
           <div className="space-y-4 max-w-2xl">
             <div className="inline-flex items-center rounded-full border border-primary/10 bg-primary/5 px-3 py-1 text-sm font-medium text-primary">
-              Portfolio
+              {projects.badge}
             </div>
-            <h2 className="text-3xl md:text-5xl font-bold text-primary tracking-tight">Featured Projects</h2>
+            <h2 className="text-3xl md:text-5xl font-bold text-primary tracking-tight">{projects.title}</h2>
             <p className="text-lg text-foreground/60 leading-relaxed text-balance">
-              Take a look at some of our recent work. We build software that matters.
+              {projects.description}
             </p>
           </div>
           <Button asChild variant="outline" className="hidden md:inline-flex border-primary text-primary hover:bg-primary hover:text-primary-foreground">
-            <a href="#github" className="flex items-center gap-2">
-              View Github <ExternalLink className="w-4 h-4" />
+            <a href={projects.cta.href} className="flex items-center gap-2">
+              {projects.cta.text} <ExternalLink className="w-4 h-4" />
             </a>
           </Button>
         </div>
 
         <div className="grid md:grid-cols-2 gap-8 mb-16">
-          {projects.map((item) => {
+          {items.map((item) => {
             const Icon = item.icon
             return (
               <Card key={item.title} className="group border-border bg-card overflow-hidden hover:border-accent/40 transition-all duration-300 hover:shadow-xl hover:shadow-accent/5">

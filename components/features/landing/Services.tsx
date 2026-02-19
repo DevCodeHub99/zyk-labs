@@ -1,75 +1,11 @@
 'use client'
 
-import {
-  Globe,
-  Smartphone,
-  Server,
-  Palette,
-  Zap,
-  ShoppingBag,
-  TrendingUp,
-  RefreshCw,
-  ClipboardList
-} from 'lucide-react'
+import { siteConfig } from '@/config/site'
 import { Card } from '@/components/ui/card'
 
 export default function Services() {
-  const services = [
-    {
-      icon: Globe,
-      title: 'Web & SaaS Products',
-      description: 'Custom, scalable web applications built to grow your business.',
-      features: ['Custom Web Apps', 'SaaS Architecture', 'Progressive Web Apps', 'Enterprise Portals'],
-    },
-    {
-      icon: Smartphone,
-      title: 'Mobile App Development',
-      description: 'iOS & Android apps with seamless UX and performance.',
-      features: ['React Native', 'Native iOS/Android', 'App Store Launch', 'Cross-Platform'],
-    },
-    {
-      icon: Server,
-      title: 'Cloud & Backend Engineering',
-      description: 'Robust APIs, database systems, and cloud infrastructure.',
-      features: ['AWS/Azure/GCP', 'Microservices', 'GraphQL & REST', 'Database Design'],
-    },
-    {
-      icon: Palette,
-      title: 'UI/UX & Frontend Design',
-      description: 'Design-driven interfaces that delight users.',
-      features: ['User Research', 'Wireframing', 'Interactive Prototypes', 'Design Systems'],
-    },
-    {
-      icon: Zap,
-      title: 'Performance & SEO',
-      description: 'Speed boosts, SEO strategy, and analytics optimization.',
-      features: ['Core Web Vitals', 'Technical SEO', 'Load Time Speed', 'Conversion Rate Opt'],
-    },
-    {
-      icon: ShoppingBag,
-      title: 'E-Commerce Solutions',
-      description: 'Conversion-focused online stores and payments.',
-      features: ['Shopify/WooCommerce', 'Payment Gateways', 'Inventory Sync', 'Custom Checkout'],
-    },
-    {
-      icon: TrendingUp,
-      title: 'Digital Marketing',
-      description: 'SEO, ads, social, and email to grow your audience.',
-      features: ['Social Media Ads', 'Email Campaigns', 'Content Strategy', 'Growth Hacking'],
-    },
-    {
-      icon: RefreshCw,
-      title: 'Maintenance & Support',
-      description: 'Ongoing site updates, bug fixes, and security monitoring.',
-      features: ['24/7 Monitoring', 'Security Patches', 'Regular Backups', 'Performance Audits'],
-    },
-    {
-      icon: ClipboardList,
-      title: 'Strategy, Audit & Consulting',
-      description: 'In-depth analysis of existing systems with actionable recommendations.',
-      features: ['Code Reviews', 'Tech Stack Audit', 'Product Roadmap', 'Scalability Plan'],
-    },
-  ]
+  const { services } = siteConfig
+  const { items } = services
 
   return (
     <section id="services" className="py-20 md:py-32 bg-secondary/30 relative overflow-hidden">
@@ -82,18 +18,18 @@ export default function Services() {
         {/* Services Section */}
         <div className="text-center space-y-4 mb-20">
           <div className="inline-flex items-center rounded-full border border-primary/10 bg-primary/5 px-3 py-1 text-sm font-medium text-primary">
-            Our Expertise
+            {services.badge}
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-primary text-balance tracking-tight">
-            Solutions Built for Growth
+            {services.title}
           </h2>
           <p className="text-lg text-foreground/60 max-w-2xl mx-auto text-balance leading-relaxed">
-            From concept to scale, we provide the technical expertise to turn your vision into reality.
+            {services.description}
           </p>
         </div>
 
         <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 mb-32">
-          {services.map((service, idx) => {
+          {items.map((service, idx) => {
             const IconComponent = service.icon
             return (
               <Card key={service.title} className="group relative border-border bg-card hover:border-accent/50 transition-all duration-300 p-8 hover:-translate-y-1 hover:shadow-lg hover:shadow-accent/5">

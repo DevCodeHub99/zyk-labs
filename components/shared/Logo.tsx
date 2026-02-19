@@ -4,7 +4,7 @@ import React, { useState, useEffect } from 'react'
 
 export default function Logo({ className = '' }: { className?: string }) {
   const [displayText, setDisplayText] = useState('')
-  const fullText = 'techbuild-labs'
+  const fullText = '{ zyk } labs'
   const [isComplete, setIsComplete] = useState(false)
   const [showCursor, setShowCursor] = useState(true)
 
@@ -62,17 +62,19 @@ export default function Logo({ className = '' }: { className?: string }) {
           {displayText.split('').map((char, index) => {
             let colorClass = ''
 
-            // "tech" (0-3) - vibrant blue gradient
-            if (index < 4) {
-              colorClass = 'bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent font-black text-xl md:text-[26px] drop-shadow-sm'
-            }
-            // "build" (4-8) - strong contrast
-            else if (index < 9) {
+            // "{ zyk }" logic
+            // indices: 0 ({), 1 ( ), 2 (z), 3 (y), 4 (k), 5 ( ), 6 (})
+            // labs: 8 (l), 9 (a), 10 (b), 11 (s)
+
+            if (char === '{' || char === '}') {
               colorClass = 'text-slate-900 dark:text-white font-black text-xl md:text-[26px]'
-            }
-            // "-labs" (9-13) - muted
-            else {
+            } else if (['z', 'y', 'k'].includes(char)) {
+              colorClass = 'bg-gradient-to-r from-blue-600 via-blue-500 to-cyan-500 bg-clip-text text-transparent font-black text-xl md:text-[26px] drop-shadow-sm'
+            } else if (['l', 'a', 'b', 's'].includes(char) && index > 6) { // Ensure purely "labs" part
               colorClass = 'text-slate-500 dark:text-slate-400 font-medium text-lg md:text-[22px]'
+            } else {
+              // Spaces or other
+              colorClass = 'text-slate-900 dark:text-white text-xl md:text-[26px]'
             }
 
             return (

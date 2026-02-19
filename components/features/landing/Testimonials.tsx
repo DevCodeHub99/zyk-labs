@@ -1,36 +1,10 @@
-'use client'
-
+import { siteConfig } from '@/config/site'
 import { Card } from '@/components/ui/card'
 import { Quote } from 'lucide-react'
 
 export default function Testimonials() {
-    const testimonials = [
-        {
-            quote: "TechBuild Labs completely transformed our legacy system into a high-speed SaaS platform. Their attention to detail and technical expertise is unmatched.",
-            author: "Sarah Jenkins",
-            role: "CTO, FinSights",
-            company: "FinSights",
-            logo: "FS"
-        },
-        {
-            quote: "We needed a partner who could move fast without breaking things. The team delivered our MVP in 4 weeks, and it scaled perfectly to 10k users.",
-            author: "Michael Chang",
-            role: "Founder, GrowthRocket",
-            company: "GrowthRocket",
-            logo: "GR"
-        },
-        {
-            quote: "The best engineering team we've worked with. Professional, transparent, and they actually write clean, maintainable code.",
-            author: "David Miller",
-            role: "Director of Product, HealthPlus",
-            company: "HealthPlus",
-            logo: "HP"
-        }
-    ]
-
-    const clients = [
-        "Acme Corp", "GlobalTech", "Nebula", "Velocity", "FoxRun", "Circle"
-    ]
+    const { testimonials } = siteConfig
+    const { items, clients } = testimonials
 
     return (
         <section id="testimonials" className="py-20 md:py-32 bg-secondary/30 relative overflow-hidden">
@@ -40,16 +14,16 @@ export default function Testimonials() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
                 <div className="text-center space-y-4 mb-16">
                     <div className="inline-flex items-center rounded-full border border-primary/10 bg-primary/5 px-3 py-1 text-sm font-medium text-primary">
-                        Testimonials
+                        {testimonials.badge}
                     </div>
-                    <h2 className="text-3xl md:text-5xl font-bold text-primary tracking-tight">Trusted by Tech Leaders</h2>
+                    <h2 className="text-3xl md:text-5xl font-bold text-primary tracking-tight">{testimonials.title}</h2>
                     <p className="text-lg text-foreground/60 max-w-2xl mx-auto text-balance">
-                        See what our partners have to say about working with us.
+                        {testimonials.description}
                     </p>
                 </div>
 
                 <div className="grid md:grid-cols-3 gap-8 mb-20">
-                    {testimonials.map((item, i) => (
+                    {items.map((item, i) => (
                         <Card key={i} className="border-border bg-card p-8 hover:border-accent/30 transition-all hover:shadow-lg relative group">
                             <Quote className="absolute top-8 right-8 w-10 h-10 text-primary/5 group-hover:text-accent/10 transition-colors" />
 

@@ -33,8 +33,8 @@ export default function DashboardMockup() {
                   <div
                     key={item}
                     className={`text-sm px-3 py-2 rounded-lg transition-colors ${item === 'Dashboard'
-                        ? 'bg-accent text-white font-medium'
-                        : 'text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800'
+                      ? 'bg-accent text-white font-medium'
+                      : 'text-gray-600 dark:text-gray-400 hover:bg-gray-200 dark:hover:bg-gray-800'
                       }`}
                   >
                     {item}

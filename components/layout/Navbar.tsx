@@ -3,7 +3,8 @@
 import { useState, useEffect } from 'react'
 import { Menu, X, Moon, Sun, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
-import Logo from '@/components/Logo'
+import Logo from '@/components/shared/Logo'
+import { siteConfig } from '@/config/site'
 
 export default function Navigation() {
   const [isOpen, setIsOpen] = useState(false)
@@ -36,14 +37,7 @@ export default function Navigation() {
     }
   }
 
-  const navItems = [
-    { label: 'Home', href: '#' },
-    { label: 'Services', href: '#services' },
-    { label: 'Work', href: '#projects' },
-    { label: 'Pricing', href: '#pricing' },
-    { label: 'About Us', href: '#team' },
-    { label: 'Contact', href: '#contact' },
-  ]
+  const { navigation } = siteConfig
 
   return (
     <nav
@@ -61,7 +55,7 @@ export default function Navigation() {
 
           {/* Desktop Navigation - Centered */}
           <div className="hidden md:flex items-center justify-center gap-8 flex-1">
-            {navItems.map((item) => (
+            {navigation.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
@@ -130,7 +124,7 @@ export default function Navigation() {
       >
         <div className="flex flex-col h-full p-6 space-y-6 overflow-y-auto">
           <div className="flex flex-col gap-2">
-            {navItems.map((item, idx) => (
+            {navigation.map((item, idx) => (
               <a
                 key={item.label}
                 href={item.href}
