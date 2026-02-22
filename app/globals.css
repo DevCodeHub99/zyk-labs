@@ -92,3 +92,9 @@
     scroll-behavior: smooth;
   }
 }
+
+/* Logo cursor blink animation */
+@keyframes logoBlink {
+  0%, 50% { opacity: 1; }
+  50.01%, 100% { opacity: 0; }
+}

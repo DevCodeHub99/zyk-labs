@@ -2,20 +2,11 @@
 
 import { siteConfig } from '@/config/site'
 import Logo from '@/components/shared/Logo'
+import { handleScrollTo } from '@/lib/scroll-to'
 
 export default function Footer() {
   const { footer } = siteConfig
   const { links } = footer
-
-  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
-    if (href.startsWith('#')) {
-      e.preventDefault()
-      const element = document.getElementById(href.substring(1))
-      if (element) {
-        element.scrollIntoView({ behavior: 'smooth' })
-      }
-    }
-  }
 
   return (
     <footer className="bg-primary text-primary-foreground py-16">
@@ -27,7 +18,6 @@ export default function Footer() {
               <Logo />
             </div>
             <p className="text-sm text-primary-foreground/70">{footer.tagline}</p>
-
           </div>
 
           {/* Services */}
