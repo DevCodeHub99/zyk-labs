@@ -1,4 +1,4 @@
-'use client'
+
 
 import { CheckCircle2, Zap, Shield, Users, Lightbulb, TrendingUp } from 'lucide-react'
 import { Card } from '@/components/ui/card'

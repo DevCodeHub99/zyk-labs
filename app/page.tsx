@@ -1,17 +1,19 @@
-'use client'
+
 
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 
-import Hero from '@/components/features/landing/Hero'
-import Services from '@/components/features/landing/Services'
-import Projects from '@/components/features/landing/Projects'
-import Process from '@/components/features/landing/Process'
-import WhyChooseUs from '@/components/features/landing/WhyChooseUs'
-import Testimonials from '@/components/features/landing/Testimonials'
-import Team from '@/components/features/landing/Team'
-import Contact from '@/components/features/landing/Contact'
-import Pricing from '@/components/features/landing/Pricing'
+import {
+  Hero,
+  Services,
+  Projects,
+  Process,
+  WhyChooseUs,
+  Testimonials,
+  Team,
+  Contact,
+  Pricing,
+} from '@/components/features/landing'
 
 export default function Home() {
   return (

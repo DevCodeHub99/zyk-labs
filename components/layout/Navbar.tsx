@@ -39,6 +39,17 @@ export default function Navigation() {
 
   const { navigation } = siteConfig
 
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault()
+      const element = document.getElementById(href.substring(1))
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+        setIsOpen(false)
+      }
+    }
+  }
+
   return (
     <nav
       className={`fixed top-0 left-0 w-full z-50 transition-all duration-300 ${isScrolled || isOpen
@@ -59,6 +70,7 @@ export default function Navigation() {
               <a
                 key={item.label}
                 href={item.href}
+                onClick={(e) => handleScrollTo(e, item.href)}
                 className="group relative text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
               >
                 {item.label}
@@ -86,7 +98,7 @@ export default function Navigation() {
               asChild
               className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white shadow-lg shadow-blue-500/20 transition-all hover:scale-105 border-0"
             >
-              <a href="#contact">
+              <a href="#contact" onClick={(e) => handleScrollTo(e, '#contact')}>
                 Get Started
               </a>
             </Button>
@@ -128,7 +140,7 @@ export default function Navigation() {
               <a
                 key={item.label}
                 href={item.href}
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => handleScrollTo(e, item.href)}
                 className="flex items-center justify-between text-xl font-medium text-foreground/80 hover:text-primary py-4 border-b border-border/50 transition-colors"
                 style={{ transitionDelay: `${idx * 50}ms` }}
               >
@@ -144,7 +156,7 @@ export default function Navigation() {
               size="lg"
               className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-500/20 text-lg h-12"
             >
-              <a href="#contact" onClick={() => setIsOpen(false)}>
+              <a href="#contact" onClick={(e) => handleScrollTo(e, '#contact')}>
                 Get Started
               </a>
             </Button>

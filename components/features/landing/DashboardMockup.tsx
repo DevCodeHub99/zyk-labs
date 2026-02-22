@@ -1,4 +1,4 @@
-'use client'
+
 
 import { BarChart3, TrendingUp, Users, Activity, Settings, Bell, Search, ChevronDown } from 'lucide-react'
 

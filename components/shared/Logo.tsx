@@ -47,7 +47,7 @@ export default function Logo({ className = '' }: { className?: string }) {
 
   return (
     <a
-      href="#"
+      href="/"
       className={`inline-flex items-center gap-0 select-none ${className}`}
       aria-label="TechBuild Labs Home"
     >

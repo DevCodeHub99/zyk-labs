@@ -1,0 +1,56 @@
+<svg width="520" height="80" viewBox="0 0 520 80" xmlns="http://www.w3.org/2000/svg" role="img">
+  <title>TechBuild Labs Logo</title>
+
+  <!-- Gradient for zyk -->
+  <defs>
+    <linearGradient id="zykGradient" x1="0%" y1="0%" x2="100%" y2="0%">
+      <stop offset="0%" stop-color="#2563EB"></stop>
+      <stop offset="50%" stop-color="#3B82F6"></stop>
+      <stop offset="100%" stop-color="#06B6D4"></stop>
+    </linearGradient>
+
+    <!-- Cursor blink -->
+    <style>
+      .mono {
+        font-family: ui-monospace, SFMono-Regular, Menlo, monospace;
+      }
+
+      .cursor {
+        animation: blink 1.1s step-end infinite;
+      }
+
+      @keyframes blink {
+        0%,50% { opacity: 1; }
+        50.01%,100% { opacity: 0; }
+      }
+    </style>
+  </defs>
+
+  <!-- Prompt -->
+  <text x="10" y="52" class="mono" font-size="32" font-weight="700" fill="#10B981">
+    &gt;
+  </text>
+
+  <!-- { -->
+  <text x="45" y="52" class="mono" font-size="34" font-weight="900" fill="#0f172a">
+    {
+  </text>
+
+  <!-- zyk -->
+  <text x="70" y="52" class="mono" font-size="34" font-weight="900" fill="url(#zykGradient)">
+    zyk
+  </text>
+
+  <!-- } -->
+  <text x="135" y="52" class="mono" font-size="34" font-weight="900" fill="#0f172a">
+    }
+  </text>
+
+  <!-- labs -->
+  <text x="170" y="52" class="mono" font-size="28" font-weight="500" fill="#64748b">
+    labs
+  </text>
+
+  <!-- Cursor -->
+  <rect x="240" y="28" width="3" height="28" fill="#3B82F6" class="cursor"></rect>
+</svg>

@@ -7,6 +7,16 @@ export default function Footer() {
   const { footer } = siteConfig
   const { links } = footer
 
+  const handleScrollTo = (e: React.MouseEvent<HTMLAnchorElement>, href: string) => {
+    if (href.startsWith('#')) {
+      e.preventDefault()
+      const element = document.getElementById(href.substring(1))
+      if (element) {
+        element.scrollIntoView({ behavior: 'smooth' })
+      }
+    }
+  }
+
   return (
     <footer className="bg-primary text-primary-foreground py-16">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
@@ -17,6 +27,7 @@ export default function Footer() {
               <Logo />
             </div>
             <p className="text-sm text-primary-foreground/70">{footer.tagline}</p>
+
           </div>
 
           {/* Services */}
@@ -25,7 +36,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {links.services.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                  <a href={link.href} onClick={(e) => handleScrollTo(e, link.href)} className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                     {link.label}
                   </a>
                 </li>
@@ -39,7 +50,7 @@ export default function Footer() {
             <ul className="space-y-2">
               {links.company.map((link) => (
                 <li key={link.label}>
-                  <a href={link.href} className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
+                  <a href={link.href} onClick={(e) => handleScrollTo(e, link.href)} className="text-sm text-primary-foreground/70 hover:text-primary-foreground transition-colors">
                     {link.label}
                   </a>
                 </li>

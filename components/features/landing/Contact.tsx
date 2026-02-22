@@ -1,3 +1,5 @@
+'use client'
+
 import { siteConfig } from '@/config/site'
 import React, { useState, useEffect } from "react"
 import { Card } from '@/components/ui/card'

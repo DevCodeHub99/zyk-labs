@@ -1,13 +1,16 @@
 'use client'
 
+import { useState } from 'react'
 import { siteConfig } from '@/config/site'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { ExternalLink } from 'lucide-react'
+import { ArrowRight, ExternalLink, ChevronDown, ChevronUp } from 'lucide-react'
 
 export default function Projects() {
   const { projects } = siteConfig
   const { items } = projects
+  const [displayCount, setDisplayCount] = useState(2)
+  const hasMore = displayCount < items.length
 
   return (
     <section id="projects" className="py-20 md:py-32">
@@ -22,32 +25,36 @@ export default function Projects() {
               {projects.description}
             </p>
           </div>
-          <Button asChild variant="outline" className="hidden md:inline-flex border-primary text-primary hover:bg-primary hover:text-primary-foreground">
+          <Button asChild className="hidden md:inline-flex bg-accent hover:bg-accent/90 text-white shadow-lg shadow-accent/20 transition-all hover:scale-105 border-0 relative group">
             <a href={projects.cta.href} className="flex items-center gap-2">
-              {projects.cta.text} <ExternalLink className="w-4 h-4" />
+              {projects.cta.text} <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
             </a>
           </Button>
         </div>
 
-        <div className="grid md:grid-cols-2 gap-8 mb-16">
-          {items.map((item) => {
+        <div className="grid md:grid-cols-2 gap-8 mb-10">
+          {items.slice(0, displayCount).map((item) => {
             const Icon = item.icon
             return (
               <Card key={item.title} className="group border-border bg-card overflow-hidden hover:border-accent/40 transition-all duration-300 hover:shadow-xl hover:shadow-accent/5">
                 {/* Visual Placeholder */}
                 <div className={`h-64 bg-gradient-to-br ${item.color} relative overflow-hidden group-hover:scale-[1.02] transition-transform duration-500`}>
                   <div className="absolute inset-0 bg-black/10 group-hover:bg-black/0 transition-colors" />
-                  <div className="absolute inset-0 flex items-center justify-center">
+                  <div className="absolute inset-0 flex items-center justify-center transition-all duration-500 group-hover:scale-110 group-hover:opacity-0">
                     <div className="bg-white/20 backdrop-blur-md p-6 rounded-2xl shadow-lg border border-white/20">
                       <Icon className="w-12 h-12 text-white" />
                     </div>
                   </div>
 
-                  {/* Overlay Link */}
-                  <div className="absolute inset-0 bg-primary/80 opacity-0 group-hover:opacity-100 transition-opacity duration-300 flex items-center justify-center backdrop-blur-sm">
-                    <Button variant="secondary" className="translate-y-4 group-hover:translate-y-0 transition-transform duration-300">
-                      View Case Study
-                    </Button>
+                  {/* Overlay Link (Desktop Only) */}
+                  <div className="hidden md:flex absolute inset-0 bg-primary/90 opacity-0 group-hover:opacity-100 transition-all duration-500 items-center justify-center backdrop-blur-sm">
+                    {item.link && item.link !== '#' && (
+                      <Button asChild size="sm" className="bg-accent hover:bg-accent/90 text-white translate-y-8 group-hover:translate-y-0 transition-all duration-500 shadow-lg shadow-accent/25 border-0">
+                        <a href={item.link} target="_blank" rel="noopener noreferrer" className="flex items-center gap-2">
+                          Live Project <ExternalLink className="w-3.5 h-3.5" />
+                        </a>
+                      </Button>
+                    )}
                   </div>
                 </div>
 
@@ -62,9 +69,20 @@ export default function Projects() {
                     {item.title}
                   </h3>
 
-                  <p className="text-foreground/70 text-sm leading-relaxed mb-6 line-clamp-2">
+                  <p className="text-foreground/70 text-sm leading-relaxed mb-6 line-clamp-3">
                     {item.description}
                   </p>
+
+                  {/* Mobile View CTA */}
+                  {item.link && item.link !== '#' && (
+                    <div className="md:hidden mb-6">
+                      <Button asChild variant="outline" className="w-full border-accent text-accent hover:bg-accent hover:text-white transition-colors">
+                        <a href={item.link} target="_blank" rel="noopener noreferrer" className="flex items-center justify-center gap-2">
+                          Live Project <ExternalLink className="w-4 h-4" />
+                        </a>
+                      </Button>
+                    </div>
+                  )}
 
                   <div className="flex flex-wrap gap-2 pt-6 border-t border-border/50">
                     {item.tech.map((tech) => (
@@ -82,9 +100,39 @@ export default function Projects() {
           })}
         </div>
 
+        {items.length > 2 && (
+          <div className="flex justify-center mb-16">
+            <Button
+              variant="outline"
+              size="lg"
+              onClick={() => {
+                if (hasMore) {
+                  setDisplayCount(items.length)
+                } else {
+                  setDisplayCount(2)
+                  document.getElementById('projects')?.scrollIntoView({ behavior: 'smooth' })
+                }
+              }}
+              className="border-primary/20 text-primary hover:bg-primary/5 hover:text-primary transition-all group px-8"
+            >
+              {hasMore ? (
+                <>
+                  View All Projects <ChevronDown className="w-4 h-4 ml-2 transition-transform group-hover:translate-y-1" />
+                </>
+              ) : (
+                <>
+                  Show Less <ChevronUp className="w-4 h-4 ml-2 transition-transform group-hover:-translate-y-1" />
+                </>
+              )}
+            </Button>
+          </div>
+        )}
+
         <div className="text-center md:hidden">
-          <Button asChild size="lg" variant="outline" className="w-full border-primary text-primary">
-            <a href="#github">View Github</a>
+          <Button asChild size="lg" className="w-full bg-accent hover:bg-accent/90 text-white shadow-lg shadow-accent/20 transition-all border-0 group">
+            <a href={projects.cta.href} className="flex items-center justify-center gap-2">
+              {projects.cta.text} <ArrowRight className="w-4 h-4 transition-transform group-hover:translate-x-1" />
+            </a>
           </Button>
         </div>
       </div>
