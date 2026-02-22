@@ -1,4 +1,4 @@
-import { siteConfig } from '@/config/site'
+
 import { termsOfService } from '@/config/legal'
 import { Button } from '@/components/ui/button'
 import { ArrowLeft } from 'lucide-react'
@@ -6,7 +6,7 @@ import Logo from '@/components/shared/Logo'
 import Link from 'next/link'
 
 export default function TermsOfService() {
-    // const { termsOfService } = siteConfig <-- Removed
+
 
     return (
         <main className="py-20 md:py-32 bg-background min-h-screen">
