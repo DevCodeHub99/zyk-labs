@@ -2,20 +2,20 @@ import {
     Globe, Smartphone, Server, Palette, Zap, ShoppingBag,
     TrendingUp, RefreshCw, ClipboardList, BarChart3, Layout,
     Github, Linkedin, Twitter, Instagram, Mail,
-    Search, Code2, Rocket
+    Search, Code2, Rocket, GraduationCap, Building2
 } from 'lucide-react'
 
 // Global constants — single place to update brand identity
 const COMPANY_NAME = 'Zyk Labs'
 const CONTACT_EMAIL = 'hello@zyklabs.in'
-const GITHUB_URL = 'https://github.com/zyklabs'
+
 const LINKEDIN_URL = 'https://www.linkedin.com/company/zyklabs/'
 const TWITTER_URL = 'https://x.com/zyklabs'
 
 export const siteConstants = {
     name: COMPANY_NAME,
     email: CONTACT_EMAIL,
-    social: { github: GITHUB_URL, linkedin: LINKEDIN_URL, twitter: TWITTER_URL }
+    social: { linkedin: LINKEDIN_URL, twitter: TWITTER_URL }
 }
 
 /** Single source of truth for all site content, navigation, and features. */
@@ -66,8 +66,11 @@ export const siteConfig = {
         description: 'Explore some of the high-performance products we have shipped for our clients.',
         cta: { text: 'Start Your Project', href: '#contact' },
         items: [
+            { title: 'AdmitWise Consultancy', category: 'EdTech Platform', description: 'Full-stack college admission consultancy portal with course & college discovery across 300+ institutions, multi-role dashboards for admins and candidates, free counselling request workflow, and search across Engineering, Law, Pharmacy, Architecture & more. Built with a 98% student satisfaction rate.', tech: ['React', 'Node.js', 'MongoDB', 'Tailwind CSS'], color: 'from-violet-500 to-purple-600', icon: GraduationCap, link: 'https://www.admitwiseconsultancy.com/' },
+            { title: 'VisionVoice AI', category: 'AI Accessibility Platform', description: 'An AI-powered accessibility platform designed to help visually impaired and accessibility-focused users interact with digital content using voice and intelligent automation.', tech: ['Next.js', 'AI APIs', 'Node.js', 'Tailwind', 'Gemini API'], color: 'from-orange-500 to-red-500', icon: Smartphone, link: 'https://visionvoiceai.vercel.app/' },
             { title: 'InvoiceDesk', category: 'Business SaaS', description: 'GST-compliant invoicing system built for Indian businesses with invoice generation, tax calculation, and client management features. Designed for real-world commercial usage.', tech: ['Next.js', 'MongoDB', 'Node.js', 'Tailwind'], color: 'from-emerald-500 to-teal-500', icon: Layout, link: 'https://shrinavdurgatrade.vercel.app/' },
-            { title: 'VisionVoice AI', category: 'AI Accessibility Platform', description: 'An AI-powered accessibility platform designed to help visually impaired and accessibility-focused users interact with digital content using voice and intelligent automation.', tech: ['Next.js', 'AI APIs', 'Node.js', 'Tailwind', 'Gemini AI'], color: 'from-orange-500 to-red-500', icon: Smartphone, link: 'https://visionvoiceai.vercel.app/' },
+            { title: 'Aurelion Builders', category: 'Real Estate & Construction', description: 'Premium construction and architectural firm website showcasing luxury residential projects, commercial landmarks, interior design, and renovation services. Features project portfolio with 150+ completed projects, 25+ years experience, ISO 9001:2015 certification, and client testimonials.', tech: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'], color: 'from-amber-500 to-yellow-600', icon: Building2, link: 'https://gilded-vista-designs.vercel.app/' },
+            { title: 'Ekaashi', category: 'E-Commerce Store', description: 'Online artificial jewelry store featuring curated collections of ethnic earrings, party-wear jhumkas, oxidised jewelry, necklaces & jewelry sets. Includes product variants, deals & offers, cart management, user accounts with OTP login, and multiple payment options (UPI, cards, wallets, net banking).', tech: ['WordPress', 'WooCommerce', 'PHP', 'CSS'], color: 'from-rose-500 to-pink-600', icon: ShoppingBag, link: 'https://ekaashi.com/' },
             { title: 'Quick-Tools', category: 'Productivity SaaS', description: 'A production-ready utility platform offering developer and productivity tools including UUID generator, JSON formatter, password generator, regex tester, EMI calculator, and more.', tech: ['Next.js', 'TypeScript', 'Tailwind', 'PWA'], color: 'from-blue-600 to-indigo-600', icon: BarChart3, link: 'https://quick-tools99.vercel.app/' },
         ],
     },
@@ -108,8 +111,8 @@ export const siteConfig = {
                 name: 'Nishant Verma', role: 'Founder / Lead Engineering',
                 bio: 'Technical leader specializing in high-performance web architecture, focused on scalability, and delivering exceptional digital experiences.',
                 social: [
-                    { icon: Github, href: 'https://github.com/nishantverma' },
-                    { icon: Linkedin, href: 'https://www.linkedin.com/in/nishant-verma-566116200/' },
+                    { icon: Github, href: 'https://github.com/nishant4510' },
+                    { icon: Linkedin, href: 'https://www.linkedin.com/in/nishant-verma-566116200' },
                     { icon: Instagram, href: 'https://instagram.com/nishantverma' },
                 ],
                 initials: 'NV', bg: 'bg-blue-500',
@@ -158,7 +161,6 @@ export const siteConfig = {
         booking: { label: 'Book a Call', subtext: 'Free 30-min discovery', cta: 'Schedule now' },
         social: [
             { icon: Linkedin, href: LINKEDIN_URL },
-            { icon: Github, href: GITHUB_URL },
             { icon: Twitter, href: TWITTER_URL },
         ],
         promo: { title: 'Ready to start?', description: 'We are currently accepting new projects for Q2. Secure your spot on our development roadmap.' },
@@ -185,7 +187,6 @@ export const siteConfig = {
                 { label: 'Terms of Service', href: '/terms-of-service' },
             ],
             social: [
-                { icon: Github, href: GITHUB_URL, label: 'GitHub' },
                 { icon: Linkedin, href: LINKEDIN_URL, label: 'LinkedIn' },
                 { icon: Twitter, href: TWITTER_URL, label: 'Twitter' },
                 { icon: Mail, href: `mailto:${CONTACT_EMAIL}`, label: 'Email' },

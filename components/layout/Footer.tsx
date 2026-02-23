@@ -72,7 +72,19 @@ export default function Footer() {
         {/* Bottom */}
         <div className="border-t border-primary-foreground/10 pt-8">
           <div className="flex flex-col md:flex-row items-center justify-between gap-4 text-sm">
-            <p className="text-primary-foreground/70">{footer.copyright}</p>
+            <div className="text-primary-foreground/70 text-center md:text-left">
+              <p>{footer.copyright}</p>
+              <p className="mt-1 flex items-center justify-center md:justify-start gap-1">
+                Made with <span className="text-red-500 animate-pulse">❤️</span> in
+                <svg width="20" height="14" viewBox="0 0 900 600" className="inline-block rounded-sm ml-0.5">
+                  <rect width="900" height="200" fill="#FF9933" />
+                  <rect y="200" width="900" height="200" fill="#FFFFFF" />
+                  <rect y="400" width="900" height="200" fill="#138808" />
+                  <circle cx="450" cy="300" r="60" fill="none" stroke="#000080" strokeWidth="4" />
+                  <circle cx="450" cy="300" r="6" fill="#000080" />
+                </svg>
+              </p>
+            </div>
             <div className="flex gap-6 text-primary-foreground/70">
               {links.legal.map((link) => (
                 <a key={link.label} href={link.href} className="hover:text-primary-foreground transition-colors">

@@ -14,14 +14,63 @@ export const metadata: Metadata = {
   title: 'Zyk Labs | Web Development Company Delhi, Custom Software & SaaS India',
   description: 'Top web development company in Delhi NCR. Zyk Labs specializes in custom software development, scalable SaaS products, and eCommerce website development across India.',
   keywords: [
+    // Location-based
     'web development company Delhi',
-    'custom software development India',
-    'ecommerce website development Delhi',
-    'SaaS development India',
-    'Next.js experts India',
-    'React development Delhi',
     'website developers Delhi NCR',
-    'tech agency Delhi'
+    'software development company India',
+    'tech agency Delhi',
+    'IT company near me Delhi',
+    'web developers near me',
+
+    // Core services
+    'custom software development India',
+    'custom web application development',
+    'SaaS development India',
+    'SaaS product development company',
+    'ecommerce website development Delhi',
+    'online store development India',
+    'mobile app development Delhi',
+    'Android iOS app developer India',
+    'React Native app development',
+    'cloud backend engineering India',
+    'API development services',
+
+    // Technology stack
+    'Next.js development company India',
+    'React development Delhi',
+    'Node.js developers India',
+    'TypeScript development services',
+    'full stack developer India',
+    'MERN stack development Delhi',
+
+    // UI/UX & Design
+    'UI UX design agency Delhi',
+    'website redesign services India',
+
+    // Digital marketing & SEO
+    'SEO services Delhi',
+    'digital marketing agency India',
+    'website speed optimization',
+
+    // User-intent / commercial
+    'hire web developers India',
+    'best web development company India',
+    'affordable website development Delhi',
+    'startup web development India',
+    'small business website Delhi',
+    'freelance web developer Delhi NCR',
+    'MVP development company India',
+    'website maintenance and support India',
+
+    // Industry verticals
+    'ecommerce solutions India',
+    'fintech software development',
+    'healthcare app development India',
+    'education platform development',
+
+    // Brand
+    'Zyk Labs',
+    'zyklabs',
   ],
   authors: [{ name: 'Zyk Labs' }],
   creator: 'Zyk Labs',
@@ -37,10 +86,11 @@ export const metadata: Metadata = {
     siteName: 'Zyk Labs',
     images: [
       {
-        url: '/og-image.svg',
+        url: 'https://zyklabs.in/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Zyk Labs - Custom Web & SaaS Solutions OpenGraph Image',
+        alt: 'Zyk Labs - Custom Web & SaaS Solutions',
+        type: 'image/png',
       },
     ],
   },
@@ -48,7 +98,7 @@ export const metadata: Metadata = {
     card: 'summary_large_image',
     title: 'Zyk Labs | Web Development & SaaS Solutions India',
     description: 'Scalable custom software, SaaS, and eCommerce performance right from Delhi, India.',
-    images: ['/og-image.svg'],
+    images: ['https://zyklabs.in/og-image.png'],
   },
   icons: {
     icon: '/favicon.svg',
@@ -124,8 +174,7 @@ export default function RootLayout({
     },
     sameAs: [
       siteConstants.social.linkedin,
-      siteConstants.social.twitter,
-      siteConstants.social.github
+      siteConstants.social.twitter
     ]
   }
 
