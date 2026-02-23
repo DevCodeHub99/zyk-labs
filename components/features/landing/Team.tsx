@@ -13,7 +13,7 @@ export default function Team() {
             {team.badge}
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-primary tracking-tight">{team.title}</h2>
-          <p className="text-lg text-foreground/60 max-w-2xl mx-auto text-balance">
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto text-balance">
             {team.description}
           </p>
         </div>
@@ -46,7 +46,8 @@ export default function Team() {
                         href={socialLink.href}
                         target="_blank"
                         rel="noopener noreferrer"
-                        className="p-2 rounded-full bg-secondary hover:bg-accent hover:text-white transition-colors text-foreground/60"
+                        aria-label={`${member.name} on ${socialLink.icon.displayName || 'social media'}`}
+                        className="p-2 rounded-full bg-secondary hover:bg-accent hover:text-white transition-colors text-foreground/70"
                       >
                         <Icon size={18} />
                       </a>
@@ -76,7 +77,7 @@ export default function Team() {
                 {about.stats.map((stat) => (
                   <div key={stat.label}>
                     <div className="text-4xl font-bold text-accent">{stat.value}</div>
-                    <div className="text-sm text-primary-foreground/60 mt-1">{stat.label}</div>
+                    <div className="text-sm text-primary-foreground/70 mt-1">{stat.label}</div>
                   </div>
                 ))}
               </div>
