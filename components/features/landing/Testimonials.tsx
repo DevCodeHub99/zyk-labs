@@ -46,7 +46,7 @@ export default function Testimonials() {
 
                 {/* Client Logos Strip */}
                 <div className="border-t border-border/50 pt-16">
-                    <p className="text-center text-sm font-semibold text-foreground/40 uppercase tracking-widest mb-8">Powering Next-Gen Companies</p>
+                    <p className="text-center text-sm font-semibold text-foreground/40 uppercase tracking-widest mb-8">Trusted Across Industries</p>
                     <div className="flex flex-wrap justify-center items-center gap-8 md:gap-16 opacity-50 grayscale hover:grayscale-0 transition-all duration-500">
                         {clients.map((client) => (
                             <div key={client} className="text-xl md:text-2xl font-bold text-foreground/40 hover:text-primary transition-colors cursor-default">

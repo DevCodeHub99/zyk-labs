@@ -1,12 +1,13 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useCallback } from 'react'
 import { Menu, X, Moon, Sun, ChevronRight } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import Logo from '@/components/shared/Logo'
 import { siteConfig } from '@/config/site'
+import { handleScrollTo } from '@/lib/scroll-to'
 
-export default function Navigation() {
+export default function Navbar() {
   const [isOpen, setIsOpen] = useState(false)
   const [isScrolled, setIsScrolled] = useState(false)
   const [isDark, setIsDark] = useState(false)
@@ -14,28 +15,26 @@ export default function Navigation() {
 
   useEffect(() => {
     setIsMounted(true)
-    const isDarkMode = document.documentElement.classList.contains('dark')
-    setIsDark(isDarkMode)
+    setIsDark(document.documentElement.classList.contains('dark'))
 
-    const handleScroll = () => {
-      setIsScrolled(window.scrollY > 20)
-    }
-
-    window.addEventListener('scroll', handleScroll)
-    return () => window.removeEventListener('scroll', handleScroll)
+    const onScroll = () => setIsScrolled(window.scrollY > 20)
+    window.addEventListener('scroll', onScroll, { passive: true })
+    return () => window.removeEventListener('scroll', onScroll)
   }, [])
 
-  const toggleTheme = () => {
-    const newDarkMode = !isDark
-    setIsDark(newDarkMode)
-    if (newDarkMode) {
-      document.documentElement.classList.add('dark')
-      localStorage.setItem('theme', 'dark')
-    } else {
-      document.documentElement.classList.remove('dark')
-      localStorage.setItem('theme', 'light')
-    }
-  }
+  const toggleTheme = useCallback(() => {
+    setIsDark((prev) => {
+      const next = !prev
+      document.documentElement.classList.toggle('dark', next)
+      localStorage.setItem('theme', next ? 'dark' : 'light')
+      return next
+    })
+  }, [])
+
+  const closeMenu = useCallback(() => setIsOpen(false), [])
+
+  const onNavClick = (e: React.MouseEvent<HTMLAnchorElement>, href: string) =>
+    handleScrollTo(e, href, closeMenu)
 
   const { navigation } = siteConfig
 
@@ -48,17 +47,17 @@ export default function Navigation() {
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between">
-          {/* Logo */}
           <div className="flex-shrink-0 w-auto md:w-[240px]">
             <Logo />
           </div>
 
-          {/* Desktop Navigation - Centered */}
+          {/* Desktop Navigation */}
           <div className="hidden md:flex items-center justify-center gap-8 flex-1">
             {navigation.map((item) => (
               <a
                 key={item.label}
                 href={item.href}
+                onClick={(e) => onNavClick(e, item.href)}
                 className="group relative text-sm font-medium text-foreground/80 hover:text-primary transition-colors"
               >
                 {item.label}
@@ -67,9 +66,8 @@ export default function Navigation() {
             ))}
           </div>
 
-          {/* Right Actions */}
+          {/* Desktop Actions */}
           <div className="hidden md:flex items-center gap-4 flex-shrink-0 w-[240px] justify-end">
-            {/* Theme Toggle */}
             <div className="w-10 h-10 flex items-center justify-center">
               {isMounted && (
                 <button
@@ -81,18 +79,17 @@ export default function Navigation() {
                 </button>
               )}
             </div>
-
             <Button
               asChild
               className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white shadow-lg shadow-blue-500/20 transition-all hover:scale-105 border-0"
             >
-              <a href="#contact">
+              <a href="#contact" onClick={(e) => onNavClick(e, '#contact')}>
                 Get Started
               </a>
             </Button>
           </div>
 
-          {/* Mobile Menu Toggle */}
+          {/* Mobile Controls */}
           <div className="md:hidden flex items-center gap-2 relative z-50">
             <div className="w-10 h-10 flex items-center justify-center">
               {isMounted && (
@@ -116,7 +113,7 @@ export default function Navigation() {
         </div>
       </div>
 
-      {/* Mobile Menu Overlay */}
+      {/* Mobile Overlay */}
       <div
         className={`fixed inset-0 z-40 bg-background/95 backdrop-blur-xl md:hidden transition-all duration-300 ease-in-out ${isOpen ? 'opacity-100 translate-x-0' : 'opacity-0 translate-x-full pointer-events-none'
           }`}
@@ -128,7 +125,7 @@ export default function Navigation() {
               <a
                 key={item.label}
                 href={item.href}
-                onClick={() => setIsOpen(false)}
+                onClick={(e) => onNavClick(e, item.href)}
                 className="flex items-center justify-between text-xl font-medium text-foreground/80 hover:text-primary py-4 border-b border-border/50 transition-colors"
                 style={{ transitionDelay: `${idx * 50}ms` }}
               >
@@ -137,14 +134,13 @@ export default function Navigation() {
               </a>
             ))}
           </div>
-
           <div className="pt-6 mt-auto">
             <Button
               asChild
               size="lg"
               className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-500/20 text-lg h-12"
             >
-              <a href="#contact" onClick={() => setIsOpen(false)}>
+              <a href="#contact" onClick={(e) => onNavClick(e, '#contact')}>
                 Get Started
               </a>
             </Button>

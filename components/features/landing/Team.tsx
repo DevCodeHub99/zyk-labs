@@ -1,6 +1,5 @@
 import { siteConfig } from '@/config/site'
 import { Card } from '@/components/ui/card'
-import { Github, Linkedin, Twitter } from 'lucide-react'
 
 export default function Team() {
   const { team } = siteConfig
@@ -39,12 +38,14 @@ export default function Team() {
                 </p>
 
                 <div className="flex justify-center gap-4">
-                  {Object.entries(member.social).map(([platform, link]) => {
-                    const Icon = platform === 'github' ? Github : platform === 'linkedin' ? Linkedin : Twitter
+                  {member.social.map((socialLink, idx) => {
+                    const Icon = socialLink.icon;
                     return (
                       <a
-                        key={platform}
-                        href={link}
+                        key={idx}
+                        href={socialLink.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         className="p-2 rounded-full bg-secondary hover:bg-accent hover:text-white transition-colors text-foreground/60"
                       >
                         <Icon size={18} />
