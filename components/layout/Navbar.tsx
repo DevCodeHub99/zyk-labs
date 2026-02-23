@@ -46,13 +46,13 @@ export default function Navbar() {
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          <div className="flex-shrink-0 w-auto md:w-[240px]">
-            <Logo />
-          </div>
+        <div className="grid grid-cols-[auto_1fr_auto] items-center">
+          {/* Logo — left */}
+          <Logo size="sm" />
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center justify-center gap-8 flex-1">
+
+          {/* Desktop Navigation — true center */}
+          <div className="hidden md:flex items-center justify-center gap-8">
             {navigation.map((item) => (
               <a
                 key={item.label}
@@ -66,8 +66,8 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Desktop Actions */}
-          <div className="hidden md:flex items-center gap-4 flex-shrink-0 w-[240px] justify-end">
+          {/* Desktop Actions — right */}
+          <div className="hidden md:flex items-center gap-4 justify-end">
             <div className="w-10 h-10 flex items-center justify-center">
               {isMounted && (
                 <button

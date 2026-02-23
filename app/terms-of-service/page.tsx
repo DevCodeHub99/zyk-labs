@@ -19,9 +19,7 @@ export default function TermsOfService() {
                             Back to Home
                         </Link>
                     </Button>
-                    <div className="scale-90 origin-left md:origin-right">
-                        <Logo />
-                    </div>
+                    <Logo size="sm" />
                 </div>
 
                 <div className="space-y-6 mb-12">

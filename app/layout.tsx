@@ -151,7 +151,6 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: siteConstants.name,
-    image: 'https://zyklabs.in/zyklabs-logo.svg',
     '@id': 'https://zyklabs.in',
     url: 'https://zyklabs.in',
     email: siteConstants.email,
