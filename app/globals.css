@@ -26,8 +26,8 @@
     --muted: 210 40% 96.1%;
     --muted-foreground: 215.4 16.3% 46.9%;
 
-    --accent: 221 83% 53%;
-    /* Vibrant Blue like Tailwind Blue-600 */
+    --accent: 175 100% 38%;
+    /* Vibrant Teal for Brand Consistency */
     --accent-foreground: 210 40% 98%;
 
     --destructive: 0 84.2% 60.2%;
@@ -35,7 +35,7 @@
 
     --border: 214.3 31.8% 91.4%;
     --input: 214.3 31.8% 91.4%;
-    --ring: 221 83% 53%;
+    --ring: 175 100% 38%;
 
     --radius: 0.75rem;
   }
@@ -62,8 +62,8 @@
     --muted: 217 33% 17%;
     --muted-foreground: 215 20.2% 65.1%;
 
-    --accent: 217 91% 60%;
-    /* Electric Blue */
+    --accent: 175 91% 45%;
+    /* Lighter Teal for Dark Mode */
     --accent-foreground: 222 47% 11%;
 
     --destructive: 0 62.8% 30.6%;
@@ -71,7 +71,7 @@
 
     --border: 217 33% 17%;
     --input: 217 33% 17%;
-    --ring: 224 76% 48%;
+    --ring: 175 91% 45%;
   }
 }
 

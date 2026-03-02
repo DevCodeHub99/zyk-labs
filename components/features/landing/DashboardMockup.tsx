@@ -76,7 +76,7 @@ export default function DashboardMockup() {
             {/* Stats grid */}
             <div className="grid grid-cols-2 gap-2">
               {[
-                { label: 'Revenue', value: '$24.5K', icon: TrendingUp, color: 'from-blue-400 to-blue-600' },
+                { label: 'Revenue', value: '$24.5K', icon: TrendingUp, color: 'from-accent to-accent/80' },
                 { label: 'Users', value: '1,248', icon: Users, color: 'from-purple-400 to-purple-600' },
                 { label: 'Growth', value: '+32%', icon: BarChart3, color: 'from-emerald-400 to-emerald-600' },
                 { label: 'Active', value: '892', icon: Activity, color: 'from-orange-400 to-orange-600' },

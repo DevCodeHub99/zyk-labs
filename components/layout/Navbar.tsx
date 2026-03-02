@@ -81,7 +81,7 @@ export default function Navbar() {
             </div>
             <Button
               asChild
-              className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white shadow-lg shadow-blue-500/20 transition-all hover:scale-105 border-0"
+              className="bg-gradient-to-r from-teal-600 to-teal-400 hover:from-teal-700 hover:to-teal-500 text-white shadow-lg shadow-teal-500/20 transition-all hover:scale-105 border-0"
             >
               <a href="#contact" onClick={(e) => onNavClick(e, '#contact')}>
                 Get Started
@@ -138,7 +138,7 @@ export default function Navbar() {
             <Button
               asChild
               size="lg"
-              className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-500/20 text-lg h-12"
+              className="w-full bg-gradient-to-r from-teal-600 to-teal-400 text-white shadow-lg shadow-teal-500/20 text-lg h-12"
             >
               <a href="#contact" onClick={(e) => onNavClick(e, '#contact')}>
                 Get Started
