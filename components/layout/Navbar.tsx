@@ -46,13 +46,13 @@ export default function Navbar() {
         }`}
     >
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <div className="flex items-center justify-between">
-          <div className="flex-shrink-0 w-auto md:w-[240px]">
-            <Logo />
-          </div>
+        <div className="grid grid-cols-[auto_1fr_auto] items-center">
+          {/* Logo — left */}
+          <Logo size="sm" />
 
-          {/* Desktop Navigation */}
-          <div className="hidden md:flex items-center justify-center gap-8 flex-1">
+
+          {/* Desktop Navigation — true center */}
+          <div className="hidden md:flex items-center justify-center gap-8">
             {navigation.map((item) => (
               <a
                 key={item.label}
@@ -66,8 +66,8 @@ export default function Navbar() {
             ))}
           </div>
 
-          {/* Desktop Actions */}
-          <div className="hidden md:flex items-center gap-4 flex-shrink-0 w-[240px] justify-end">
+          {/* Desktop Actions — right */}
+          <div className="hidden md:flex items-center gap-4 justify-end">
             <div className="w-10 h-10 flex items-center justify-center">
               {isMounted && (
                 <button
@@ -81,7 +81,7 @@ export default function Navbar() {
             </div>
             <Button
               asChild
-              className="bg-gradient-to-r from-blue-600 to-cyan-500 hover:from-blue-700 hover:to-cyan-600 text-white shadow-lg shadow-blue-500/20 transition-all hover:scale-105 border-0"
+              className="bg-gradient-to-r from-teal-600 to-teal-400 hover:from-teal-700 hover:to-teal-500 text-white shadow-lg shadow-teal-500/20 transition-all hover:scale-105 border-0"
             >
               <a href="#contact" onClick={(e) => onNavClick(e, '#contact')}>
                 Get Started
@@ -138,7 +138,7 @@ export default function Navbar() {
             <Button
               asChild
               size="lg"
-              className="w-full bg-gradient-to-r from-blue-600 to-cyan-500 text-white shadow-lg shadow-blue-500/20 text-lg h-12"
+              className="w-full bg-gradient-to-r from-teal-600 to-teal-400 text-white shadow-lg shadow-teal-500/20 text-lg h-12"
             >
               <a href="#contact" onClick={(e) => onNavClick(e, '#contact')}>
                 Get Started

@@ -16,7 +16,7 @@ export default function Process() {
             {process.badge}
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-primary tracking-tight">{process.title}</h2>
-          <p className="text-lg text-foreground/60 max-w-2xl mx-auto text-balance">
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto text-balance">
             {process.description}
           </p>
         </div>

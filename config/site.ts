@@ -71,7 +71,7 @@ export const siteConfig = {
             { title: 'InvoiceDesk', category: 'Business SaaS', description: 'GST-compliant invoicing system built for Indian businesses with invoice generation, tax calculation, and client management features. Designed for real-world commercial usage.', tech: ['Next.js', 'MongoDB', 'Node.js', 'Tailwind'], color: 'from-emerald-500 to-teal-500', icon: Layout, link: 'https://shrinavdurgatrade.vercel.app/' },
             { title: 'Aurelion Builders', category: 'Real Estate & Construction', description: 'Premium construction and architectural firm website showcasing luxury residential projects, commercial landmarks, interior design, and renovation services. Features project portfolio with 150+ completed projects, 25+ years experience, ISO 9001:2015 certification, and client testimonials.', tech: ['React', 'TypeScript', 'Tailwind CSS', 'Vite'], color: 'from-amber-500 to-yellow-600', icon: Building2, link: 'https://gilded-vista-designs.vercel.app/' },
             { title: 'Ekaashi', category: 'E-Commerce Store', description: 'Online artificial jewelry store featuring curated collections of ethnic earrings, party-wear jhumkas, oxidised jewelry, necklaces & jewelry sets. Includes product variants, deals & offers, cart management, user accounts with OTP login, and multiple payment options (UPI, cards, wallets, net banking).', tech: ['WordPress', 'WooCommerce', 'PHP', 'CSS'], color: 'from-rose-500 to-pink-600', icon: ShoppingBag, link: 'https://ekaashi.com/' },
-            { title: 'Quick-Tools', category: 'Productivity SaaS', description: 'A production-ready utility platform offering developer and productivity tools including UUID generator, JSON formatter, password generator, regex tester, EMI calculator, and more.', tech: ['Next.js', 'TypeScript', 'Tailwind', 'PWA'], color: 'from-blue-600 to-indigo-600', icon: BarChart3, link: 'https://quick-tools99.vercel.app/' },
+            { title: 'Quick-Tools', category: 'Productivity SaaS', description: 'A production-ready utility platform offering developer and productivity tools including UUID generator, JSON formatter, password generator, regex tester, EMI calculator, and more.', tech: ['Next.js', 'TypeScript', 'Tailwind', 'PWA'], color: 'from-teal-600 to-emerald-600', icon: BarChart3, link: 'https://quick-tools99.vercel.app/' },
         ],
     },
 
@@ -115,7 +115,7 @@ export const siteConfig = {
                     { icon: Linkedin, href: 'https://www.linkedin.com/in/nishant-verma-566116200' },
                     { icon: Instagram, href: 'https://instagram.com/nishantverma' },
                 ],
-                initials: 'NV', bg: 'bg-blue-500',
+                initials: 'NV', bg: 'bg-accent',
             },
             {
                 name: 'Vikas Kumar', role: 'Full-Stack Engineer',

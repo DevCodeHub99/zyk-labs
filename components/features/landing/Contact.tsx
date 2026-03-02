@@ -69,7 +69,7 @@ export default function Contact() {
             {contact.badge}
           </div>
           <h2 className="text-3xl md:text-5xl font-bold text-primary tracking-tight">{contact.title}</h2>
-          <p className="text-lg text-foreground/60 max-w-2xl mx-auto text-balance">
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto text-balance">
             {contact.description}
           </p>
         </div>
@@ -83,7 +83,7 @@ export default function Contact() {
                   <Mail size={20} />
                 </div>
                 <h3 className="font-bold text-primary mb-1">{contact.email.label}</h3>
-                <p className="text-sm text-foreground/60 mb-2">{contact.email.subtext}</p>
+                <p className="text-sm text-foreground/70 mb-2">{contact.email.subtext}</p>
                 <a href={`mailto:${contact.email.value}`} className="text-accent hover:underline font-medium">{contact.email.value}</a>
               </Card>
 
@@ -92,7 +92,7 @@ export default function Contact() {
                   <Calendar size={20} />
                 </div>
                 <h3 className="font-bold text-primary mb-1">{contact.booking.label}</h3>
-                <p className="text-sm text-foreground/60 mb-2">{contact.booking.subtext}</p>
+                <p className="text-sm text-foreground/70 mb-2">{contact.booking.subtext}</p>
                 <button
                   data-cal-namespace="30min"
                   data-cal-link={`${process.env.NEXT_PUBLIC_CAL_LINK || "techbuild-labs/30min"}?name=&email=`}
@@ -117,6 +117,7 @@ export default function Contact() {
                       <a
                         key={index}
                         href={social.href}
+                        aria-label={`Visit us on ${social.icon.displayName || 'social media'}`}
                         className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white"
                       >
                         <Icon size={20} />
@@ -139,7 +140,7 @@ export default function Contact() {
                 </div>
                 <div className="space-y-2">
                   <h3 className="text-2xl font-bold text-foreground">Message Sent Successfully!</h3>
-                  <p className="text-foreground/60 max-w-xs mx-auto">
+                  <p className="text-foreground/70 max-w-xs mx-auto">
                     Thank you for reaching out. We'll get back to you as soon as possible.
                   </p>
                 </div>

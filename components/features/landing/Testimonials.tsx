@@ -17,7 +17,7 @@ export default function Testimonials() {
                         {testimonials.badge}
                     </div>
                     <h2 className="text-3xl md:text-5xl font-bold text-primary tracking-tight">{testimonials.title}</h2>
-                    <p className="text-lg text-foreground/60 max-w-2xl mx-auto text-balance">
+                    <p className="text-lg text-foreground/70 max-w-2xl mx-auto text-balance">
                         {testimonials.description}
                     </p>
                 </div>
@@ -33,7 +33,7 @@ export default function Testimonials() {
                                 </div>
                                 <div>
                                     <div className="font-bold text-primary">{item.author}</div>
-                                    <div className="text-sm text-foreground/60">{item.role}</div>
+                                    <div className="text-sm text-foreground/70">{item.role}</div>
                                 </div>
                             </div>
 

@@ -14,8 +14,8 @@ export default function Footer() {
         <div className="grid md:grid-cols-4 gap-8 mb-12">
           {/* Brand */}
           <div className="md:col-span-1">
-            <div className="mb-4 [&_*]:text-primary-foreground [&_*]:from-primary-foreground [&_*]:via-primary-foreground [&_*]:to-primary-foreground/80">
-              <Logo />
+            <div className="mb-4 text-primary-foreground">
+              <Logo size="sm" asImage />
             </div>
             <p className="text-sm text-primary-foreground/70">{footer.tagline}</p>
           </div>

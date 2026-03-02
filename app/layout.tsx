@@ -5,6 +5,7 @@ import { Toaster } from '@/components/ui/sonner'
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { siteConstants } from '@/config/site'
+import HoliOverlay from '@/components/shared/HoliOverlay'
 
 import './globals.css'
 
@@ -151,7 +152,6 @@ export default function RootLayout({
     '@context': 'https://schema.org',
     '@type': 'LocalBusiness',
     name: siteConstants.name,
-    image: 'https://zyklabs.in/zyklabs-logo.svg',
     '@id': 'https://zyklabs.in',
     url: 'https://zyklabs.in',
     email: siteConstants.email,
@@ -188,6 +188,7 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} font-sans antialiased bg-background text-foreground`}>
+        <HoliOverlay />
         {children}
         <Toaster />
         <Analytics />

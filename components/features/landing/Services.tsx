@@ -23,7 +23,7 @@ export default function Services() {
           <h2 className="text-3xl md:text-5xl font-bold text-primary text-balance tracking-tight">
             {services.title}
           </h2>
-          <p className="text-lg text-foreground/60 max-w-2xl mx-auto text-balance leading-relaxed">
+          <p className="text-lg text-foreground/70 max-w-2xl mx-auto text-balance leading-relaxed">
             {services.description}
           </p>
         </div>
@@ -46,7 +46,7 @@ export default function Services() {
                   <div className="pt-4 border-t border-border/50">
                     <ul className="space-y-2.5">
                       {service.features.map((feature) => (
-                        <li key={feature} className="flex items-center gap-2 text-sm text-foreground/60">
+                        <li key={feature} className="flex items-center gap-2 text-sm text-foreground/70">
                           <span className="w-1.5 h-1.5 rounded-full bg-accent/50 group-hover:bg-accent transition-colors" />
                           {feature}
                         </li>

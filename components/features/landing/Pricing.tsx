@@ -21,7 +21,7 @@ export default function Pricing() {
             <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
                 <div className="text-center space-y-4 mb-16">
                     <h2 className="text-3xl md:text-5xl font-bold text-primary tracking-tight">{title}</h2>
-                    <p className="text-lg text-foreground/60 max-w-2xl mx-auto">
+                    <p className="text-lg text-foreground/70 max-w-2xl mx-auto">
                         {description}
                     </p>
                 </div>
@@ -47,7 +47,7 @@ export default function Pricing() {
 
                                 <div className="mb-4">
                                     <h3 className="text-lg font-bold text-primary">{plan.name}</h3>
-                                    <p className="text-sm text-foreground/60 mt-1">{plan.description}</p>
+                                    <p className="text-sm text-foreground/70 mt-1">{plan.description}</p>
                                 </div>
 
                                 <div className="mt-auto mb-6">
