@@ -5,13 +5,21 @@ import { useEffect, useRef } from 'react';
 const COLORS = [
     { r: 255, g: 105, b: 180 }, // Pink
     { r: 255, g: 223, b: 0 },   // Yellow
-    { r: 50, g: 205, b: 50 },  // Green
-    { r: 0, g: 191, b: 255 }, // Blue
+    { r: 50, g: 205, b: 50 },   // Green
+    { r: 0, g: 191, b: 255 },   // Blue
     { r: 255, g: 140, b: 0 },   // Orange
-    { r: 148, g: 0, b: 211 }, // Violet
-    { r: 0, g: 255, b: 255 }, // Cyan
-    { r: 255, g: 20, b: 147 }, // DeepPink
-    { r: 173, g: 255, b: 47 }   // GreenYellow
+    { r: 148, g: 0, b: 211 },   // Violet
+    { r: 0, g: 255, b: 255 },   // Cyan
+    { r: 255, g: 20, b: 147 },  // DeepPink
+    { r: 173, g: 255, b: 47 },  // GreenYellow
+    { r: 255, g: 0, b: 0 },     // Red
+    { r: 255, g: 0, b: 255 },   // Magenta
+    { r: 0, g: 255, b: 0 },     // Lime
+    { r: 75, g: 0, b: 130 },    // Indigo
+    { r: 255, g: 215, b: 0 },   // Gold
+    { r: 0, g: 128, b: 128 },   // Teal
+    { r: 0, g: 255, b: 127 },   // SpringGreen
+    { r: 220, g: 20, b: 60 }    // Crimson
 ];
 
 class Particle {
