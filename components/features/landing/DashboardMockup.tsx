@@ -18,7 +18,7 @@ export default function DashboardMockup() {
               <div className="w-2.5 h-2.5 rounded-full bg-yellow-400" />
               <div className="w-2.5 h-2.5 rounded-full bg-green-400" />
             </div>
-            <div className="ml-3 text-xs text-gray-500 dark:text-gray-400 font-medium">analytics.techbuild.dev</div>
+            <div className="ml-3 text-xs text-gray-500 dark:text-gray-400 font-medium">analytics.zyklabs.in</div>
           </div>
         </div>
 

@@ -29,9 +29,15 @@ export default function Contact() {
     e.preventDefault()
     setStatus('submitting')
 
-    const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID || 'xykdjgqj'
+    const FORMSPREE_ID = process.env.NEXT_PUBLIC_FORMSPREE_ID
 
     try {
+      if (!FORMSPREE_ID) {
+        setStatus('error')
+        setTimeout(() => setStatus('idle'), 3000)
+        return
+      }
+
       const response = await fetch(`https://formspree.io/f/${FORMSPREE_ID}`, {
         method: 'POST',
         headers: {
@@ -95,7 +101,7 @@ export default function Contact() {
                 <p className="text-sm text-foreground/70 mb-2">{contact.booking.subtext}</p>
                 <button
                   data-cal-namespace="30min"
-                  data-cal-link={`${process.env.NEXT_PUBLIC_CAL_LINK || "techbuild-labs/30min"}?name=&email=`}
+                  data-cal-link={`${process.env.NEXT_PUBLIC_CAL_LINK || "zyklabs/30min"}?name=&email=`}
                   data-cal-config='{"layout":"month_view"}'
                   className="text-accent hover:underline font-medium bg-transparent border-none p-0 cursor-pointer text-left"
                 >

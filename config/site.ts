@@ -2,7 +2,8 @@ import {
     Globe, Smartphone, Server, Palette, Zap, ShoppingBag,
     TrendingUp, RefreshCw, ClipboardList, BarChart3, Layout,
     Github, Linkedin, Twitter, Instagram, Mail,
-    Search, Code2, Rocket, GraduationCap, Building2
+    Search, Code2, Rocket, GraduationCap, Building2,
+    CheckCircle2, Shield, Users, Lightbulb
 } from 'lucide-react'
 
 // Global constants — single place to update brand identity
@@ -29,7 +30,7 @@ export const siteConfig = {
         { label: 'Process', href: '#process' },
         { label: 'Pricing', href: '#pricing' },
         { label: 'About Us', href: '#team' },
-        { label: 'Client Stories', href: '#testimonials' },
+        { label: 'Testimonials', href: '#testimonials' },
     ],
 
     hero: {
@@ -84,6 +85,20 @@ export const siteConfig = {
             { number: '02', icon: Code2, title: 'Agile Development', description: 'We build in two-week sprints, giving you regular demos and a deployable product at every stage.' },
             { number: '03', icon: Rocket, title: 'Launch', description: 'After rigorous testing and security audits, we deploy your application to a scalable cloud infrastructure.' },
             { number: '04', icon: TrendingUp, title: 'Growth', description: "We don't disappear. We monitor performance, handle updates, and help you plan the next big feature." },
+        ],
+    },
+
+    whyChooseUs: {
+        badge: 'Why Us?',
+        title: `The ${COMPANY_NAME} Advantage`,
+        description: "We're not just another development shop. Here's what sets us apart.",
+        reasons: [
+            { icon: CheckCircle2, title: 'Clean, Scalable Code', description: 'We write code designed to last. Maintainable, tested, and following industry best practices.' },
+            { icon: Zap, title: 'Fast Communication', description: 'Quick response times, regular updates, and transparent collaboration throughout your project.' },
+            { icon: Shield, title: 'Security First', description: 'Security audits, encrypted data, compliance-ready. Your application and user data are protected.' },
+            { icon: Users, title: 'Dedicated Team', description: 'You get a consistent team that knows your product. Not a rotating cast of developers.' },
+            { icon: Lightbulb, title: 'Technical Expertise', description: 'Modern stack. Best practices. Architectural decisions made for long-term success, not shortcuts.' },
+            { icon: TrendingUp, title: 'Proven Results', description: 'Our clients see real results: faster platforms, higher conversion, and sustainable growth.' },
         ],
     },
 

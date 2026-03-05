@@ -2,7 +2,7 @@
 
 import { siteConfig } from '@/config/site'
 import { Button } from '@/components/ui/button'
-import { ArrowRight, PlayCircle } from 'lucide-react'
+import { ArrowRight } from 'lucide-react'
 import DashboardMockup from './DashboardMockup'
 
 export default function Hero() {

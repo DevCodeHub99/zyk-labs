@@ -86,9 +86,4 @@
       linear-gradient(to bottom, #80808012 1px, transparent 1px);
     background-size: 24px 24px;
   }
-
-  /* Smooth scrolling for anchor links */
-  html {
-    scroll-behavior: smooth;
-  }
 }

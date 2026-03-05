@@ -5,7 +5,6 @@ import { Toaster } from '@/components/ui/sonner'
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { siteConstants } from '@/config/site'
-import HoliOverlay from '@/components/shared/HoliOverlay'
 
 import './globals.css'
 
@@ -187,8 +186,7 @@ export default function RootLayout({
           dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
         />
       </head>
-      <body className={`${inter.className} font-sans antialiased bg-background text-foreground`}>
-        <HoliOverlay />
+      <body className={`${inter.className} font-sans antialiased`}>
         {children}
         <Toaster />
         <Analytics />
