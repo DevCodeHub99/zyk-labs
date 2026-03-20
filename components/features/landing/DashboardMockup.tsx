@@ -4,7 +4,7 @@ import { BarChart3, TrendingUp, Users, Activity, Settings, Bell, Search, Chevron
 
 export default function DashboardMockup() {
   return (
-    <div className="relative w-full h-[550px] md:h-full hidden md:flex items-center justify-center perspective">
+    <div className="relative w-full h-[550px] md:h-full hidden md:flex items-center justify-center perspective" aria-hidden="true">
       {/* Outer glow effect */}
       <div className="absolute inset-0 bg-gradient-to-br from-accent/15 via-transparent to-accent/10 rounded-3xl blur-3xl" />
 
@@ -67,7 +67,7 @@ export default function DashboardMockup() {
                   <Search size={14} className="text-gray-400" />
                   <input type="text" placeholder="Search..." className="bg-transparent text-xs outline-none text-gray-600 dark:text-gray-300 placeholder-gray-400 w-20" />
                 </div>
-                <button className="p-1.5 hover:bg-gray-100 dark:hover:bg-[#1a2332] rounded-lg transition-colors">
+                <button className="p-1.5 hover:bg-gray-100 dark:hover:bg-[#1a2332] rounded-lg transition-colors" aria-label="Notifications">
                   <Bell size={16} className="text-gray-600 dark:text-gray-400" />
                 </button>
               </div>
