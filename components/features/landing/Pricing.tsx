@@ -1,6 +1,6 @@
 
 
-import { ArrowRight } from 'lucide-react'
+import { ArrowRight, Check } from 'lucide-react'
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
 import { siteConfig } from '@/config/site'
@@ -26,8 +26,8 @@ export default function Pricing() {
                     </p>
                 </div>
 
-                <div className="grid md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
-                    {plans.map((plan) => {
+                <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8 max-w-5xl mx-auto">
+                    {plans.map((plan: any) => {
                         const discount = plan.originalPrice ? calculateDiscount(plan.originalPrice, plan.price) : null;
                         return (
                             <Card
@@ -72,6 +72,17 @@ export default function Pricing() {
                                     </p>
                                 </div>
 
+                                <ul className="space-y-3 mb-8 flex-grow text-sm text-foreground/80">
+                                    {plan.features?.map((feature: string, i: number) => (
+                                        <li key={i} className="flex items-start gap-3">
+                                            <div className="flex-shrink-0 w-5 h-5 mt-0.5 rounded-full bg-accent/10 flex items-center justify-center text-accent">
+                                                <Check className="w-3.5 h-3.5 stroke-[3]" />
+                                            </div>
+                                            <span className="leading-snug">{feature}</span>
+                                        </li>
+                                    ))}
+                                </ul>
+
                                 <Button
                                     variant={plan.popular || plan.badge ? 'default' : 'outline'}
                                     className={`w-full group ${plan.popular || plan.badge
@@ -81,7 +92,7 @@ export default function Pricing() {
                                     asChild
                                 >
                                     <a href="#contact">
-                                        Get Started <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
+                                        {plan.cta || 'Get Started'} <ArrowRight className="w-4 h-4 ml-2 transition-transform group-hover:translate-x-1" />
                                     </a>
                                 </Button>
 

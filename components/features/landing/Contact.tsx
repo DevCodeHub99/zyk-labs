@@ -4,7 +4,7 @@ import { siteConfig } from '@/config/site'
 import React, { useState, useEffect } from "react"
 import { Card } from '@/components/ui/card'
 import { Button } from '@/components/ui/button'
-import { Mail, Calendar, CheckCircle } from 'lucide-react'
+import { Mail, Calendar, CheckCircle, Shield } from 'lucide-react'
 import { getCalApi } from "@calcom/embed-react";
 
 export default function Contact() {
@@ -123,6 +123,8 @@ export default function Contact() {
                       <a
                         key={index}
                         href={social.href}
+                        target="_blank"
+                        rel="noopener noreferrer"
                         aria-label={`Visit us on ${social.icon.displayName || 'social media'}`}
                         className="p-2 rounded-full bg-white/10 hover:bg-white/20 transition-colors text-white"
                       >
@@ -145,9 +147,9 @@ export default function Contact() {
                   <CheckCircle className="w-8 h-8 text-emerald-500" />
                 </div>
                 <div className="space-y-2">
-                  <h3 className="text-2xl font-bold text-foreground">Message Sent Successfully!</h3>
+                  <h3 className="text-2xl font-bold text-foreground">We've Got Your Request!</h3>
                   <p className="text-foreground/70 max-w-xs mx-auto">
-                    Thank you for reaching out. We'll get back to you as soon as possible.
+                    Expect a response within 24 hours. We'll review your project and send you a free estimate.
                   </p>
                 </div>
                 <Button
@@ -160,7 +162,7 @@ export default function Contact() {
               </div>
             ) : (
               <>
-                <h3 className="text-2xl font-bold text-primary mb-6">Send us a message</h3>
+                <h3 className="text-2xl font-bold text-primary mb-6">Request a Free Estimate</h3>
                 <form onSubmit={handleSubmit} className="space-y-6">
                   <div className="grid md:grid-cols-2 gap-6">
                     <div className="space-y-2">
@@ -215,7 +217,7 @@ export default function Contact() {
 
                   <div className="space-y-2">
                     <label htmlFor="message" className="text-sm font-semibold text-foreground/80">
-                      Tell us about your project
+                      What are you trying to build? (Rough ideas are fine)
                     </label>
                     <textarea
                       id="message"
@@ -236,8 +238,13 @@ export default function Contact() {
                     disabled={status === 'submitting'}
                     className="w-full h-12 bg-accent hover:bg-accent/90 text-accent-foreground text-base font-medium shadow-lg shadow-accent/20"
                   >
-                    {status === 'submitting' ? 'Sending...' : 'Send Message'}
+                    {status === 'submitting' ? 'Generating Request...' : 'Get Your Free Estimate'}
                   </Button>
+
+                  <div className="flex items-center justify-center gap-2 text-xs text-foreground/50 pt-1">
+                    <Shield size={14} className="text-accent/60" />
+                    <span>We respond within 24 hours. Your data stays 100% private.</span>
+                  </div>
                 </form>
               </>
             )}

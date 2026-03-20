@@ -2,6 +2,7 @@
 
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
+import ScrollAnalytics from '@/components/analytics/ScrollAnalytics'
 
 import {
   Hero,
@@ -18,6 +19,7 @@ import {
 export default function Home() {
   return (
     <main className="w-full selection:bg-accent selection:text-white">
+      <ScrollAnalytics />
       <Navbar />
       <Hero />
       <Services />

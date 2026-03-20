@@ -1,7 +1,7 @@
 import {
     Globe, Smartphone, Server, Palette, Zap, ShoppingBag,
     TrendingUp, RefreshCw, ClipboardList, BarChart3, Layout,
-    Github, Linkedin, Twitter, Instagram, Mail,
+    Github, Linkedin, Twitter, Instagram, Facebook, Mail,
     Search, Code2, Rocket, GraduationCap, Building2,
     CheckCircle2, Shield, Users, Lightbulb
 } from 'lucide-react'
@@ -12,11 +12,14 @@ const CONTACT_EMAIL = 'hello@zyklabs.in'
 
 const LINKEDIN_URL = 'https://www.linkedin.com/company/zyklabs/'
 const TWITTER_URL = 'https://x.com/zyklabs'
+const INSTAGRAM_URL = 'https://www.instagram.com/zyklabs/'
+const FACEBOOK_URL = 'https://www.facebook.com/zyklabs'
+const PINTEREST_URL = 'https://www.pinterest.com/zyklabs'
 
 export const siteConstants = {
     name: COMPANY_NAME,
     email: CONTACT_EMAIL,
-    social: { linkedin: LINKEDIN_URL, twitter: TWITTER_URL }
+    social: { linkedin: LINKEDIN_URL, twitter: TWITTER_URL, instagram: INSTAGRAM_URL, facebook: FACEBOOK_URL, pinterest: PINTEREST_URL }
 }
 
 /** Single source of truth for all site content, navigation, and features. */
@@ -34,30 +37,24 @@ export const siteConfig = {
     ],
 
     hero: {
-        badge: 'Accepting New Projects for Q2',
-        title: { first: 'Build Faster.', second: 'Scale', highlight: 'Smarter.' },
-        description: `${COMPANY_NAME} transforms complex business requirements into high-performance, scalable web applications. We are the technical partner you've been looking for.`,
+        badge: 'Dedicated Tech Partner for Early-Stage Founders',
+        title: { first: 'Ship Faster.', second: 'Scale', highlight: 'Affordably.' },
+        description: 'We are a specialized engineering studio helping founders turn ideas into functioning MVPs and scalable web platforms. We build fast, communicate directly, and care about your product.',
         cta: {
-            primary: { text: 'Book A Call', href: '#contact' },
-            secondary: { text: 'Services We Offer', href: '#services' },
+            primary: { text: 'Book A Discovery Call', href: '#contact' },
+            secondary: { text: 'Explore Packages', href: '#pricing' },
         },
-        usp: [{ text: 'Modern Tech Stack' }, { text: 'High Performance' }],
+        usp: [{ text: 'Affordable Rates' }, { text: 'Direct Founder Collaboration' }],
     },
 
     services: {
-        badge: 'Our Expertise',
-        title: 'Solutions Built for Growth',
-        description: 'From concept to scale, we provide the technical expertise to turn your vision into reality.',
+        badge: 'How We Help',
+        title: 'Software Solutions for Growing Businesses',
+        description: 'Whether you are a startup founder launching a new idea, or an SME owner needing custom tools, we build the exact technology you need.',
         items: [
-            { icon: Globe, title: 'Web & SaaS Products', description: 'Custom, scalable web applications built to grow your business.', features: ['Custom Web Apps', 'SaaS Architecture', 'Progressive Web Apps', 'Enterprise Portals'] },
-            { icon: Smartphone, title: 'Mobile App Development', description: 'iOS & Android apps with seamless UX and performance.', features: ['React Native', 'Native iOS/Android', 'App Store Launch', 'Cross-Platform'] },
-            { icon: Server, title: 'Cloud & Backend Engineering', description: 'Robust APIs, database systems, and cloud infrastructure.', features: ['AWS/Azure/GCP', 'Microservices', 'GraphQL & REST', 'Database Design'] },
-            { icon: Palette, title: 'UI/UX & Frontend Design', description: 'Design-driven interfaces that delight users.', features: ['User Research', 'Wireframing', 'Interactive Prototypes', 'Design Systems'] },
-            { icon: Zap, title: 'Performance & SEO', description: 'Speed boosts, SEO strategy, and analytics optimization.', features: ['Core Web Vitals', 'Technical SEO', 'Load Time Speed', 'Conversion Rate Opt'] },
-            { icon: ShoppingBag, title: 'E-Commerce Solutions', description: 'Conversion-focused online stores and payments.', features: ['Shopify/WooCommerce', 'Payment Gateways', 'Inventory Sync', 'Custom Checkout'] },
-            { icon: TrendingUp, title: 'Digital Marketing', description: 'SEO, ads, social, and email to grow your audience.', features: ['Social Media Ads', 'Email Campaigns', 'Content Strategy', 'Growth Hacking'] },
-            { icon: RefreshCw, title: 'Maintenance & Support', description: 'Ongoing site updates, bug fixes, and security monitoring.', features: ['24/7 Monitoring', 'Security Patches', 'Regular Backups', 'Performance Audits'] },
-            { icon: ClipboardList, title: 'Strategy, Audit & Consulting', description: 'In-depth analysis of existing systems with actionable recommendations.', features: ['Code Reviews', 'Tech Stack Audit', 'Product Roadmap', 'Scalability Plan'] },
+            { icon: Rocket, title: 'Custom Web Apps & Portals', description: 'From founder prototypes to internal booking systems and client dashboards designed to automate your business.', features: ['Web App Development', 'Internal Dashboards', 'Client Portals', 'Process Automation'] },
+            { icon: Search, title: 'E-Commerce & Digital Storefronts', description: 'High-performance digital storefronts and corporate websites built with modern tech to convert your traffic into revenue.', features: ['E-Commerce Stores', 'Corporate Websites', 'SEO Optimization', 'Payment Gateways'] },
+            { icon: Code2, title: 'Code Rescue & Tech Support', description: 'We take over broken or slow codebases, fix critical bugs, optimize speed, and act as your dedicated technical execution team.', features: ['Bug Fixing', 'Performance Audits', 'API Integrations', 'Monthly Maintenance'] },
         ],
     },
 
@@ -93,34 +90,29 @@ export const siteConfig = {
         title: `The ${COMPANY_NAME} Advantage`,
         description: "We're not just another development shop. Here's what sets us apart.",
         reasons: [
-            { icon: CheckCircle2, title: 'Clean, Scalable Code', description: 'We write code designed to last. Maintainable, tested, and following industry best practices.' },
-            { icon: Zap, title: 'Fast Communication', description: 'Quick response times, regular updates, and transparent collaboration throughout your project.' },
-            { icon: Shield, title: 'Security First', description: 'Security audits, encrypted data, compliance-ready. Your application and user data are protected.' },
-            { icon: Users, title: 'Dedicated Team', description: 'You get a consistent team that knows your product. Not a rotating cast of developers.' },
-            { icon: Lightbulb, title: 'Technical Expertise', description: 'Modern stack. Best practices. Architectural decisions made for long-term success, not shortcuts.' },
-            { icon: TrendingUp, title: 'Proven Results', description: 'Our clients see real results: faster platforms, higher conversion, and sustainable growth.' },
+            { icon: Lightbulb, title: 'Product Thinkers First', description: 'We push back on bloated roadmaps and prioritize features strategically to get your product to market efficiently.' },
+            { icon: Zap, title: 'Direct Developer Access', description: 'No account managers or middlemen. You collaborate directly with the engineers building your startup.' },
+            { icon: Rocket, title: 'Uncompromising Speed', description: 'We utilize a battle-tested modern tech stack to ship high-quality products faster than traditional agencies.' },
+            { icon: Server, title: 'Clean, Scalable Architecture', description: 'Maintainable, tested, and built to handle your first 10,000 users without needing a complete refactor.' },
+            { icon: CheckCircle2, title: 'Radical Transparency', description: 'No black-box development. Direct communication, daily updates, and completely transparent roadmaps.' },
+            { icon: TrendingUp, title: 'Affordable, Predictable Pricing', description: 'Without the massive overhead of a big agency, we deliver premium technical execution at bootstrapper-friendly rates.' },
         ],
     },
 
     pricing: {
-        title: 'Limited Offer Pricing',
-        description: 'Lock in these discounted rates before we scale our operations in Q3. No hidden fees.',
+        title: 'Simple, Bootstrapper-Friendly Pricing',
+        description: 'No bloated estimates or scope creep. Transparent, affordable engagements tailored to your growth stage (Good, Better, Best).',
         plans: [
-            { name: 'MVP / App Launch', description: 'Go to market fast with a functional prototype.', price: '₹99,999', originalPrice: '₹149,999', period: '', popular: true, badge: 'Most Popular' },
-            { name: 'Starter Website', description: 'Professional presence for small businesses.', price: '₹14,999', originalPrice: '₹24,999', period: '', popular: false },
-            { name: 'Monthly Retainer', description: 'Dedicated development team for your growth.', price: '₹19,999', originalPrice: '₹29,999', period: '/month', popular: true, badge: 'Best Value' },
-            { name: 'Maintenance & Support', description: 'Keep your site secure and up-to-date.', price: '₹7,999', originalPrice: '₹12,499', period: '/month', popular: false },
-            { name: 'Hourly Engagement', description: 'Flexible expert help when you need it.', price: '₹499', originalPrice: '₹999', period: '/hour' },
-            { name: 'Product Strategy', description: 'Expert roadmap and technical consulting.', price: '₹14,999', originalPrice: '₹22,999', period: '', popular: false },
-            { name: 'E-Commerce Admin', description: 'Product, inventory & order management.', price: '₹14,999', originalPrice: '₹24,999', period: '/month', popular: false },
-            { name: 'Digital Marketing', description: 'Grow your audience and drive sales.', price: '₹12,999', originalPrice: '₹18,999', period: '/month', popular: false },
+            { name: 'Starter MVP', description: 'Perfect for validating your idea fast. Landing page, auth, and basic database.', price: '₹24,500', originalPrice: '', period: '/project', popular: false, features: ['Landing Page & UI Setup', 'User Authentication', 'Waitlist & Basic Database', '2-Week Delivery'], cta: 'Start Basic Build' },
+            { name: 'Standard MVP', description: 'A fully functional web application ready for your first paying users.', price: '₹48,500', originalPrice: '', period: '/project', popular: true, badge: 'Recommended', features: ['Core Application Logic', 'Payment Gateway (Stripe/Razorpay)', 'Custom API Integrations', '4-Week Delivery'], cta: 'Book Standard Build' },
+            { name: 'Premium Full-Stack', description: 'Everything in Standard, plus post-launch support and growth tools.', price: '₹84,500', originalPrice: '', period: '/project', popular: false, features: ['Everything in Standard', 'Advanced SEO & Analytics', '2 Months Post-Launch Support', 'Priority Bug Fixes'], cta: 'Secure Premium Build' },
         ],
     },
 
     team: {
-        badge: 'Our People',
-        title: 'Meet the Experts',
-        description: 'A small, focused team of senior engineers and designers dedicated to your success.',
+        badge: 'Our Team',
+        title: 'Meet the Developers',
+        description: 'A dedicated engineering team committed to bringing your ideas to life.',
         members: [
             {
                 name: 'Nishant Verma', role: 'Founder / Lead Engineering',
@@ -146,8 +138,8 @@ export const siteConfig = {
         about: {
             title: `Why We Started ${COMPANY_NAME}`,
             content: [
-                "After years of working at multiple agencies, we realized that the best software is built by small, autonomous teams of experts—not by massive departments bogged down by bureaucracy.",
-                `We founded ${COMPANY_NAME} to provide direct access to senior talent without the overhead. We believe in transparency, technical excellence, and building products that solve real problems.`,
+                "We noticed that many early-stage founders get priced out by large agencies or burned by unreliable freelancers.",
+                `We founded ${COMPANY_NAME} to provide an honest, reliable, and affordable technical partnership. As a lean, focused studio, we care deeply about every line of code we ship and every founder we work with.`,
             ],
             stats: [
                 { value: '10+', label: 'Projects Delivered' },
@@ -177,6 +169,8 @@ export const siteConfig = {
         social: [
             { icon: Linkedin, href: LINKEDIN_URL },
             { icon: Twitter, href: TWITTER_URL },
+            { icon: Instagram, href: INSTAGRAM_URL },
+            { icon: Facebook, href: FACEBOOK_URL },
         ],
         promo: { title: 'Ready to start?', description: 'We are currently accepting new projects for Q2. Secure your spot on our development roadmap.' },
     },
@@ -204,6 +198,10 @@ export const siteConfig = {
             social: [
                 { icon: Linkedin, href: LINKEDIN_URL, label: 'LinkedIn' },
                 { icon: Twitter, href: TWITTER_URL, label: 'Twitter' },
+                { icon: Instagram, href: INSTAGRAM_URL, label: 'Instagram' },
+                { icon: Facebook, href: FACEBOOK_URL, label: 'Facebook' },
+                // Note: Lucide React does not have a native Pinterest icon in standard builds, 
+                // but the link is accessible and defined above if you add a custom SVG later.
                 { icon: Mail, href: `mailto:${CONTACT_EMAIL}`, label: 'Email' },
             ],
         },

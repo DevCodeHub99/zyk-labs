@@ -11,69 +11,73 @@ import './globals.css'
 const inter = Inter({ subsets: ['latin'] })
 
 export const metadata: Metadata = {
-  title: 'Zyk Labs | Web Development Company Delhi, Custom Software & SaaS India',
-  description: 'Top web development company in Delhi NCR. Zyk Labs specializes in custom software development, scalable SaaS products, and eCommerce website development across India.',
+  title: 'Zyklabs | MVP Development & Technical Partner for Startups',
+  description: 'Zyklabs (Zyk Labs) is a specialized engineering studio helping early-stage founders and SME owners turn ideas into functioning web apps, MVPs, and scalable platforms. Based in Delhi, India.',
   keywords: [
-    // Location-based
-    'web development company Delhi',
-    'website developers Delhi NCR',
-    'software development company India',
-    'tech agency Delhi',
-    'IT company near me Delhi',
-    'web developers near me',
-
-    // Core services
-    'custom software development India',
+    // Core service keywords
+    'MVP development studio India',
+    'startup technical partner',
     'custom web application development',
-    'SaaS development India',
-    'SaaS product development company',
-    'ecommerce website development Delhi',
-    'online store development India',
-    'mobile app development Delhi',
-    'Android iOS app developer India',
-    'React Native app development',
-    'cloud backend engineering India',
-    'API development services',
+    'SaaS MVP development',
+    'e-commerce website development',
+    'code rescue and bug fixing',
+    'website maintenance service India',
 
-    // Technology stack
-    'Next.js development company India',
-    'React development Delhi',
-    'Node.js developers India',
+    // Tech stack keywords (what clients search for)
+    'Next.js development company',
+    'React development studio India',
+    'Node.js developer for hire India',
+    'MERN stack development',
+    'full stack web developer India',
     'TypeScript development services',
-    'full stack developer India',
-    'MERN stack development Delhi',
+    'Tailwind CSS developer',
 
-    // UI/UX & Design
-    'UI UX design agency Delhi',
-    'website redesign services India',
+    // Intent-based / buyer keywords
+    'hire dedicated developer India',
+    'affordable web app development India',
+    'build my startup app India',
+    'fix my website bugs',
+    'take over existing codebase',
+    'freelance web developer Delhi',
+    'web development agency Delhi NCR',
+    'small business website developer',
 
-    // Digital marketing & SEO
-    'SEO services Delhi',
-    'digital marketing agency India',
-    'website speed optimization',
+    // Outcome-based keywords
+    'rapid MVP prototyping',
+    'launch MVP in 4 weeks',
+    'B2B SaaS development',
+    'dedicated engineering team for startups',
+    'custom client portal development',
+    'internal dashboard development',
+    'payment gateway integration India',
 
-    // User-intent / commercial
-    'hire web developers India',
-    'best web development company India',
-    'affordable website development Delhi',
-    'startup web development India',
-    'small business website Delhi',
-    'freelance web developer Delhi NCR',
-    'MVP development company India',
-    'website maintenance and support India',
-
-    // Industry verticals
-    'ecommerce solutions India',
-    'fintech software development',
-    'healthcare app development India',
-    'education platform development',
-
-    // Brand
+    // Brand variants + common misspellings
     'Zyk Labs',
     'zyklabs',
+    'Zyklabs',
+    'zyklabs.in',
+    'Zyklabs.in',
+    'zyk lab',
+    'zyk labs',
+    'zk labs',
+    'zky labs',
+    'zyklab',
+    'zyk',
+    'zy labs',
+    'zylabs',
+    'zyK labs',
+    'zykk labs',
+    'zyks labs',
+    'zik labs',
+    'zyk labz',
+    'zycklabs',
+    'zyc labs',
+    'syk labs',
+    'zyk-labs',
   ],
-  authors: [{ name: 'Zyk Labs' }],
+  authors: [{ name: 'Zyk Labs', url: 'https://zyklabs.in' }],
   creator: 'Zyk Labs',
+  publisher: 'Zyk Labs',
   metadataBase: new URL('https://zyklabs.in'),
   alternates: {
     canonical: 'https://zyklabs.in',
@@ -81,23 +85,26 @@ export const metadata: Metadata = {
   openGraph: {
     type: 'website',
     url: 'https://zyklabs.in',
-    title: 'Zyk Labs | Custom Software & Web Development Company India',
-    description: 'We build fast, scalable web applications and SaaS products for growing businesses. Partner with our dedicated engineering team in Delhi NCR.',
-    siteName: 'Zyk Labs',
+    title: 'Zyk Labs | MVP Development & Technical Partner for Startups',
+    description: 'Zyklabs builds fast, scalable web apps and MVPs for early-stage founders and SME owners. Transparent pricing, direct developer access, based in Delhi, India.',
+    siteName: 'Zyklabs',
+    locale: 'en_IN',
     images: [
       {
         url: 'https://zyklabs.in/og-image.png',
         width: 1200,
         height: 630,
-        alt: 'Zyk Labs - Custom Web & SaaS Solutions',
+        alt: 'Zyklabs - MVP Development & Technical Partner for Startups',
         type: 'image/png',
       },
     ],
   },
   twitter: {
     card: 'summary_large_image',
-    title: 'Zyk Labs | Web Development & SaaS Solutions India',
-    description: 'Scalable custom software, SaaS, and eCommerce performance right from Delhi, India.',
+    site: '@zyklabs',
+    creator: '@zyklabs',
+    title: 'zyklabs | MVP Development & Technical Partner for Startups',
+    description: 'Zyk Labs builds fast, scalable web apps for early-stage founders. Transparent pricing, direct developer access. Based in Delhi, India.',
     images: ['https://zyklabs.in/og-image.png'],
   },
   icons: {
@@ -147,43 +154,68 @@ export default function RootLayout({
   children: React.ReactNode
 }>) {
 
-  const jsonLd = {
+  // Schema 1: Organization (replaces bare LocalBusiness — richer entity for AI search)
+  const organizationSchema = {
     '@context': 'https://schema.org',
-    '@type': 'LocalBusiness',
+    '@type': 'ProfessionalService',
+    '@id': 'https://zyklabs.in/#organization',
     name: siteConstants.name,
-    '@id': 'https://zyklabs.in',
     url: 'https://zyklabs.in',
+    logo: 'https://zyklabs.in/favicon.svg',
+    image: 'https://zyklabs.in/og-image.png',
+    description: 'Zyklabs is a specialized engineering studio helping early-stage founders and SME owners build custom web apps, MVPs, and scalable platforms.',
     email: siteConstants.email,
+    priceRange: '₹₹',
+    areaServed: 'IN',
+    serviceType: ['MVP Development', 'Custom Web Application Development', 'E-Commerce Development', 'Code Rescue & Tech Support'],
     address: {
       '@type': 'PostalAddress',
       addressLocality: 'New Delhi',
-      addressRegion: 'Delhi NCR',
-      addressCountry: 'IN'
+      addressRegion: 'Delhi',
+      addressCountry: 'IN',
     },
     geo: {
       '@type': 'GeoCoordinates',
       latitude: '28.6139',
-      longitude: '77.2090'
+      longitude: '77.2090',
     },
     openingHoursSpecification: {
       '@type': 'OpeningHoursSpecification',
       dayOfWeek: ['Monday', 'Tuesday', 'Wednesday', 'Thursday', 'Friday'],
       opens: '09:00',
-      closes: '18:00'
+      closes: '18:00',
     },
     sameAs: [
       siteConstants.social.linkedin,
-      siteConstants.social.twitter
-    ]
+      siteConstants.social.twitter,
+      siteConstants.social.instagram,
+      siteConstants.social.facebook,
+      siteConstants.social.pinterest,
+    ],
+  }
+
+  // Schema 2: WebSite with SearchAction (enables Google Sitelinks search box)
+  const websiteSchema = {
+    '@context': 'https://schema.org',
+    '@type': 'WebSite',
+    '@id': 'https://zyklabs.in/#website',
+    url: 'https://zyklabs.in',
+    name: siteConstants.name,
+    publisher: { '@id': 'https://zyklabs.in/#organization' },
   }
 
   return (
     <html lang="en" className="scroll-smooth" suppressHydrationWarning>
       <head>
         <ThemeScript />
+        <meta name="p:domain_verify" content="ae5712bb05b41f6ccc8fc6379fbdefcd"/>
         <script
           type="application/ld+json"
-          dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }}
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(organizationSchema) }}
+        />
+        <script
+          type="application/ld+json"
+          dangerouslySetInnerHTML={{ __html: JSON.stringify(websiteSchema) }}
         />
       </head>
       <body className={`${inter.className} font-sans antialiased`}>
