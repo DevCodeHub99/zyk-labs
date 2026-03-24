@@ -1,13 +1,27 @@
 import { MetadataRoute } from 'next'
 
+const BASE_URL = 'https://zyklabs.in'
+
 export default function sitemap(): MetadataRoute.Sitemap {
-    return [
-        {
-            url: 'https://zyklabs.in',
-            lastModified: new Date(),
-            changeFrequency: 'weekly',
-            priority: 1.0,
-        },
-        // Add additional URLs here as the site grows (e.g., /services, /work, /blog)
-    ]
+  return [
+    {
+      url: BASE_URL,
+      lastModified: new Date(),
+      changeFrequency: 'weekly',
+      priority: 1.0,
+    },
+    {
+      url: `${BASE_URL}/privacy-policy`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.3,
+    },
+    {
+      url: `${BASE_URL}/terms-of-service`,
+      lastModified: new Date(),
+      changeFrequency: 'monthly',
+      priority: 0.3,
+    },
+  ]
 }
+
