@@ -35,7 +35,9 @@ export default function InsightsTeaser() {
                         {article.excerpt}
                     </p>
                     <Button variant="link" className="p-0 h-auto text-[10px] font-black uppercase tracking-widest text-primary group-hover:text-accent flex items-center gap-2" asChild>
-                        <a href={`/insights/${article.slug}`}>Read More <ArrowRight size={14} /></a>
+                        <a href={`/insights/${article.slug}`} aria-label={`Read the full article titled: ${article.title}`}>
+                            Read Full article <ArrowRight size={14} />
+                        </a>
                     </Button>
                 </div>
             </StudioCard>

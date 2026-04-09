@@ -55,7 +55,10 @@ const ServiceCard = ({ service, index, isWide }: { service: ServiceItem, index: 
           className="p-0 h-auto text-primary font-black uppercase tracking-widest text-[11px] group-hover:text-accent transition-colors flex items-center gap-2"
           asChild
         >
-          <a href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-').replace('&', 'and')}`}>
+          <a 
+            href={`/services/${service.title.toLowerCase().replace(/\s+/g, '-').replace('&', 'and')}`}
+            aria-label={`Explore our ${service.title} specialized engineering service`}
+          >
             Explore Service <ArrowRight className="w-3 h-3 group-hover:translate-x-1 transition-transform" />
           </a>
         </Button>
