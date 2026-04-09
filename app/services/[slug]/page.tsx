@@ -17,6 +17,12 @@ function getServiceBySlug(slug: string) {
   )
 }
 
+export async function generateStaticParams() {
+  return siteConfig.services.items.map((service) => ({
+    slug: service.title.toLowerCase().replace(/\s+/g, '-').replace('&', 'and'),
+  }))
+}
+
 export async function generateMetadata({ params }: PageProps): Promise<Metadata> {
   const { slug } = await params
   const service = getServiceBySlug(slug)

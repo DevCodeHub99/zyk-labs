@@ -1,18 +1,42 @@
+
 'use client'
 
-import React from 'react'
+import React, { useActionState, useState } from 'react'
 import { siteConfig } from '@/config/site'
 import { Button } from '@/components/ui/button'
-import { AlertCircle } from 'lucide-react'
-import { useContactForm } from '@/hooks/use-contact-form'
+import { useFormStatus } from 'react-dom'
+import { submitContactForm } from '@/app/actions/contact'
+import { CheckCircle2, AlertCircle } from 'lucide-react'
 
-const SuccessState = ({ onReset }: { onReset: () => void }) => (
-  <div className="relative flex flex-col items-center justify-center text-center py-4 px-2 space-y-4 animate-in fade-in zoom-in-95 duration-700 overflow-hidden">
-    <div className="absolute inset-0 bg-emerald-500/5 rounded-[3rem] blur-3xl" />
-    <h3 className="text-2xl font-black text-primary tracking-tighter uppercase italic-serif">Request Received</h3>
-    <p className="text-xs text-foreground/60 font-medium">Our engineering lead will reach out within 24 hours.</p>
-    <Button onClick={onReset} variant="ghost" className="text-accent font-black uppercase tracking-[0.2em] text-[10px]">
-      Send Another
+/**
+ * Submit button component using useFormStatus for progressive enhancement and loading states.
+ */
+function SubmitButton() {
+  const { pending } = useFormStatus()
+  const { global } = siteConfig
+
+  return (
+    <Button 
+      type="submit" 
+      disabled={pending} 
+      className="w-full h-16 rounded-full bg-primary hover:opacity-90 text-primary-foreground font-black uppercase tracking-widest text-[10px] shadow-xl transition-all"
+    >
+      {pending ? global.cta.processing : global.cta.submit}
+    </Button>
+  )
+}
+
+const SuccessState = ({ message, onReset }: { message: string, onReset: () => void }) => (
+  <div className="relative flex flex-col items-center justify-center text-center py-8 px-4 space-y-6 animate-in fade-in zoom-in-95 duration-700">
+    <div className="w-20 h-20 rounded-full bg-emerald-500/10 flex items-center justify-center text-emerald-500 mb-2">
+      <CheckCircle2 size={40} />
+    </div>
+    <div className="space-y-2">
+      <h3 className="text-2xl font-black text-primary tracking-tighter uppercase italic-serif">Request Received</h3>
+      <p className="text-sm text-foreground/60 font-medium max-w-xs mx-auto">{message}</p>
+    </div>
+    <Button onClick={onReset} variant="ghost" className="text-accent font-black uppercase tracking-[0.2em] text-[10px] hover:bg-accent/10">
+      Send Another Brief
     </Button>
   </div>
 )
@@ -20,37 +44,65 @@ const SuccessState = ({ onReset }: { onReset: () => void }) => (
 export default function ContactForm() {
   const { contact } = siteConfig
   const { categories, budgets } = contact
-  const { 
-    formData, status, errors, touched, 
-    handleChange, handleBlur, selectOption, handleSubmit, resetStatus 
-  } = useContactForm()
+  
+  // React 19 / Next.js Action State
+  const [state, formAction] = useActionState(submitContactForm, null)
+  
+  // Local state for toggles (category/budget)
+  const [selectedCategory, setSelectedCategory] = useState(categories[0])
+  const [selectedBudget, setSelectedBudget] = useState(budgets[0])
 
-  if (status === 'success') return <SuccessState onReset={resetStatus} />
+  if (state?.status === 'success') {
+    return <SuccessState message={state.message} onReset={() => window.location.reload()} />
+  }
 
   return (
-    <form onSubmit={handleSubmit} className="grid md:grid-cols-2 gap-8">
+    <form action={formAction} className="grid md:grid-cols-2 gap-8">
+      {/* Hidden inputs to capture the selected category/budget in the FormData */}
+      <input type="hidden" name="category" value={selectedCategory} />
+      <input type="hidden" name="budget" value={selectedBudget} />
+
       <div className="space-y-6">
         <div className="space-y-2">
-          <label className="text-[10px] font-black uppercase tracking-widest text-foreground/40 px-1 flex justify-between">
+          <label htmlFor="full-name" className="text-[10px] font-black uppercase tracking-widest text-foreground/40 px-1">
             Full Name
-            {touched.name && errors.name && <span className="text-red-500 flex items-center gap-1 lowercase">required</span>}
           </label>
-          <input type="text" name="name" value={formData.name} onChange={handleChange} onBlur={() => handleBlur('name')} required className={`w-full bg-background border ${touched.name && errors.name ? 'border-red-500' : 'border-border focus:border-accent'} rounded-xl px-4 py-4 text-sm font-bold outline-none transition-all`} placeholder="Your Name" />
+          <input 
+            id="full-name"
+            type="text" 
+            name="name" 
+            required 
+            autoComplete="name"
+            className="w-full bg-background border border-border focus:border-accent rounded-xl px-4 py-4 text-sm font-bold outline-none transition-all" 
+            placeholder="Identity / Entity" 
+          />
         </div>
         
         <div className="space-y-2">
-          <label className="text-[10px] font-black uppercase tracking-widest text-foreground/40 px-1 flex justify-between">
+          <label htmlFor="email" className="text-[10px] font-black uppercase tracking-widest text-foreground/40 px-1">
             Work Email
-            {touched.email && errors.email && <span className="text-red-500 flex items-center gap-1 lowercase">invalid email</span>}
           </label>
-          <input type="email" name="email" value={formData.email} onChange={handleChange} onBlur={() => handleBlur('email')} required className={`w-full bg-background border ${touched.email && errors.email ? 'border-red-500' : 'border-border focus:border-accent'} rounded-xl px-4 py-4 text-sm font-bold outline-none transition-all`} placeholder="Email Address" />
+          <input 
+            id="email"
+            type="email" 
+            name="email" 
+            required 
+            autoComplete="email"
+            className="w-full bg-background border border-border focus:border-accent rounded-xl px-4 py-4 text-sm font-bold outline-none transition-all" 
+            placeholder="direct@company.com" 
+          />
         </div>
 
         <div className="space-y-3">
           <label className="text-[10px] font-black uppercase tracking-widest text-foreground/40 px-1">Project Category</label>
           <div className="flex flex-wrap gap-2">
             {categories.map((cat) => (
-              <button key={cat} type="button" onClick={() => selectOption('category', cat)} className={`px-4 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all border ${formData.category === cat ? 'bg-primary text-primary-foreground border-primary' : 'bg-secondary/40 text-foreground/40 border-transparent hover:border-accent/40'}`}>
+              <button 
+                key={cat} 
+                type="button" 
+                onClick={() => setSelectedCategory(cat)} 
+                className={`px-4 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all border ${selectedCategory === cat ? 'bg-primary text-primary-foreground border-primary' : 'bg-secondary/40 text-foreground/40 border-transparent hover:border-accent/40'}`}
+              >
                 {cat}
               </button>
             ))}
@@ -63,7 +115,12 @@ export default function ContactForm() {
           <label className="text-[10px] font-black uppercase tracking-widest text-foreground/40 px-1">Estimated Budget</label>
           <div className="flex flex-wrap gap-2">
             {budgets.map((b) => (
-              <button key={b} type="button" onClick={() => selectOption('budget', b)} className={`px-4 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all border ${formData.budget === b ? 'bg-accent text-white border-accent' : 'bg-secondary/40 text-foreground/40 border-transparent hover:border-accent/40'}`}>
+              <button 
+                key={b} 
+                type="button" 
+                onClick={() => setSelectedBudget(b)} 
+                className={`px-4 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all border ${selectedBudget === b ? 'bg-accent text-white border-accent' : 'bg-secondary/40 text-foreground/40 border-transparent hover:border-accent/40'}`}
+              >
                 {b}
               </button>
             ))}
@@ -71,16 +128,26 @@ export default function ContactForm() {
         </div>
 
         <div className="space-y-2">
-          <label className="text-[10px] font-black uppercase tracking-widest text-foreground/40 px-1 flex justify-between">
-            Requirements
-            {touched.message && errors.message && <span className="text-red-500 flex items-center gap-1 lowercase">min 20 chars</span>}
+          <label htmlFor="message" className="text-[10px] font-black uppercase tracking-widest text-foreground/40 px-1">
+            Technical Brief
           </label>
-          <textarea name="message" value={formData.message} onChange={handleChange} onBlur={() => handleBlur('message')} required rows={3} className={`w-full bg-background border ${touched.message && errors.message ? 'border-red-500' : 'border-border focus:border-accent'} rounded-2xl px-5 py-5 text-sm font-bold outline-none transition-all resize-none`} placeholder="Describe your project..." />
+          <textarea 
+            id="message"
+            name="message" 
+            required 
+            rows={3} 
+            className="w-full bg-background border border-border focus:border-accent rounded-2xl px-5 py-5 text-sm font-bold outline-none transition-all resize-none" 
+            placeholder="Core problem, required features, or constraints..." 
+          />
         </div>
 
-        <Button type="submit" disabled={status === 'submitting'} className="w-full h-16 rounded-full bg-primary hover:opacity-90 text-primary-foreground font-black uppercase tracking-widest text-[10px] shadow-xl">
-          {status === 'submitting' ? siteConfig.global.cta.processing : siteConfig.global.cta.submit}
-        </Button>
+        {state?.status === 'error' && (
+          <div className="flex items-center gap-2 text-red-500 text-[10px] font-black uppercase tracking-widest px-1">
+            <AlertCircle size={14} /> {state.message}
+          </div>
+        )}
+
+        <SubmitButton />
       </div>
     </form>
   )
