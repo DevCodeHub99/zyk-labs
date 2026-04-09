@@ -5,11 +5,12 @@ import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check } from 'lucide-react'
 import StudioCard from '@/components/shared/StudioCard'
-import { formatCurrency } from '../hooks/useEstimator'
+import { formatCurrency, Selection } from '../hooks/useEstimator'
+import { EstimatorStep, EstimatorOption } from '@/types'
 
 interface OptionGridProps {
-  activeStep: any
-  selections: any
+  activeStep: EstimatorStep
+  selections: Selection
   onSelect: (id: string) => void
 }
 
@@ -17,7 +18,7 @@ export function OptionGrid({ activeStep, selections, onSelect }: OptionGridProps
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       <AnimatePresence mode="wait">
-        {activeStep.options.map((option: any) => {
+        {activeStep.options.map((option: EstimatorOption) => {
           const Icon = option.icon
           const isSelected = activeStep.multiSelect 
             ? (selections[activeStep.id] as string[])?.includes(option.id)

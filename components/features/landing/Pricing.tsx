@@ -1,16 +1,13 @@
-import { ArrowRight, Check, ChevronRight, RefreshCw, ShieldCheck, Lock, Sparkles } from 'lucide-react'
+import { ArrowRight, Check, ChevronRight, RefreshCw, ShieldCheck, LucideIcon } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { siteConfig } from '@/config/site'
 import SectionHeader from '@/components/shared/SectionHeader'
 import StudioCard from '@/components/shared/StudioCard'
+import { PricingPlan } from '@/types'
 
 /* --- Internal Pricing Components --- */
 
-import { SiteConfig } from '@/types'
-
-type Plan = SiteConfig['pricing']['plans'][0]
-
-const PricingCard = ({ plan }: { plan: Plan }) => {
+const PricingCard = ({ plan }: { plan: PricingPlan }) => {
   const isCustom = plan.isCustom
   const isMonthly = plan.billing === 'monthly'
 
@@ -106,7 +103,7 @@ const PricingCard = ({ plan }: { plan: Plan }) => {
   )
 }
 
-const TrustFeature = ({ icon: Icon, title, description }: { icon: any; title: string; description: string }) => (
+const TrustFeature = ({ icon: Icon, title, description }: { icon: LucideIcon; title: string; description: string }) => (
   <div className="flex items-center gap-4 group cursor-default">
     <div className="w-12 h-12 rounded-2xl bg-secondary/50 flex items-center justify-center group-hover:bg-accent/10 transition-colors">
       <Icon className="w-5 h-5 text-accent" />
@@ -137,7 +134,7 @@ export default function Pricing() {
         />
 
         <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-          {plans.map((plan: any) => (
+          {plans.map((plan: PricingPlan) => (
             <PricingCard key={plan.name} plan={plan} />
           ))}
         </div>

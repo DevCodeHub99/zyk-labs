@@ -6,9 +6,10 @@ import SectionHeader from '@/components/shared/SectionHeader'
 import StudioCard from '@/components/shared/StudioCard'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Clock } from 'lucide-react'
+import { ArticleItem } from '@/types'
 
 export default function InsightsTeaser() {
-  const { insights } = siteConfig as any
+  const { insights } = siteConfig
   
   return (
     <section className="py-20 md:py-40 bg-background relative overflow-hidden">
@@ -20,7 +21,7 @@ export default function InsightsTeaser() {
         />
 
         <div className="grid md:grid-cols-2 gap-8 mt-16">
-          {insights.articles.slice(0, 2).map((article: any) => (
+          {insights.articles.slice(0, 2).map((article: ArticleItem) => (
             <StudioCard key={article.slug} className="p-8 border-border/40 hover:border-accent/40 transition-all duration-500 group">
                 <div className="space-y-6">
                     <div className="flex justify-between items-center text-[10px] font-black uppercase tracking-widest text-accent/60">

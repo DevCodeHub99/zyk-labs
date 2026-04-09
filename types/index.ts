@@ -5,6 +5,76 @@ export interface NavItem {
   href: string
 }
 
+export interface EstimatorOption {
+    id: string
+    label: string
+    icon: LucideIcon
+    basePrice?: number
+    multiplier?: number
+    price?: number
+}
+
+export interface EstimatorStep {
+    id: string
+    title: string
+    description: string
+    multiSelect?: boolean
+    options: EstimatorOption[]
+}
+
+export interface ServiceItem {
+    icon: LucideIcon
+    title: string
+    tagline: string
+    description: string
+    features: string[]
+    cta: string
+    highlight: boolean
+}
+
+export interface ProjectItem {
+    title: string
+    category: string
+    description: string
+    tech: string[]
+    link: string
+}
+
+export interface ArticleItem {
+    slug: string
+    category: string
+    title: string
+    excerpt: string
+    date: string
+    author: string
+    readTime: string
+}
+
+export interface TeamMember {
+    name: string
+    role: string
+    image: string
+    bio: string
+    social: { icon: LucideIcon; href: string }[]
+    initials: string
+    bg: string
+}
+
+export interface PricingPlan {
+    name: string
+    tagline: string
+    description: string
+    price: string
+    period: string
+    billing: string
+    popular: boolean
+    badge: string
+    isCustom: boolean
+    features: string[]
+    cta: string
+    trust: string
+}
+
 export interface SiteConfig {
   companyName: string
   contactEmail: string
@@ -37,15 +107,7 @@ export interface SiteConfig {
     description: string
     labels: Record<string, string>
     marquee: string[]
-    items: {
-        icon: LucideIcon
-        title: string
-        tagline: string
-        description: string
-        features: string[]
-        cta: string
-        highlight: boolean
-    }[]
+    items: ServiceItem[]
   }
   projects: {
     badge: string
@@ -63,13 +125,7 @@ export interface SiteConfig {
         color: string
         textColor: string
     }
-    items: {
-        title: string
-        category: string
-        description: string
-        tech: string[]
-        link: string
-    }[]
+    items: ProjectItem[]
   }
   process: {
     badge: string
@@ -103,35 +159,14 @@ export interface SiteConfig {
         title: string
         description: string
     }[]
-    plans: {
-        name: string
-        tagline: string
-        description: string
-        price: string
-        period: string
-        billing: string
-        popular: boolean
-        badge: string
-        isCustom: boolean
-        features: string[]
-        cta: string
-        trust: string
-    }[]
+    plans: PricingPlan[]
   }
   team: {
     badge: string
     title: string
     titleHighlighted: { main: string; accent: string }
     description: string
-    members: {
-        name: string
-        role: string
-        image: string
-        bio: string
-        social: { icon: LucideIcon; href: string }[]
-        initials: string
-        bg: string
-    }[]
+    members: TeamMember[]
     about: {
         badge: string
         title: string
@@ -155,20 +190,7 @@ export interface SiteConfig {
     title: string
     titleHighlighted: { main: string; accent: string }
     description: string
-    steps: {
-        id: string
-        title: string
-        description: string
-        multiSelect?: boolean
-        options: {
-            id: string
-            label: string
-            icon: LucideIcon
-            basePrice?: number
-            multiplier?: number
-            price?: number
-        }[]
-    }[]
+    steps: EstimatorStep[]
   }
   insights: {
     badge: string
@@ -176,15 +198,7 @@ export interface SiteConfig {
     titleHighlighted: { main: string; accent: string }
     description: string
     categories: string[]
-    articles: {
-        slug: string
-        category: string
-        title: string
-        excerpt: string
-        date: string
-        author: string
-        readTime: string
-    }[]
+    articles: ArticleItem[]
   }
   security: {
       badge: string
@@ -218,3 +232,5 @@ export interface LegalSection {
         content: string
     }[]
 }
+
+export type Selection = Record<string, string | string[]>

@@ -3,14 +3,11 @@ import { Button } from '@/components/ui/button'
 import { ArrowRight, Sparkles, Zap, ShieldCheck, Globe } from 'lucide-react'
 import SectionHeader from '@/components/shared/SectionHeader'
 import StudioCard from '@/components/shared/StudioCard'
+import { ServiceItem } from '@/types'
 
 const visualIcons = [Zap, Sparkles, ShieldCheck, Globe]
 
 /* --- Internal Service Components --- */
-
-import { SiteConfig } from '@/types'
-
-type ServiceItem = SiteConfig['services']['items'][0]
 
 const ServiceCard = ({ service, index, isWide }: { service: ServiceItem, index: number, isWide: boolean }) => {
   const IconComponent = service.icon
@@ -88,7 +85,7 @@ export default function Services() {
         />
 
         <div className="grid grid-cols-1 md:grid-cols-12 gap-6">
-          {items.map((service: any, index: number) => (
+          {items.map((service: ServiceItem, index: number) => (
             <ServiceCard 
               key={service.title} 
               service={service} 

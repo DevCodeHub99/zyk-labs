@@ -61,11 +61,15 @@ export default function ContactForm() {
       {/* Hidden inputs to capture the selected category/budget in the FormData */}
       <input type="hidden" name="category" value={selectedCategory} />
       <input type="hidden" name="budget" value={selectedBudget} />
+      
+      {/* Honeypot field for bot detection (Security) */}
+      <input type="text" name="website_url" className="hidden" tabIndex={-1} autoComplete="off" />
 
       <div className="space-y-6">
         <div className="space-y-2">
-          <label htmlFor="full-name" className="text-[10px] font-black uppercase tracking-widest text-foreground/40 px-1">
+          <label htmlFor="full-name" className="text-[10px] font-black uppercase tracking-widest text-foreground/40 px-1 flex justify-between">
             Full Name
+            {state?.errors?.name && <span className="text-red-500 lowercase font-bold">{state.errors.name[0]}</span>}
           </label>
           <input 
             id="full-name"
@@ -73,14 +77,15 @@ export default function ContactForm() {
             name="name" 
             required 
             autoComplete="name"
-            className="w-full bg-background border border-border focus:border-accent rounded-xl px-4 py-4 text-sm font-bold outline-none transition-all" 
+            className={`w-full bg-background border ${state?.errors?.name ? 'border-red-500/50' : 'border-border focus:border-accent'} rounded-xl px-4 py-4 text-sm font-bold outline-none transition-all`} 
             placeholder="Identity / Entity" 
           />
         </div>
         
         <div className="space-y-2">
-          <label htmlFor="email" className="text-[10px] font-black uppercase tracking-widest text-foreground/40 px-1">
+          <label htmlFor="email" className="text-[10px] font-black uppercase tracking-widest text-foreground/40 px-1 flex justify-between">
             Work Email
+            {state?.errors?.email && <span className="text-red-500 lowercase font-bold">{state.errors.email[0]}</span>}
           </label>
           <input 
             id="email"
@@ -88,7 +93,7 @@ export default function ContactForm() {
             name="email" 
             required 
             autoComplete="email"
-            className="w-full bg-background border border-border focus:border-accent rounded-xl px-4 py-4 text-sm font-bold outline-none transition-all" 
+            className={`w-full bg-background border ${state?.errors?.email ? 'border-red-500/50' : 'border-border focus:border-accent'} rounded-xl px-4 py-4 text-sm font-bold outline-none transition-all`}
             placeholder="direct@company.com" 
           />
         </div>
@@ -128,20 +133,21 @@ export default function ContactForm() {
         </div>
 
         <div className="space-y-2">
-          <label htmlFor="message" className="text-[10px] font-black uppercase tracking-widest text-foreground/40 px-1">
+          <label htmlFor="message" className="text-[10px] font-black uppercase tracking-widest text-foreground/40 px-1 flex justify-between">
             Technical Brief
+            {state?.errors?.message && <span className="text-red-500 lowercase font-bold">{state.errors.message[0]}</span>}
           </label>
           <textarea 
             id="message"
             name="message" 
             required 
             rows={3} 
-            className="w-full bg-background border border-border focus:border-accent rounded-2xl px-5 py-5 text-sm font-bold outline-none transition-all resize-none" 
+            className={`w-full bg-background border ${state?.errors?.message ? 'border-red-500/50' : 'border-border focus:border-accent'} rounded-2xl px-5 py-5 text-sm font-bold outline-none transition-all resize-none`}
             placeholder="Core problem, required features, or constraints..." 
           />
         </div>
 
-        {state?.status === 'error' && (
+        {state?.status === 'error' && !state.errors && (
           <div className="flex items-center gap-2 text-red-500 text-[10px] font-black uppercase tracking-widest px-1">
             <AlertCircle size={14} /> {state.message}
           </div>
