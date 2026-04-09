@@ -24,18 +24,18 @@ export default function Hero() {
 
           {/* High-Impact Headline */}
           <div className="space-y-6 max-w-5xl">
-            <h1 className="text-5xl md:text-8xl lg:text-9xl font-black tracking-tighter text-primary leading-[0.85] animate-in fade-in slide-in-from-bottom-8 duration-1000">
+            <h1 className="text-5xl md:text-8xl lg:text-9xl font-black tracking-tighter text-primary leading-[0.85] animate-in fade-in slide-in-from-bottom-4 duration-500">
                {hero.title.first} <br />
                {hero.title.second} <span className="text-accent italic-serif">{hero.title.highlight}</span>
             </h1>
 
-            <p className="text-lg md:text-2xl text-foreground/50 max-w-3xl mx-auto leading-relaxed font-medium animate-in fade-in slide-in-from-bottom-12 duration-1000 delay-200">
+            <p className="text-lg md:text-2xl text-foreground/50 max-w-3xl mx-auto leading-relaxed font-medium animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
               {hero.description}
             </p>
           </div>
 
           {/* Premium CTAs */}
-          <div className="flex flex-col sm:flex-row gap-6 justify-center w-full max-w-md mx-auto pt-4 animate-in fade-in slide-in-from-bottom-16 duration-1000 delay-300">
+          <div className="flex flex-col sm:flex-row gap-6 justify-center w-full max-w-md mx-auto pt-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
             <Button asChild size="lg" className="h-16 px-10 rounded-full bg-accent hover:opacity-90 text-white font-black uppercase tracking-widest text-xs shadow-2xl shadow-accent/20 transition-all hover:-translate-y-1">
               <a href={hero.cta.primary.href} className="flex items-center gap-3">
                 {hero.cta.primary.text} <ArrowRight className="w-5 h-5" />

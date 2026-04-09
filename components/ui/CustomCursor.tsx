@@ -21,6 +21,9 @@ export default function CustomCursor() {
   const delayedPos = useRef({ x: 0, y: 0 })
 
   useEffect(() => {
+    const isDesktop = window.matchMedia('(pointer: fine)').matches
+    if (!isDesktop) return
+
     setIsMounted(true)
 
     const onMouseMove = (e: MouseEvent) => {
@@ -52,6 +55,12 @@ export default function CustomCursor() {
     // Animation loop for smooth movement without state updates
     let rafId: number
     const render = () => {
+      // Small optimization: only update if tab is focused
+      if (document.hidden) {
+        rafId = requestAnimationFrame(render)
+        return
+      }
+
       if (ringRef.current) {
         // Smooth lagging effect for the ring
         delayedPos.current.x += (mousePos.current.x - delayedPos.current.x) * 0.2
