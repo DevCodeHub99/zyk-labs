@@ -1,13 +1,12 @@
 
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 import { siteConfig } from '@/config/site'
 import SectionHeader from '@/components/shared/SectionHeader'
 import StudioCard from '@/components/shared/StudioCard'
-import { Github, Linkedin, Twitter, Instagram, ArrowRight, Code2, Users, Rocket, Heart } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import { Metadata } from 'next'
 import Image from 'next/image'
+import { Code2, Users, Rocket, Heart } from 'lucide-react'
+import StudioPage from '@/components/layout/StudioPage'
+import ContactCTA from '@/components/shared/ContactCTA'
 
 export const metadata: Metadata = {
   title: `About Us | ${siteConfig.companyName}`,
@@ -19,16 +18,8 @@ export default function AboutPage() {
   const { members, about } = team
 
   return (
-    <main className="min-h-screen bg-background flex flex-col pt-24">
-      <Navbar />
-      
-      {/* Background Decor */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden h-screen w-full">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/[0.04] rounded-full blur-[150px] -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/[0.02] rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2" />
-      </div>
-
-      <div className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-32 relative z-10">
+    <StudioPage>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-32">
         
         {/* Story Section */}
         <div className="grid lg:grid-cols-2 gap-16 lg:gap-24 items-center mb-40">
@@ -141,15 +132,11 @@ export default function AboutPage() {
             ))}
         </div>
 
-        {/* Bottom Callout */}
-        <div className="mt-40 text-center">
-            <Button size="lg" className="rounded-full h-16 px-10 bg-primary hover:opacity-90 text-white font-black uppercase tracking-widest text-xs shadow-2xl shadow-primary/20 transition-all hover:-translate-y-1" asChild>
-                <a href="/#contact">Start Project Partnership</a>
-            </Button>
-        </div>
+        <ContactCTA 
+          title="Start Project Partnership"
+          className="mt-40"
+        />
       </div>
-
-      <Footer />
-    </main>
+    </StudioPage>
   )
 }

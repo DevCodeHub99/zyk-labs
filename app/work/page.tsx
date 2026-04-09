@@ -1,12 +1,12 @@
 
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 import { siteConfig } from '@/config/site'
 import SectionHeader from '@/components/shared/SectionHeader'
 import StudioCard from '@/components/shared/StudioCard'
-import { ExternalLink, ArrowRight, Code2, Globe, Layout, Palette } from 'lucide-react'
+import { ExternalLink, ArrowRight, Code2 } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Metadata } from 'next'
+import StudioPage from '@/components/layout/StudioPage'
+import ContactCTA from '@/components/shared/ContactCTA'
 
 export const metadata: Metadata = {
   title: `Our Work | ${siteConfig.companyName}`,
@@ -18,15 +18,8 @@ export default function WorkPage() {
   const { items } = projects
 
   return (
-    <main className="min-h-screen bg-background flex flex-col pt-24">
-      <Navbar />
-      
-      {/* Background Decor */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden h-screen w-full">
-        <div className="absolute top-0 left-0 w-[1000px] h-[1000px] bg-accent/[0.02] rounded-full blur-[150px] -translate-y-1/2 -translate-x-1/2" />
-      </div>
-
-      <div className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24 relative z-10">
+    <StudioPage decorColor1="bg-accent/[0.02]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <SectionHeader 
           badge="Product Showcase"
           title={<>Built for <span className="text-accent italic-serif">Performance.</span></>}
@@ -82,21 +75,12 @@ export default function WorkPage() {
           ))}
         </div>
 
-        {/* Bottom Callout */}
-        <div className="mt-32 text-center">
-            <StudioCard className="max-w-3xl mx-auto p-12 md:p-16 border-accent/20" innerClassName="space-y-8">
-                <h2 className="text-3xl md:text-5xl font-black text-primary tracking-tighter italic-serif">
-                   Ready to build your <br />
-                   <span className="text-accent italic-serif">success story?</span>
-                </h2>
-                <Button size="lg" className="rounded-full h-16 px-10 bg-primary hover:opacity-90 text-white font-black uppercase tracking-widest text-xs shadow-2xl shadow-primary/20 transition-all hover:-translate-y-1" asChild>
-                    <a href="/#contact">Start Project Discovery</a>
-                </Button>
-            </StudioCard>
-        </div>
+        <ContactCTA 
+          title={<>Ready to build your <br /><span className="text-accent italic-serif">success story?</span></>}
+          buttonText="Start Project Discovery"
+          className="mt-32"
+        />
       </div>
-
-      <Footer />
-    </main>
+    </StudioPage>
   )
 }

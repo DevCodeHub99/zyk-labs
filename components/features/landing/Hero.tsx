@@ -3,7 +3,6 @@
 import { siteConfig } from '@/config/site'
 import { Button } from '@/components/ui/button'
 import { ArrowRight, Zap, Shield, Users, Clock } from 'lucide-react'
-import DashboardMockup from './DashboardMockup'
 
 export default function Hero() {
   const { hero } = siteConfig

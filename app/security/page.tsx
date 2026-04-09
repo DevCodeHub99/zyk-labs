@@ -1,12 +1,12 @@
 
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 import { siteConfig } from '@/config/site'
 import SectionHeader from '@/components/shared/SectionHeader'
 import StudioCard from '@/components/shared/StudioCard'
-import { Shield, ShieldAlert, Lock, Database, Eye, CheckCircle2, FileText, ArrowRight } from 'lucide-react'
-import { Button } from '@/components/ui/button'
 import { Metadata } from 'next'
+import { CheckCircle2 } from 'lucide-react'
+import StudioPage from '@/components/layout/StudioPage'
+import ContactCTA from '@/components/shared/ContactCTA'
+import { ShieldAlert, Lock, Database, FileText } from 'lucide-react'
 
 export const metadata: Metadata = {
   title: `Security & Compliance | ${siteConfig.companyName}`,
@@ -18,16 +18,8 @@ export default function SecurityPage() {
   const { measures } = security
 
   return (
-    <main className="min-h-screen bg-background flex flex-col pt-24">
-      <Navbar />
-      
-      {/* Background Decor */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden h-screen w-full">
-        <div className="absolute top-0 right-0 w-[1000px] h-[1000px] bg-emerald-500/[0.02] rounded-full blur-[150px] -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-accent/[0.03] rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2" />
-      </div>
-
-      <div className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-32 relative z-10">
+    <StudioPage decorColor1="bg-emerald-500/[0.02]" decorColor2="bg-accent/[0.03]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-32">
         <SectionHeader 
           badge={security.badge}
           title={<>Institutional <span className="text-accent italic-serif">Quality.</span></>}
@@ -101,26 +93,14 @@ export default function SecurityPage() {
             </div>
         </div>
 
-        {/* Legal Callout */}
-        <div className="mt-40 text-center space-y-12">
-            <StudioCard className="max-w-3xl mx-auto p-12 md:p-16 border-emerald-500/20" innerClassName="space-y-8">
-                <div className="w-20 h-20 rounded-full bg-emerald-500/10 flex items-center justify-center mx-auto text-emerald-500 shadow-2xl shadow-emerald-500/20">
-                    <FileText size={32} />
-                </div>
-                <h3 className="text-3xl font-black text-primary tracking-tighter italic-serif">Technical Compliance Blueprint</h3>
-                <p className="text-lg text-foreground/60 max-w-xl mx-auto font-medium leading-relaxed">
-                    Working on a high-stakes product? We provide a full technical audit and compliance blueprint for every build.
-                </p>
-                <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button className="rounded-full h-16 px-10 bg-primary hover:opacity-90 text-white font-black uppercase tracking-widest text-xs shadow-2xl shadow-primary/20 transition-all hover:-translate-y-1" asChild>
-                        <a href="/#contact">Review My Specs <ArrowRight size={14} className="ml-2" /></a>
-                    </Button>
-                </div>
-            </StudioCard>
-        </div>
+        <ContactCTA 
+          icon={FileText}
+          title="Technical Compliance Blueprint"
+          description="Working on a high-stakes product? We provide a full technical audit and compliance blueprint for every build."
+          buttonText="Review My Specs"
+          className="mt-40"
+        />
       </div>
-
-      <Footer />
-    </main>
+    </StudioPage>
   )
 }

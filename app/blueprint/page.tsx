@@ -1,12 +1,12 @@
 
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 import { siteConfig } from '@/config/site'
 import SectionHeader from '@/components/shared/SectionHeader'
 import StudioCard from '@/components/shared/StudioCard'
-import { ArrowRight, Search, Code2, Rocket, TrendingUp, MessageSquare, ShieldCheck, Zap } from 'lucide-react'
+import { ArrowRight, ShieldCheck, MessageSquare, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Metadata } from 'next'
+import StudioPage from '@/components/layout/StudioPage'
+import ContactCTA from '@/components/shared/ContactCTA'
 
 export const metadata: Metadata = {
   title: `The Blueprint | ${siteConfig.companyName}`,
@@ -18,16 +18,8 @@ export default function BlueprintPage() {
   const { steps } = process
 
   return (
-    <main className="min-h-screen bg-background flex flex-col pt-24">
-      <Navbar />
-      
-      {/* Background Decor */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden h-screen w-full">
-        <div className="absolute top-0 left-0 w-[1000px] h-[1000px] bg-accent/[0.03] rounded-full blur-[150px] -translate-y-1/2 -translate-x-1/2" />
-        <div className="absolute bottom-0 right-0 w-[800px] h-[800px] bg-primary/[0.02] rounded-full blur-[120px] translate-y-1/2 translate-x-1/2" />
-      </div>
-
-      <div className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-32 relative z-10">
+    <StudioPage decorColor1="bg-accent/[0.03]" decorColor2="bg-primary/[0.02]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-32">
         <SectionHeader 
           badge={process.badge}
           title={<>The Production <span className="text-accent italic-serif">Engine.</span></>}
@@ -116,29 +108,19 @@ export default function BlueprintPage() {
             </div>
         </div>
 
-        {/* CTA */}
-        <div className="mt-40 text-center">
-             <StudioCard className="max-w-4xl mx-auto p-12 md:p-20 border-accent/20" innerClassName="space-y-8">
-                 <h2 className="text-3xl md:text-6xl font-black text-primary tracking-tighter italic-serif">
-                   Ready to run your <br />
-                   <span className="text-accent italic-serif">First Sprint?</span>
-                 </h2>
-                 <p className="text-lg text-foreground/60 max-w-xl mx-auto font-medium leading-relaxed">
-                    Most builds are scoped and started within 72 hours of our discovery call.
-                 </p>
-                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button size="lg" className="rounded-full h-16 px-10 bg-primary hover:opacity-90 text-white font-black uppercase tracking-widest text-xs shadow-2xl shadow-primary/20 transition-all hover:-translate-y-1" asChild>
-                        <a href="/#contact">Book Discovery Call</a>
-                    </Button>
-                    <Button size="lg" variant="ghost" className="rounded-full h-16 px-10 border border-border text-[10px] font-black uppercase tracking-widest hover:bg-secondary" asChild>
-                        <a href="/estimate">Run Cost Estimator <ArrowRight size={14} className="ml-2" /></a>
-                    </Button>
-                 </div>
-             </StudioCard>
+        <ContactCTA 
+          title={<>Ready to run your <br /><span className="text-accent italic-serif">First Sprint?</span></>}
+          description="Most builds are scoped and started within 72 hours of our discovery call."
+          buttonText="Book Discovery Call"
+          className="mt-40"
+        />
+        
+        <div className="mt-8 text-center pb-20">
+            <Button size="lg" variant="ghost" className="rounded-full h-16 px-10 border border-border text-[10px] font-black uppercase tracking-widest hover:bg-secondary" asChild>
+                <a href="/estimate">Run Cost Estimator <ArrowRight size={14} className="ml-2" /></a>
+            </Button>
         </div>
       </div>
-
-      <Footer />
-    </main>
+    </StudioPage>
   )
 }

@@ -1,13 +1,11 @@
 
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 import { siteConfig } from '@/config/site'
-import SectionHeader from '@/components/shared/SectionHeader'
 import StudioCard from '@/components/shared/StudioCard'
 import { ArrowLeft, ArrowRight, CheckCircle2, Zap, Shield, BarChart3, Users, Settings } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { notFound } from 'next/navigation'
 import { Metadata } from 'next'
+import StudioPage from '@/components/layout/StudioPage'
 
 interface PageProps {
   params: Promise<{ slug: string }>
@@ -38,16 +36,8 @@ export default async function ServiceDetailPage({ params }: PageProps) {
   const IconGroup = [Zap, Shield, BarChart3, Users, Settings]
 
   return (
-    <main className="min-h-screen bg-background flex flex-col pt-24">
-      <Navbar />
-      
-      {/* Background Decor */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden h-screen w-full">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/[0.04] rounded-full blur-[150px] -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute bottom-0 left-0 w-[600px] h-[600px] bg-primary/[0.02] rounded-full blur-[120px] translate-y-1/2 -translate-x-1/2" />
-      </div>
-
-      <div className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-32 relative z-10">
+    <StudioPage>
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-32">
         
         <div className="mb-12">
             <Button variant="ghost" className="text-[10px] font-black uppercase tracking-widest gap-2 hover:bg-transparent hover:text-accent p-0" asChild>
@@ -163,8 +153,6 @@ export default async function ServiceDetailPage({ params }: PageProps) {
         </div>
 
       </div>
-
-      <Footer />
-    </main>
+    </StudioPage>
   )
 }

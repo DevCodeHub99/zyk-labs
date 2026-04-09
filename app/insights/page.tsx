@@ -1,12 +1,12 @@
 
-import Navbar from '@/components/layout/Navbar'
-import Footer from '@/components/layout/Footer'
 import { siteConfig } from '@/config/site'
 import SectionHeader from '@/components/shared/SectionHeader'
 import StudioCard from '@/components/shared/StudioCard'
-import { ArrowRight, Clock, User, ChevronRight } from 'lucide-react'
+import { ArrowRight, Clock, User } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { Metadata } from 'next'
+import StudioPage from '@/components/layout/StudioPage'
+import NewsletterCTA from '@/components/shared/NewsletterCTA'
 
 export const metadata: Metadata = {
   title: `Engineering Insights | ${siteConfig.companyName}`,
@@ -18,16 +18,8 @@ export default function InsightsPage() {
   const { articles, categories } = insights
 
   return (
-    <main className="min-h-screen bg-background flex flex-col pt-24">
-      <Navbar />
-      
-      {/* Background Decor */}
-      <div className="fixed inset-0 pointer-events-none overflow-hidden h-screen w-full">
-        <div className="absolute top-0 right-0 w-[800px] h-[800px] bg-accent/[0.03] rounded-full blur-[150px] -translate-y-1/2 translate-x-1/2" />
-        <div className="absolute top-1/2 left-0 w-2 h-screen bg-gradient-to-b from-transparent via-accent/20 to-transparent" />
-      </div>
-
-      <div className="flex-grow container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-32 relative z-10">
+    <StudioPage decorColor1="bg-accent/[0.03]" decorColor2="bg-accent/[0.01]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-32">
         <SectionHeader 
           badge={insights.badge}
           title={<>Technical <span className="text-accent italic-serif">Intelligence.</span></>}
@@ -89,25 +81,8 @@ export default function InsightsPage() {
           ))}
         </div>
 
-        {/* Global Newsletter / Callout */}
-        <div className="mt-32">
-             <StudioCard className="max-w-4xl mx-auto p-12 md:p-20 text-center border-accent/20" innerClassName="space-y-8">
-                 <h2 className="text-3xl md:text-5xl font-black text-primary tracking-tighter italic-serif">
-                   Stay ahead of the <br />
-                   <span className="text-accent italic-serif">Engineering Curve.</span>
-                 </h2>
-                 <p className="text-lg text-foreground/60 max-w-xl mx-auto font-medium leading-relaxed">
-                    Get monthly technical blueprints and product strategies delivered directly to your inbox.
-                 </p>
-                 <div className="flex flex-col sm:flex-row gap-4 max-w-md mx-auto">
-                    <input type="email" placeholder="work@email.com" className="flex-grow bg-secondary/30 border border-border rounded-full px-6 py-4 text-sm font-bold outline-none focus:border-accent transition-all" />
-                    <Button className="rounded-full h-14 px-8 bg-primary text-white font-black uppercase tracking-widest text-[10px]">Subscribe</Button>
-                 </div>
-             </StudioCard>
-        </div>
+        <NewsletterCTA />
       </div>
-
-      <Footer />
-    </main>
+    </StudioPage>
   )
 }
