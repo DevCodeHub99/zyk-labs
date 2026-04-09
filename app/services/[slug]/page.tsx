@@ -126,7 +126,7 @@ export default async function ServiceDetailPage({ params }: PageProps) {
 
                     <div className="pt-6 space-y-4">
                         <Button 
-                            className="w-full h-20 rounded-full bg-primary hover:bg-black text-white font-black uppercase tracking-widest text-xs shadow-2xl shadow-primary/20"
+                            className="w-full h-20 rounded-full bg-primary hover:opacity-90 text-white font-black uppercase tracking-widest text-xs shadow-2xl shadow-primary/20"
                             asChild
                         >
                             <a href="/estimate">Run Cost Estimator</a>

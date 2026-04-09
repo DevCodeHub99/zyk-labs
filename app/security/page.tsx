@@ -112,7 +112,7 @@ export default function SecurityPage() {
                     Working on a high-stakes product? We provide a full technical audit and compliance blueprint for every build.
                 </p>
                 <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button className="rounded-full h-16 px-10 bg-primary hover:bg-black text-white font-black uppercase tracking-widest text-xs shadow-2xl shadow-primary/20 transition-all hover:-translate-y-1" asChild>
+                    <Button className="rounded-full h-16 px-10 bg-primary hover:opacity-90 text-white font-black uppercase tracking-widest text-xs shadow-2xl shadow-primary/20 transition-all hover:-translate-y-1" asChild>
                         <a href="/#contact">Review My Specs <ArrowRight size={14} className="ml-2" /></a>
                     </Button>
                 </div>

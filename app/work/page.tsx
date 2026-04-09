@@ -89,7 +89,7 @@ export default function WorkPage() {
                    Ready to build your <br />
                    <span className="text-accent italic-serif">success story?</span>
                 </h2>
-                <Button size="lg" className="rounded-full h-16 px-10 bg-primary hover:bg-black text-white font-black uppercase tracking-widest text-xs shadow-2xl shadow-primary/20 transition-all hover:-translate-y-1" asChild>
+                <Button size="lg" className="rounded-full h-16 px-10 bg-primary hover:opacity-90 text-white font-black uppercase tracking-widest text-xs shadow-2xl shadow-primary/20 transition-all hover:-translate-y-1" asChild>
                     <a href="/#contact">Start Project Discovery</a>
                 </Button>
             </StudioCard>

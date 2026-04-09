@@ -100,7 +100,7 @@ export default function Services() {
 
         <div className="mt-20 text-center">
           <p className="text-sm font-bold text-foreground/40 uppercase tracking-[0.4em] mb-6">{services.labels.customPrompt}</p>
-          <Button size="lg" className="rounded-full px-10 h-14 bg-primary hover:bg-black font-black uppercase tracking-widest text-xs shadow-xl shadow-primary/20 transition-all hover:-translate-y-1" asChild>
+          <Button size="lg" className="rounded-full px-10 h-14 bg-primary hover:opacity-90 font-black uppercase tracking-widest text-xs shadow-xl shadow-primary/20 transition-all hover:-translate-y-1" asChild>
             <a href="/#contact">{services.labels.customButton} <Sparkles className="ml-2 w-4 h-4 text-accent" /></a>
           </Button>
         </div>

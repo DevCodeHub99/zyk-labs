@@ -197,7 +197,7 @@ export default function ProjectEstimator() {
                 size="lg"
                 onClick={nextStep}
                 disabled={!isStepValid}
-                className="rounded-full px-8 h-14 bg-primary hover:bg-black font-black uppercase tracking-widest text-[10px] gap-2 shadow-xl shadow-primary/20"
+                className="rounded-full px-8 h-14 bg-primary hover:opacity-90 font-black uppercase tracking-widest text-[10px] gap-2 shadow-xl shadow-primary/20"
               >
                 {currentStep === steps.length - 1 ? 'Build Roadmap' : 'Next Step'}
                 <ChevronRight className="w-4 h-4" />

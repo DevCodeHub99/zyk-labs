@@ -127,7 +127,7 @@ export default function BlueprintPage() {
                     Most builds are scoped and started within 72 hours of our discovery call.
                  </p>
                  <div className="flex flex-col sm:flex-row gap-4 justify-center">
-                    <Button size="lg" className="rounded-full h-16 px-10 bg-primary hover:bg-black text-white font-black uppercase tracking-widest text-xs shadow-2xl shadow-primary/20 transition-all hover:-translate-y-1" asChild>
+                    <Button size="lg" className="rounded-full h-16 px-10 bg-primary hover:opacity-90 text-white font-black uppercase tracking-widest text-xs shadow-2xl shadow-primary/20 transition-all hover:-translate-y-1" asChild>
                         <a href="/#contact">Book Discovery Call</a>
                     </Button>
                     <Button size="lg" variant="ghost" className="rounded-full h-16 px-10 border border-border text-[10px] font-black uppercase tracking-widest hover:bg-secondary" asChild>
