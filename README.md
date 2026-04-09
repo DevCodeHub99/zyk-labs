@@ -1,60 +1,58 @@
-# Zyk Labs
+# Zyklabs · Engineering Studio
 
-Marketing website for **Zyk Labs** — a software agency specializing in web applications and SaaS products.
+High-performance technical partner for early-stage founders. We turn concepts into scalable MVPs and institutional-grade SaaS platforms.
 
-## Tech Stack
+## 🏗️ Technical Stack
 
-- **Next.js 16** (App Router) + **React 19** + **TypeScript**
-- **Tailwind CSS** + **shadcn/ui** primitives
-- **Cal.com** embed for booking · **Formspree** for contact form
-- **Vercel Analytics** + **Speed Insights**
+- **Foundational**: [Next.js 16](https://nextjs.org/) (App Router), [React 19](https://react.dev/), [TypeScript](https://www.typescriptlang.org/)
+- **Design System**: [Tailwind CSS](https://tailwindcss.com/) + [shadcn/ui](https://ui.shadcn.com/)
+- **Interactions**: [Framer Motion](https://www.framer.com/motion/)
+- **Integrations**: [Cal.com](https://cal.com/) (Booking), [Formspree](https://formspree.io/) (Lead Gen)
+- **Monitoring**: [Vercel Speed Insights](https://vercel.com/docs/speed-insights) + [Analytics](https://vercel.com/docs/analytics)
 
-## Quick Start
+## 🚀 Deployment & Operations
 
+### 1. Initial Access
 ```bash
-git clone https://github.com/zyklabs/zyk-labs.git && cd zyk-labs
-cp .env.example .env.local   # fill in your keys
+git clone https://github.com/zyklabs/zyk-labs.git
+cd zyk-labs
 npm install
-npm run dev                    # → http://localhost:3000
 ```
 
-### Environment Variables
+### 2. Configuration
+Duplicate `.env.example` into `.env.local` and populate the following engineering keys:
+- `NEXT_PUBLIC_GA_ID`: Google Analytics tracking ID
+- `NEXT_PUBLIC_CAL_LINK`: Cal.com booking namespace
+- `NEXT_PUBLIC_FORMSPREE_ID`: Endpoint for contact form submission
 
-| Variable | Purpose |
-|---|---|
-| `NEXT_PUBLIC_FORMSPREE_ID` | Formspree form endpoint ID |
-| `NEXT_PUBLIC_CAL_LINK` | Cal.com booking link slug |
-
-## Project Structure
-
-```
-app/                    → Pages & layouts (App Router)
-components/
-  features/landing/     → Landing page sections (Hero, Contact, etc.)
-  layout/               → Navbar, Footer
-  shared/               → Logo
-  ui/                   → Base primitives (Button, Card, Sonner)
-config/
-  site.ts               → All site content (single source of truth)
-  legal.ts              → Privacy Policy & Terms of Service text
-lib/
-  utils.ts              → Tailwind class merge utility
-  scroll-to.ts          → Shared smooth-scroll helper
-public/                 → Favicon, OG image, logo
+### 3. Execution
+```bash
+npm run dev     # Development instance
+npm run build   # Production compile
+npm run start   # Production serve
 ```
 
-## Content Updates
+## 🛠️ Content Architecture
 
-Edit `config/site.ts` to change any text, navigation, team info, or pricing — no component code changes needed.
+The platform follows a **Single Source of Truth** pattern. All brand logic, pricing, team profiles, and service hierarchies are centralized in:
+`config/site.ts`
 
-## Scripts
+### Development Workflow
+To update the platform's narrative or add new intellectual assets:
+1. **Modify the Manifest**: Update the relevant segment within `siteConfig` in `config/site.ts`.
+2. **Type Validation**: The system enforces strict type safety via the `SiteConfig` interface in `types/index.ts`. Any structural changes to data MUST be reflected in the interface first.
+3. **Automated UI Rendering**: The UI layer dynamically reconstructs all segments (Home, About, Portfolio, Insights) based on the manifest, ensuring zero-latency updates with institutional-grade data integrity.
 
-| Command | Action |
-|---|---|
-| `npm run dev` | Start dev server |
-| `npm run build` | Production build |
-| `npm run start` | Serve production build |
+## 📁 System Topology
 
-## License
+- `app/`: Routing layer and high-authority page layouts.
+- `components/features/`: Specialized segment implementations (Estimator, Landing).
+- `components/shared/`: Reusable brand assets (Logo, StudioCard).
+- `components/ui/`: Atomic design system components.
+- `config/`: Centralized site manifest and legal protocols.
+- `hooks/`: Decoupled business logic and form states.
+- `types/`: Strict TypeScript interface definitions for platform integrity.
 
-© 2026 Zyk Labs. All rights reserved.
+## ⚖️ License & Integrity
+
+© 2026 **Zyklabs**. All rights reserved. Built for founders, by engineers.

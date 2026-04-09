@@ -19,7 +19,7 @@
 .DS_Store
 *.pem
 .vscode
-/skills-toolkit
+/skills
 
 # Debug
 npm-debug.log*

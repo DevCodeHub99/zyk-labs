@@ -1,17 +1,15 @@
 
-
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
-import ScrollAnalytics from '@/components/analytics/ScrollAnalytics'
 
 import {
   Hero,
+  Marquee,
   Services,
   Projects,
-  Process,
   WhyChooseUs,
-  Testimonials,
-  Team,
+  EstimatorTeaser,
+  InsightsTeaser,
   Contact,
   Pricing,
 } from '@/components/features/landing'
@@ -19,16 +17,15 @@ import {
 export default function Home() {
   return (
     <main className="w-full selection:bg-accent selection:text-white">
-      <ScrollAnalytics />
       <Navbar />
       <Hero />
-      <Services />
-      <Pricing />
-      <Projects />
-      <Process />
+      <Marquee />
       <WhyChooseUs />
-      <Testimonials />
-      <Team />
+      <Services />
+      <EstimatorTeaser />
+      <Projects />
+      <InsightsTeaser />
+      <Pricing />
       <Contact />
       <Footer />
     </main>

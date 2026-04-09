@@ -62,7 +62,7 @@ export default function Logo({
             viewBox="0 -32.26152 618.03559 206.01186"
             fill="none"
             role="img"
-            aria-label="Zyk Labs logo"
+            aria-label="Zyklabs logo"
             className={`block ${className}`}
         >
             <g transform="translate(-14.014382,-117.12547)">
@@ -106,7 +106,7 @@ export default function Logo({
             href={href}
             onClick={handleClick}
             className="inline-flex items-center focus-visible:outline-none focus-visible:ring-2 focus-visible:ring-ring focus-visible:ring-offset-2 rounded-sm"
-            aria-label="Zyk Labs — Go to homepage"
+            aria-label="Zyklabs — Go to homepage"
         >
             {svg}
         </Link>

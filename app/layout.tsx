@@ -5,6 +5,8 @@ import { Toaster } from '@/components/ui/sonner'
 import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { siteConstants } from '@/config/site'
+import CustomCursor from '@/components/ui/CustomCursor'
+import Script from 'next/script'
 
 import './globals.css'
 
@@ -22,7 +24,7 @@ export const metadata: Metadata = {
   // Formula: [What you get] | [Who we are]
   // Under 60 chars. Outcome first, brand second.
   title: {
-    default: 'Zyklabs — Turn Your Idea Into a Working App, Fast',
+    default: 'Zyklabs - Turn Your Idea Into a Working App, Fast',
     template: '%s | Zyklabs',
   },
 
@@ -331,7 +333,7 @@ export default function RootLayout({
   }
 
   return (
-    <html lang="en" className="scroll-smooth" suppressHydrationWarning>
+    <html lang="en" className="scroll-smooth" suppressHydrationWarning data-scroll-behavior="smooth">
       <head>
         <ThemeScript />
         {/* Structured Data */}
@@ -349,6 +351,26 @@ export default function RootLayout({
         />
       </head>
       <body className={`${inter.className} font-sans antialiased`}>
+        {/* Google Analytics */}
+        {process.env.NEXT_PUBLIC_GA_ID && (
+          <>
+            <Script
+              src={`https://www.googletagmanager.com/gtag/js?id=${process.env.NEXT_PUBLIC_GA_ID}`}
+              strategy="afterInteractive"
+            />
+            <Script id="google-analytics" strategy="afterInteractive">
+              {`
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+
+                gtag('config', '${process.env.NEXT_PUBLIC_GA_ID}');
+              `}
+            </Script>
+          </>
+        )}
+
+        <CustomCursor />
         {children}
         <Toaster />
         <Analytics />

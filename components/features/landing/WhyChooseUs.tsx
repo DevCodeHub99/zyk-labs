@@ -1,45 +1,52 @@
-
-
 import { siteConfig } from '@/config/site'
-import { Card } from '@/components/ui/card'
+import SectionHeader from '@/components/shared/SectionHeader'
+import StudioCard from '@/components/shared/StudioCard'
 
 export default function WhyChooseUs() {
   const { whyChooseUs } = siteConfig
-  const { reasons } = whyChooseUs
+  const { painPoints, title, subtitle, badge, description } = whyChooseUs
 
   return (
-    <section className="py-20 md:py-32 relative overflow-hidden">
-      <div className="absolute inset-0 bg-[radial-gradient(ellipse_at_top,_var(--tw-gradient-stops))] from-accent/5 via-transparent to-transparent" />
+    <section className="py-16 md:py-24 bg-background relative flex flex-col items-center justify-center overflow-hidden">
+      
+      {/* Ambient Glow */}
+      <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[600px] h-[600px] bg-accent/[0.02] rounded-full blur-[100px] pointer-events-none" />
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="text-center space-y-4 mb-20">
-          <div className="inline-flex items-center rounded-full border border-primary/10 bg-primary/5 px-3 py-1 text-sm font-medium text-primary">
-            {whyChooseUs.badge}
-          </div>
-          <h2 className="text-3xl md:text-5xl font-bold text-primary tracking-tight">{whyChooseUs.title}</h2>
-          <p className="text-lg text-foreground/70 max-w-2xl mx-auto text-balance">
-            {whyChooseUs.description}
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-20 w-full">
+        <SectionHeader 
+          badge={badge}
+          title={<>{whyChooseUs.titleHighlighted.main} <span className="text-accent italic-serif">{whyChooseUs.titleHighlighted.accent}</span></>}
+          description={description}
+        />
+      </div>
+
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 text-center flex flex-col items-center relative z-10">
+        
+        {/* Pain points stacked - more compact */}
+        <div className="space-y-3 md:space-y-4 text-base md:text-xl font-medium text-foreground/30 mb-12 lg:mb-16">
+          {painPoints.map((point: string, idx: number) => (
+            <div key={idx} className="flex flex-col items-center gap-1 group cursor-default">
+               <p className="tracking-tight group-hover:text-foreground/60 transition-colors duration-500">
+                {point}
+               </p>
+            </div>
+          ))}
+        </div>
+
+        {/* The Bold Resolution - Centered Callout Card */}
+        <StudioCard className="w-full max-w-3xl p-8 md:p-12 text-center" innerClassName="space-y-6">
+          <h2 className="text-3xl md:text-5xl lg:text-7xl font-black tracking-tighter leading-[0.9] text-primary">
+            {whyChooseUs.titleParts.main} <span className="text-accent italic-serif">{whyChooseUs.titleParts.build}</span> <br/>
+            {whyChooseUs.titleParts.final}
+          </h2>
+          
+          <div className="h-px w-16 bg-accent/30 mx-auto" />
+
+          <p className="text-[10px] font-black uppercase tracking-[0.2em] text-primary/40">
+            {subtitle}
           </p>
-        </div>
+        </StudioCard>
 
-        <div className="grid md:grid-cols-2 lg:grid-cols-3 gap-8">
-          {reasons.map((reason) => {
-            const IconComponent = reason.icon
-            return (
-              <Card key={reason.title} className="group border-border bg-card p-8 hover:border-accent/40 transition-all duration-300 hover:shadow-lg hover:-translate-y-1">
-                <div className="space-y-6">
-                  <div className="inline-flex p-3 bg-secondary rounded-xl group-hover:bg-accent group-hover:text-white transition-colors duration-300">
-                    <IconComponent className="w-6 h-6 text-accent group-hover:text-white transition-colors duration-300" />
-                  </div>
-                  <div>
-                    <h3 className="text-xl font-bold text-primary mb-3 group-hover:text-accent transition-colors">{reason.title}</h3>
-                    <p className="text-foreground/70 text-sm leading-relaxed">{reason.description}</p>
-                  </div>
-                </div>
-              </Card>
-            )
-          })}
-        </div>
       </div>
     </section>
   )
