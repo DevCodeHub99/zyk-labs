@@ -35,14 +35,14 @@ export default function SectionHeader({
   }
 
   return (
-    <div className={`${alignmentClasses[align]} space-y-4 mb-12 md:mb-16 ${className}`}>
-      <div className={`inline-flex items-center rounded-full border border-primary/10 bg-primary/5 px-4 py-1.5 text-[10px] font-black uppercase tracking-[0.25em] text-primary ${badgeClassName}`}>
+    <div className={`${alignmentClasses[align]} space-y-4 mb-10 md:mb-16 ${className}`}>
+      <div className={`inline-flex items-center rounded-full border border-primary/10 bg-primary/5 px-4 py-1.5 text-[9px] md:text-[10px] font-black uppercase tracking-[0.25em] text-primary ${badgeClassName}`}>
         {badge}
       </div>
-      <h2 className="text-4xl md:text-6xl font-black text-primary tracking-tighter leading-tight italic-serif">
+      <h2 className="text-3xl sm:text-4xl md:text-5xl lg:text-6xl font-black text-primary tracking-tighter leading-[1.1] md:leading-tight italic-serif">
         {title}
       </h2>
-      <p className={`text-base text-foreground/50 max-w-2xl font-medium leading-relaxed ${paragraphAlignmentClasses[align]}`}>
+      <p className={`text-sm md:text-base text-foreground/50 max-w-2xl font-medium leading-relaxed px-4 md:px-0 ${paragraphAlignmentClasses[align]}`}>
         {description}
       </p>
     </div>

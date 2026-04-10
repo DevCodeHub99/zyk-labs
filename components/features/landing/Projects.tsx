@@ -21,7 +21,7 @@ export default function Projects() {
         />
 
         {/* Small Project Cards (Grid of 3) */}
-        <div className="grid md:grid-cols-3 gap-6 mb-12 md:mb-20 max-w-6xl mx-auto md:mx-0">
+        <div className="grid sm:grid-cols-2 md:grid-cols-3 gap-6 mb-12 md:mb-20 max-w-6xl mx-auto md:mx-0">
           {items.slice(0, 3).map((item) => (
             <StudioCard 
               key={item.title} 

@@ -26,7 +26,7 @@ export default function WorkPage() {
           description="A curation of high-velocity builds, from founder MVPs to enterprise-grade internal tools."
         />
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-12 md:mt-24">
+        <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8 mt-12 md:mt-24">
           {items.map((project) => (
             <StudioCard 
                 key={project.title} 

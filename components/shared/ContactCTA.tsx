@@ -26,8 +26,8 @@ export default function ContactCTA({
   badge,
 }: ContactCTAProps) {
   return (
-    <div className={`mt-20 md:mt-48 text-center px-4 ${className}`}>
-      <StudioCard className="max-w-4xl mx-auto p-6 md:p-20 border-accent/20" innerClassName="space-y-6 md:space-y-8">
+    <div className={`mt-20 md:mt-32 lg:mt-48 text-center px-4 ${className}`}>
+      <StudioCard className="max-w-4xl mx-auto p-6 md:p-12 lg:p-20 border-accent/20" innerClassName="space-y-6 md:space-y-8">
         {badge && (
            <p className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.4em] text-accent mb-1 md:mb-2">{badge}</p>
         )}

@@ -58,29 +58,29 @@ export default function Navbar() {
           : 'bg-transparent py-2 px-0'
         }`}
       >
-        <div className="flex justify-between md:grid md:grid-cols-[200px_1fr_200px] items-center">
+        <div className="flex justify-between items-center lg:grid lg:grid-cols-[180px_1fr_180px]">
           {/* Logo — left */}
           <div className="flex items-center">
             <Logo size="sm" className="transition-transform hover:scale-105 duration-300" />
           </div>
 
           {/* Desktop Navigation — true center */}
-          <div className="hidden md:flex items-center justify-center gap-10">
+          <div className="hidden lg:flex items-center justify-center gap-6 xl:gap-8">
             {navigation.map((item) => (
               <a
                 key={item.label}
                 href={pathname !== '/' && item.href.startsWith('#') ? `/${item.href}` : item.href}
                 onClick={(e) => onNavClick(e, item.href)}
-                className="group relative text-[13px] font-black uppercase tracking-[0.15em] text-foreground/70 hover:text-primary transition-all duration-300"
+                className="group relative text-[11px] xl:text-xs font-black uppercase tracking-[0.15em] text-foreground/70 hover:text-primary transition-all duration-300 whitespace-nowrap"
               >
                 <span className="relative z-10">{item.label}</span>
-                <span className="absolute -bottom-1.5 left-0 w-0 h-[3px] bg-accent transition-all duration-300 group-hover:w-full opacity-80" />
+                <span className="absolute -bottom-1.5 left-0 w-0 h-[2px] bg-accent transition-all duration-300 group-hover:w-full opacity-80" />
               </a>
             ))}
           </div>
 
           {/* Desktop Actions — right */}
-          <div className="hidden md:flex items-center gap-6 justify-end">
+          <div className="hidden lg:flex items-center gap-4 xl:gap-6 justify-end">
             <div className="w-8 h-8 flex items-center justify-center">
               {isMounted && (
                 <button
@@ -88,29 +88,29 @@ export default function Navbar() {
                   className="p-2 rounded-xl bg-secondary/30 hover:bg-secondary transition-all text-foreground/50 hover:text-foreground"
                   aria-label="Toggle theme"
                 >
-                  {isDark ? <Sun size={16} /> : <Moon size={16} />}
+                  {isDark ? <Sun size={15} /> : <Moon size={15} />}
                 </button>
               )}
             </div>
             <Button
               asChild
-              className="group h-12 px-8 rounded-full bg-primary hover:opacity-90 text-primary-foreground font-black uppercase tracking-widest text-[10px] shadow-xl shadow-primary/20 transition-all hover:-translate-y-0.5"
+              className="group h-11 px-6 xl:px-8 rounded-full bg-primary hover:opacity-90 text-primary-foreground font-black uppercase tracking-widest text-[9px] xl:text-[10px] shadow-xl shadow-primary/20 transition-all hover:-translate-y-0.5"
             >
               <a href="#contact" onClick={(e) => onNavClick(e, '#contact')} className="flex items-center gap-2">
-                {siteConfig.global.cta.contact} <ChevronRight className="w-3.5 h-3.5 transition-transform group-hover:translate-x-1" />
+                {siteConfig.global.cta.contact} <ChevronRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
           </div>
 
           {/* Mobile Controls */}
-          <div className="md:hidden flex items-center gap-4 relative z-50">
+          <div className="lg:hidden flex items-center gap-3 relative z-50">
             {isMounted && (
                 <button
                 onClick={toggleTheme}
                 className="p-2 rounded-xl bg-secondary/40 text-foreground/70"
                 aria-label="Toggle theme"
                 >
-                {isDark ? <Sun size={18} /> : <Moon size={18} />}
+                {isDark ? <Sun size={17} /> : <Moon size={17} />}
                 </button>
             )}
             <button
@@ -126,7 +126,7 @@ export default function Navbar() {
 
       {/* Mobile Overlay */}
       <div
-        className={`fixed inset-0 z-40 bg-background/98 backdrop-blur-2xl md:hidden transition-all duration-500 ease-in-out ${
+        className={`fixed inset-0 z-40 bg-background/98 backdrop-blur-2xl lg:hidden transition-all duration-500 ease-in-out ${
           isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
         }`}
       >

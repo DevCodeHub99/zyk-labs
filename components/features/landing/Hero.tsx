@@ -8,28 +8,28 @@ export default function Hero() {
   const { hero } = siteConfig
 
   return (
-    <section className="relative pt-24 pb-12 md:pt-48 md:pb-20 overflow-hidden bg-background">
+    <section className="relative pt-24 sm:pt-36 md:pt-40 lg:pt-48 pb-12 sm:pb-16 md:pb-20 overflow-hidden bg-background">
       <div className="absolute inset-0 z-0">
         <div className="absolute top-0 left-1/2 -translate-x-1/2 w-full h-[800px] bg-gradient-to-b from-accent/5 to-transparent blur-[120px] pointer-events-none" />
       </div>
 
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="flex flex-col items-center text-center space-y-8 md:space-y-10">
+        <div className="flex flex-col items-center text-center space-y-6 sm:space-y-8 md:space-y-10">
           
           {/* Availability Badge */}
-          <div className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-card/50 backdrop-blur-md px-4 py-2 text-[10px] font-black uppercase tracking-[0.2em] text-primary shadow-xl shadow-primary/5 animate-in fade-in slide-in-from-top-4 duration-700">
+          <div className="inline-flex items-center gap-2 rounded-full border border-primary/10 bg-card/50 backdrop-blur-md px-4 py-2 text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-primary shadow-xl shadow-primary/5 animate-in fade-in slide-in-from-top-4 duration-700">
             <span className="flex h-2 w-2 rounded-full bg-accent animate-pulse"></span>
             {hero.badge}
           </div>
 
           {/* High-Impact Headline */}
-          <div className="space-y-6 max-w-5xl">
-            <h1 className="text-[2.75rem] md:text-8xl lg:text-9xl font-black tracking-tighter text-primary leading-[1] md:leading-[0.85] animate-in fade-in slide-in-from-bottom-4 duration-500">
+          <div className="space-y-4 sm:space-y-6 max-w-5xl">
+            <h1 className="text-[2.5rem] sm:text-6xl md:text-7xl lg:text-9xl font-black tracking-[0.01em] sm:tracking-tighter text-primary leading-[1.05] sm:leading-[1] md:leading-[0.85] animate-in fade-in slide-in-from-bottom-4 duration-500">
                {hero.title.first} <br />
                {hero.title.second} <span className="text-accent italic-serif">{hero.title.highlight}</span>
             </h1>
 
-            <p className="text-base md:text-2xl text-foreground/50 max-w-3xl mx-auto leading-relaxed font-medium animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
+            <p className="text-sm sm:text-xl md:text-2xl text-foreground/50 max-w-3xl mx-auto leading-relaxed font-medium px-4 md:px-0 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
               {hero.description}
             </p>
           </div>

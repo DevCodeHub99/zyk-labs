@@ -34,15 +34,15 @@ export default function WhyChooseUs() {
         </div>
 
         {/* The Bold Resolution - Centered Callout Card */}
-        <StudioCard className="w-full max-w-3xl p-6 md:p-12 text-center" innerClassName="space-y-6">
-          <h2 className="text-2xl md:text-5xl lg:text-7xl font-black tracking-tighter leading-[1] md:leading-[0.9] text-primary">
+        <StudioCard className="w-full max-w-3xl p-6 sm:p-8 md:p-12 text-center" innerClassName="space-y-4 sm:space-y-6">
+          <h2 className="text-2xl sm:text-4xl md:text-5xl lg:text-7xl font-black tracking-tighter leading-[1] md:leading-[0.9] text-primary">
             {whyChooseUs.titleParts.main} <span className="text-accent italic-serif">{whyChooseUs.titleParts.build}</span> <br/>
             {whyChooseUs.titleParts.final}
           </h2>
           
-          <div className="h-px w-12 md:w-16 bg-accent/30 mx-auto" />
+          <div className="h-px w-10 md:w-16 bg-accent/30 mx-auto" />
 
-          <p className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] text-primary/40">
+          <p className="text-[8px] md:text-[10px] font-black uppercase tracking-[0.2em] text-primary/40">
             {subtitle}
           </p>
         </StudioCard>
