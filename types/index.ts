@@ -211,6 +211,23 @@ export interface SiteConfig {
       privacyPolicy: LegalSection
       termsOfService: LegalSection
   }
+  careers: {
+    badge: string
+    title: string
+    description: string
+    note: string
+    contact: { email: string; cta: string }
+    perks: { title: string; description: string; icon: LucideIcon }[]
+    openings: {
+        title: string
+        badge: string
+        tagline: string
+        description: string
+        requirements: string[]
+        type: string
+        remote: boolean
+    }[]
+  }
   footer: {
     tagline: string
     copyright: string

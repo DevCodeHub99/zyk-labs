@@ -74,6 +74,7 @@ export const siteConfig: SiteConfig = {
         { label: 'Pricing', href: '/pricing' },
         { label: 'Estimate', href: '/estimate' },
         { label: 'About Us', href: '/about' },
+        { label: 'Careers', href: '/careers' },
         { label: 'Insights', href: '/insights' },
     ],
 
@@ -539,6 +540,78 @@ export const siteConfig: SiteConfig = {
                 }
             ]
         }
+    },
+
+    careers: {
+        badge: "The Mission",
+        title: "Join the Zyklabs Alchemists",
+        description: "We're not just hiring employees. We're looking for partners who want to build the future of startups.",
+        note: "We don't always know what we need until the right person shows up.",
+        contact: {
+            email: "careers@zyklabs.in",
+            cta: "Send Your Pitch"
+        },
+        perks: [
+            {
+                title: "Remote First",
+                description: "Work from anywhere. We care about your output, not your time zone.",
+                icon: Globe
+            },
+            {
+                title: "Direct Ownership",
+                description: "You own the features you build and talk directly to founders.",
+                icon: Zap
+            },
+            {
+                title: "Fast Growth",
+                description: "Work on new 0-to-1 products every few weeks.",
+                icon: Sparkles
+            }
+        ],
+        openings: [
+            {
+                title: 'Business Development Partner',
+                badge: 'Revenue First',
+                tagline: "You know people. People trust you. Let's build together.",
+                description: "We're not looking for a salesperson. We're looking for a connector — someone who moves in startup and SME circles, spots founders who need a tech partner, and closes on relationships, not cold decks. If you've ever said \"I know a dev team that can build this\" — that's the job.",
+                requirements: [
+                    'Active in startup/founder communities (online or offline)',
+                    'Comfortable having business conversations, not just technical ones',
+                    'Someone with a network that trusts your recommendations',
+                    'Self-driven — you don\'t wait for leads, you generate them',
+                ],
+                type: 'Commission + Bonuses',
+                remote: true,
+            },
+            {
+                title: 'Full-Stack Engineer',
+                badge: 'Builder Mindset',
+                tagline: 'Ship fast. Think scale. Care about the product.',
+                description: "You'll be building real products for real startups — MVPs that go live in weeks. You should be comfortable with Next.js, TypeScript, and AI-assisted workflows. We don’t care about your degree; we care about your GitHub and your ability to solve hard problems independently.",
+                requirements: [
+                    'Expert in React/Next.js/Node.js ecosystem',
+                    'Ability to own features from design to deployment',
+                    'Experience with AI tools (Cursor/LLMs) to 10x your output',
+                    'Builder mindset - you care about the UX as much as the DX',
+                ],
+                type: 'Full-Time / Freelance Hybrid',
+                remote: true,
+            },
+            {
+                title: 'Surprise Us',
+                badge: 'Wildcard',
+                tagline: "Do you have a skill we haven't listed but probably need?",
+                description: "Maybe you're an AI researcher, a world-class UI designer, or a growth hacker who understands systems. If you think your presence at Zyklabs would 10x our value to founders, send us a pitch.",
+                requirements: [
+                    'High integrity and accountability',
+                    'A obsession with quality and speed',
+                    'Previous solo or startup-centric project experience',
+                    'The ability to define your own value',
+                ],
+                type: 'Value-Based Agreement',
+                remote: true,
+            },
+        ]
     },
 
     footer: {

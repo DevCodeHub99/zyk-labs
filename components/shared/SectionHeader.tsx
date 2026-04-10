@@ -2,7 +2,7 @@
 import React from 'react'
 
 interface SectionHeaderProps {
-  badge: string
+  badge: React.ReactNode
   title: React.ReactNode
   description: string
   className?: string
