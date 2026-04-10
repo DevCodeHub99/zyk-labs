@@ -4,6 +4,7 @@ import { siteConfig } from '@/config/site'
 import Logo from '@/components/shared/Logo'
 import { handleScrollTo } from '@/lib/scroll-to'
 import { Mail, ArrowUpRight, Shield, Globe, Zap } from 'lucide-react'
+import NewsletterCTA from '@/components/shared/NewsletterCTA'
 
 export default function Footer() {
   const { footer } = siteConfig
@@ -16,11 +17,11 @@ export default function Footer() {
         ZYKLABS
       </div>
 
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-        <div className="grid lg:grid-cols-12 gap-16 lg:gap-8 mb-24">
+      <div className="max-w-7xl mx-auto px-6 sm:px-10 lg:px-12 xl:px-16 relative z-10">
+        <div className="grid lg:grid-cols-12 gap-12 lg:gap-16 xl:gap-24 mb-24">
           
           {/* Brand & Manifesto */}
-          <div className="lg:col-span-5 space-y-8">
+          <div className="lg:col-span-4 space-y-6 md:space-y-8">
             <div className="space-y-4">
                 <Logo size="sm" asImage className="opacity-90" />
                 <p className="text-xl md:text-2xl font-medium text-primary-foreground/70 max-w-sm leading-relaxed italic-serif">
@@ -39,9 +40,7 @@ export default function Footer() {
           </div>
 
           {/* Navigation Links Grid */}
-          <div className="lg:col-span-1 hidden lg:block" /> {/* Spacer */}
-
-          <div className="lg:col-span-6 grid grid-cols-2 md:grid-cols-3 gap-12">
+          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8 md:gap-16 lg:gap-10 xl:gap-12">
             {/* Services */}
             <div className="space-y-6">
                 <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-primary-foreground/30">Services</h4>
@@ -101,21 +100,26 @@ export default function Footer() {
                     })}
                 </div>
             </div>
+
+            {/* Newsletter Mini */}
+            <div className="md:col-span-1 min-w-[200px]">
+                <NewsletterCTA variant="mini" />
+            </div>
           </div>
         </div>
 
         {/* Bottom Bar */}
-        <div className="pt-12 border-t border-white/5 flex flex-col md:flex-row items-center justify-between gap-8">
+        <div className="pt-12 border-t border-primary-foreground/5 flex flex-col md:flex-row items-center justify-between gap-8">
           <div className="flex flex-col md:flex-row items-center gap-6">
             <p className="text-[10px] font-bold text-primary-foreground/30 uppercase tracking-[0.1em]">
                 {footer.copyright}
             </p>
             
-            <div className="flex items-center gap-4 bg-white/5 px-4 py-2 rounded-full border border-white/5">
+            <div className="flex items-center gap-4 bg-primary-foreground/5 px-4 py-2 rounded-full border border-primary-foreground/5">
                 <div className="flex items-center gap-2 text-[10px] font-black uppercase tracking-widest text-primary-foreground/40">
                     <Globe className="w-3 h-3 text-accent" /> Remote First
                 </div>
-                <div className="w-px h-3 bg-white/10" />
+                <div className="w-px h-3 bg-primary-foreground/10" />
                 <div className="flex items-center gap-1.5 text-[10px] font-black uppercase tracking-widest text-primary-foreground/40">
                     Made with <span className="text-red-500 animate-pulse">❤️</span> in
                     <svg width="18" height="12" viewBox="0 0 900 600" className="rounded-sm inline-block">
