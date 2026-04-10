@@ -40,7 +40,7 @@ export default function Footer() {
           </div>
 
           {/* Navigation Links Grid */}
-          <div className="lg:col-span-8 grid grid-cols-2 md:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8 md:gap-16 lg:gap-10 xl:gap-12">
+          <div className="lg:col-span-6 grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-y-12 gap-x-8 md:gap-16 lg:gap-10 xl:gap-12">
             {/* Services */}
             <div className="space-y-6">
                 <h4 className="text-[10px] font-black uppercase tracking-[0.3em] text-primary-foreground/30">Services</h4>

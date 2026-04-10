@@ -66,8 +66,14 @@ export default function CustomCursor() {
         delayedPos.current.x += (mousePos.current.x - delayedPos.current.x) * 0.2
         delayedPos.current.y += (mousePos.current.y - delayedPos.current.y) * 0.2
         
-        ringRef.current.style.transform = `translate(${delayedPos.current.x - 16}px, ${delayedPos.current.y - 16}px) scale(${isHovering ? 2.5 : 1})`
+        // Consistent scale, no hover expansion
+        ringRef.current.style.transform = `translate(${delayedPos.current.x - 16}px, ${delayedPos.current.y - 16}px) scale(1)`
         ringRef.current.style.opacity = isVisible ? '1' : '0'
+        
+        // Maintain consistent appearance
+        ringRef.current.style.backgroundColor = 'transparent'
+        ringRef.current.style.backdropFilter = 'none'
+        ringRef.current.style.border = '1px solid hsl(var(--accent) / 0.4)'
       }
       
       rafId = requestAnimationFrame(render)
@@ -88,15 +94,15 @@ export default function CustomCursor() {
 
   return (
     <>
-      {/* Outer Ring */}
+      {/* Outer Ring / Static Circle */}
       <div 
         ref={ringRef}
-        className="fixed top-0 left-0 w-8 h-8 pointer-events-none z-[9999] rounded-full border border-accent/40 flex items-center justify-center mix-blend-difference hidden md:flex will-change-transform transition-opacity duration-300"
+        className="fixed top-0 left-0 w-8 h-8 pointer-events-none z-[9999] rounded-full flex items-center justify-center hidden md:flex will-change-transform transition-opacity duration-300"
       >
-          {/* Inner Dot - nested to follow the ring easily or could be separate for different physics */}
+          {/* Inner Dot */}
           <div 
             ref={dotRef}
-            className={`w-1.5 h-1.5 rounded-full bg-accent transition-transform duration-300 ${isHovering ? 'scale-0' : 'scale-100'}`} 
+            className="w-1 h-1 rounded-full bg-accent scale-100 opacity-100 shadow-[0_0_8px_hsl(var(--accent)/0.4)]" 
           />
       </div>
 
