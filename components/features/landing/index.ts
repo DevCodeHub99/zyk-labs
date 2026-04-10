@@ -3,7 +3,7 @@ export { default as Marquee } from './Marquee';
 export { default as Services } from './Services';
 export { default as Projects } from './Projects';
 export { default as WhyChooseUs } from './WhyChooseUs';
-export { default as Contact } from './Contact';
+export { default as ContactHook } from './ContactHook';
 export { default as InsightsTeaser } from './InsightsTeaser';
 export { default as EstimatorTeaser } from './EstimatorTeaser';
 export { default as PricingTeaser } from './PricingTeaser';

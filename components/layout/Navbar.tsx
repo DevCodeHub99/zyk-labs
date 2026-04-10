@@ -96,7 +96,7 @@ export default function Navbar() {
               asChild
               className="group h-11 px-6 xl:px-8 rounded-full bg-primary hover:opacity-90 text-primary-foreground font-black uppercase tracking-widest text-[9px] xl:text-[10px] shadow-xl shadow-primary/20 transition-all hover:-translate-y-0.5"
             >
-              <a href="#contact" onClick={(e) => onNavClick(e, '#contact')} className="flex items-center gap-2">
+              <a href="/contact" className="flex items-center gap-2">
                 {siteConfig.global.cta.contact} <ChevronRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
               </a>
             </Button>
@@ -157,7 +157,7 @@ export default function Navbar() {
               asChild
               className="w-full h-12 rounded-2xl bg-primary text-white text-xs font-black uppercase tracking-widest shadow-xl shadow-primary/10"
             >
-              <a href="#contact" onClick={(e) => onNavClick(e, '#contact')}>
+              <a href="/contact" onClick={closeMenu}>
                 {siteConfig.global.cta.mobile}
               </a>
             </Button>

@@ -87,7 +87,7 @@ export const siteConfig: SiteConfig = {
         },
         description: 'We are a specialized engineering studio helping founders turn ideas into functioning MVPs and scalable web platforms. We build fast, communicate directly, and care about your product.',
         cta: {
-            primary: { text: 'Book A Discovery Call', href: '#contact' },
+            primary: { text: 'Book A Discovery Call', href: '/contact' },
             secondary: { text: 'Explore Packages', href: '/pricing' },
         },
         usp: [{ text: 'Affordable Rates' }, { text: 'Direct Founder Collaboration' }],
@@ -558,7 +558,7 @@ export const siteConfig: SiteConfig = {
                 { label: 'Project Estimator', href: '/estimate' },
                 { label: 'Insights', href: '/insights' },
                 { label: 'Security', href: '/security' },
-                { label: 'Contact', href: '/#contact' },
+                { label: 'Contact', href: '/contact' },
             ],
             legal: [
                 { label: 'Privacy Policy', href: '/privacy-policy' },

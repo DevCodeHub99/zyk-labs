@@ -10,7 +10,7 @@ const EstimatorTeaser = dynamic(() => import('@/components/features/landing/Esti
 const Projects = dynamic(() => import('@/components/features/landing/Projects'))
 const InsightsTeaser = dynamic(() => import('@/components/features/landing/InsightsTeaser'))
 const PricingTeaser = dynamic(() => import('@/components/features/landing/PricingTeaser'))
-const Contact = dynamic(() => import('@/components/features/landing/Contact'))
+const ContactHook = dynamic(() => import('@/components/features/landing/ContactHook'))
 
 export default function Home() {
   return (
@@ -24,7 +24,7 @@ export default function Home() {
       <Projects />
       <InsightsTeaser />
       <PricingTeaser />
-      <Contact />
+      <ContactHook />
       <Footer />
     </main>
   )
