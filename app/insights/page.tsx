@@ -27,51 +27,51 @@ export default function InsightsPage() {
         />
 
         {/* Categories Bar */}
-        <div className="flex flex-wrap items-center justify-center gap-4 mt-12 mb-20">
+        <div className="flex flex-wrap items-center justify-center gap-3 md:gap-4 mt-10 md:mt-12 mb-12 md:mb-20">
             {categories.map((cat: string) => (
-                <button key={cat} className="px-6 py-2 rounded-full border border-border/50 text-[10px] font-black uppercase tracking-widest hover:border-accent hover:text-accent transition-all bg-secondary/20">
+                <button key={cat} className="px-5 md:px-6 py-2 rounded-full border border-border/50 text-[9px] md:text-[10px] font-black uppercase tracking-widest hover:border-accent hover:text-accent transition-all bg-secondary/20">
                     {cat}
                 </button>
             ))}
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6 md:gap-8">
           {articles.map((article) => (
             <StudioCard 
                 key={article.slug} 
                 className="group flex flex-col h-full hover:border-accent/30 transition-all duration-500"
-                innerClassName="p-8 flex flex-col h-full"
+                innerClassName="p-6 md:p-8 flex flex-col h-full"
             >
-              <div className="space-y-4 mb-8 flex-grow">
+              <div className="space-y-3 md:space-y-4 mb-6 md:mb-8 flex-grow">
                 <div className="flex justify-between items-center">
-                    <span className="text-[10px] font-black uppercase tracking-widest text-accent bg-accent/10 px-3 py-1 rounded-full">
+                    <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-accent bg-accent/10 px-3 py-1 rounded-full">
                         {article.category}
                     </span>
-                    <span className="text-[9px] font-bold text-foreground/30 uppercase tracking-tighter">
+                    <span className="text-[8px] md:text-[9px] font-bold text-foreground/30 uppercase tracking-tighter">
                         {article.date}
                     </span>
                 </div>
                 
-                <h3 className="text-2xl font-black text-primary tracking-tight leading-tight group-hover:text-accent transition-colors">
+                <h3 className="text-xl md:text-2xl font-black text-primary tracking-tight leading-tight group-hover:text-accent transition-colors">
                     {article.title}
                 </h3>
                 
-                <p className="text-foreground/60 text-sm leading-relaxed font-medium line-clamp-3">
+                <p className="text-foreground/60 text-xs md:text-sm leading-relaxed font-medium line-clamp-3">
                     {article.excerpt}
                 </p>
               </div>
 
-              <div className="space-y-6 pt-6 border-t border-border/50">
-                <div className="flex items-center justify-between text-[10px] font-bold text-foreground/40 uppercase tracking-widest">
+              <div className="space-y-5 md:space-y-6 pt-5 md:pt-6 border-t border-border/50">
+                <div className="flex items-center justify-between text-[9px] md:text-[10px] font-bold text-foreground/40 uppercase tracking-widest">
                     <div className="flex items-center gap-2">
-                        <User size={12} className="text-accent" /> {article.author}
+                        <User size={10} className="text-accent md:w-3 md:h-3" /> {article.author}
                     </div>
                     <div className="flex items-center gap-2">
-                        <Clock size={12} /> {article.readTime}
+                        <Clock size={10} className="md:w-3 md:h-3" /> {article.readTime}
                     </div>
                 </div>
 
-                <Button variant="ghost" className="w-full h-12 rounded-xl border border-border/50 text-[10px] font-black uppercase tracking-widest group/btn hover:bg-primary hover:text-white transition-all" asChild>
+                <Button variant="ghost" className="w-full h-11 md:h-12 rounded-xl border border-border/50 text-[10px] font-black uppercase tracking-widest group/btn hover:bg-primary hover:text-white transition-all" asChild>
                     <a href={`/insights/${article.slug}`}>
                         Read Insight <ArrowRight size={14} className="ml-2 group-hover/btn:translate-x-1 transition-transform" />
                     </a>

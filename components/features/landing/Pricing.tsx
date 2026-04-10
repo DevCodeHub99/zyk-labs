@@ -28,31 +28,31 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
       )}
 
       {/* Header Area */}
-      <div className="mb-6">
-        <div className="flex items-center gap-2 mb-2">
-            <h3 className="text-2xl font-black text-primary tracking-tighter uppercase">{plan.name}</h3>
+      <div className="mb-4 md:mb-6">
+        <div className="flex items-center gap-2 mb-1 md:mb-2">
+            <h3 className="text-xl md:text-2xl font-black text-primary tracking-tighter uppercase">{plan.name}</h3>
             {isMonthly && <RefreshCw className="w-4 h-4 text-accent animate-spin-slow opacity-60" />}
         </div>
         {plan.tagline && (
-            <p className={`text-[10px] font-black uppercase tracking-[0.2em] ${plan.popular ? 'text-accent' : 'text-foreground/35'}`}>
+            <p className={`text-[9px] md:text-[10px] font-black uppercase tracking-[0.2em] ${plan.popular ? 'text-accent' : 'text-foreground/35'}`}>
                 {plan.tagline}
             </p>
         )}
       </div>
 
-      <div className="mb-8 pb-8 border-b border-border/40">
+      <div className="mb-6 md:mb-8 pb-6 md:pb-8 border-b border-border/40">
         {isCustom ? (
           <div>
-            <div className="text-3xl font-black text-primary italic-serif">Let's Talk</div>
-            <p className="text-[10px] text-foreground/40 mt-1 uppercase font-bold tracking-wider">Custom build · Fixed scope</p>
+            <div className="text-2xl md:text-3xl font-black text-primary italic-serif">Let's Talk</div>
+            <p className="text-[9px] md:text-[10px] text-foreground/40 mt-1 uppercase font-bold tracking-wider">Custom build · Fixed scope</p>
           </div>
         ) : (
           <div>
             <div className="flex items-baseline gap-1">
-              <span className="text-4xl font-black tracking-tighter text-primary">{plan.price}</span>
-              {plan.period && <span className="text-xs text-foreground/40 font-black uppercase tracking-widest">{plan.period}</span>}
+              <span className="text-3xl md:text-4xl font-black tracking-tighter text-primary">{plan.price}</span>
+              {plan.period && <span className="text-[10px] md:text-xs text-foreground/40 font-black uppercase tracking-widest">{plan.period}</span>}
             </div>
-            <p className="text-[10px] text-foreground/40 mt-1 font-bold uppercase tracking-wider">
+            <p className="text-[9px] md:text-[10px] text-foreground/40 mt-1 font-bold uppercase tracking-wider">
               {isMonthly ? 'Cancel anytime' : 'Fixed Project Fee'}
             </p>
           </div>
@@ -60,8 +60,8 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
       </div>
 
       {/* Feature List */}
-      <div className="space-y-4 mb-8 flex-grow">
-        <p className="text-[10px] font-black uppercase tracking-[0.15em] text-foreground/30">Includes:</p>
+      <div className="space-y-3.5 mb-6 md:mb-8 flex-grow">
+        <p className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.15em] text-foreground/30">Includes:</p>
         <ul className="space-y-3.5 text-xs text-foreground/70">
           {plan.features?.map((feature: string, i: number) => (
             <li key={i} className="flex items-start gap-3">
@@ -122,7 +122,7 @@ export default function Pricing() {
   const { plans, description, badge, trustFeatures } = pricing
 
   return (
-    <section id="pricing" className="py-24 md:py-40 bg-background relative overflow-hidden">
+    <section id="pricing" className="py-16 md:py-40 bg-background relative overflow-hidden">
       <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/2" />
       <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[140px] translate-x-1/2 translate-y-1/2" />
 
@@ -139,7 +139,7 @@ export default function Pricing() {
           ))}
         </div>
 
-        <div className="mt-24 grid md:grid-cols-3 gap-8 py-10 border-t border-border/40">
+        <div className="mt-16 md:mt-24 grid md:grid-cols-3 gap-8 py-8 md:py-10 border-t border-border/40">
           {trustFeatures.map((feature, idx: number) => (
             <TrustFeature 
               key={idx}

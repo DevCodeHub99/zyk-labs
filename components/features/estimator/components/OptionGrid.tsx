@@ -34,33 +34,33 @@ export function OptionGrid({ activeStep, selections, onSelect }: OptionGridProps
               className="text-left group"
             >
               <StudioCard 
-                className={`h-full p-6 transition-all duration-300 ${isSelected ? 'border-accent bg-accent/[0.03]' : 'hover:border-primary/20'}`}
-                innerClassName="space-y-4"
+                className={`h-full p-5 md:p-6 transition-all duration-300 ${isSelected ? 'border-accent bg-accent/[0.03]' : 'hover:border-primary/20'}`}
+                innerClassName="space-y-3 md:space-y-4"
                 showGlow={isSelected}
                 glowClassName="opacity-20"
               >
-                <div className={`w-12 h-12 rounded-2xl flex items-center justify-center transition-colors ${isSelected ? 'bg-accent text-white' : 'bg-secondary text-primary/40 group-hover:bg-primary/5'}`}>
-                  <Icon className="w-6 h-6" />
+                <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl flex items-center justify-center transition-colors ${isSelected ? 'bg-accent text-white' : 'bg-secondary text-primary/40 group-hover:bg-primary/5'}`}>
+                  <Icon className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <div>
-                  <h4 className={`text-sm font-black uppercase tracking-widest mb-1 ${isSelected ? 'text-accent' : 'text-primary'}`}>
+                  <h4 className={`text-[13px] md:text-sm font-black uppercase tracking-widest mb-0.5 md:mb-1 ${isSelected ? 'text-accent' : 'text-primary'}`}>
                     {option.label}
                   </h4>
                   {option.price && (
-                    <p className="text-[10px] font-bold text-foreground/40 uppercase tracking-tighter">
+                    <p className="text-[9px] md:text-[10px] font-bold text-foreground/40 uppercase tracking-tighter">
                       + {formatCurrency(option.price)}
                     </p>
                   )}
                   {option.basePrice && (
-                    <p className="text-[10px] font-bold text-foreground/40 uppercase tracking-tighter">
+                    <p className="text-[9px] md:text-[10px] font-bold text-foreground/40 uppercase tracking-tighter">
                       Base: {formatCurrency(option.basePrice)}
                     </p>
                   )}
                 </div>
 
                 {isSelected && (
-                  <div className="absolute top-4 right-4 text-accent">
-                    <Check className="w-4 h-4" />
+                  <div className="absolute top-3 right-3 md:top-4 md:right-4 text-accent">
+                    <Check className="w-3.5 h-3.5 md:w-4 md:h-4" />
                   </div>
                 )}
               </StudioCard>

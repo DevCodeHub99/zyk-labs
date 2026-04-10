@@ -15,32 +15,32 @@ const ServiceCard = ({ service, index, isWide }: { service: ServiceItem, index: 
 
   return (
     <StudioCard
-      className={`group flex flex-col p-8 md:p-10 transition-all duration-500 hover:border-accent/40 ${isWide ? 'md:col-span-7' : 'md:col-span-5'}`}
+      className={`group flex flex-col p-6 md:p-10 transition-all duration-500 hover:border-accent/40 ${isWide ? 'md:col-span-7' : 'md:col-span-5'}`}
       glowClassName="group-hover:opacity-80"
       innerClassName="flex flex-col h-full"
     >
       {/* Decorative Visual Backdrop */}
-      <div className="absolute top-0 right-0 p-10 opacity-[0.03] group-hover:opacity-[0.08] group-hover:scale-125 transition-all duration-700 pointer-events-none">
-        <VisualIcon className="w-32 h-32 md:w-48 md:h-48 text-primary" />
+      <div className="absolute top-0 right-0 p-6 md:p-10 opacity-[0.03] group-hover:opacity-[0.08] group-hover:scale-125 transition-all duration-700 pointer-events-none">
+        <VisualIcon className="w-24 h-24 md:w-48 md:h-48 text-primary" />
       </div>
 
-      <div className="flex items-center gap-4 mb-8 relative">
-        <div className="w-12 h-12 rounded-2xl bg-secondary flex items-center justify-center text-accent shadow-inner group-hover:bg-accent group-hover:text-white transition-colors duration-500">
-          <IconComponent className="w-6 h-6" />
+      <div className="flex items-center gap-4 mb-6 md:mb-8 relative">
+        <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-secondary flex items-center justify-center text-accent shadow-inner group-hover:bg-accent group-hover:text-white transition-colors duration-500">
+          <IconComponent className="w-5 h-5 md:w-6 md:h-6" />
         </div>
         <div className="h-px bg-border flex-1 opacity-50" />
       </div>
 
-      <div className="space-y-4 mb-8">
-        <h3 className="text-2xl md:text-3xl font-black text-primary tracking-tight uppercase">{service.title}</h3>
-        <p className="text-foreground/75 text-base leading-relaxed max-w-sm">
+      <div className="space-y-3 md:space-y-4 mb-6 md:mb-8">
+        <h3 className="text-xl md:text-3xl font-black text-primary tracking-tight uppercase">{service.title}</h3>
+        <p className="text-foreground/75 text-sm md:text-base leading-relaxed max-w-sm">
           {service.description}
         </p>
       </div>
 
-      <div className="flex flex-wrap gap-2 mb-10">
+      <div className="flex flex-wrap gap-2 mb-8 md:mb-10">
         {service.features && service.features.map((feature: string) => (
-          <span key={feature} className="px-3 py-1 rounded-full bg-secondary/50 text-[10px] font-bold text-foreground/60 uppercase tracking-widest border border-border/50 group-hover:border-accent/20 transition-colors">
+          <span key={feature} className="px-3 py-1 rounded-full bg-secondary/50 text-[9px] md:text-[10px] font-bold text-foreground/60 uppercase tracking-widest border border-border/50 group-hover:border-accent/20 transition-colors">
             {feature}
           </span>
         ))}
@@ -52,7 +52,7 @@ const ServiceCard = ({ service, index, isWide }: { service: ServiceItem, index: 
         </div>
         <Button
           variant="link"
-          className="p-0 h-auto text-primary font-black uppercase tracking-widest text-[11px] group-hover:text-accent transition-colors flex items-center gap-2"
+          className="p-0 h-auto text-primary font-black uppercase tracking-widest text-[10px] md:text-[11px] group-hover:text-accent transition-colors flex items-center gap-2"
           asChild
         >
           <a 
@@ -74,7 +74,7 @@ export default function Services() {
   const { items } = services
 
   return (
-    <section id="services" className="py-20 md:py-40 bg-background relative overflow-hidden text-center md:text-left">
+    <section id="services" className="py-16 md:py-40 bg-background relative overflow-hidden text-center md:text-left">
       {/* Background Decor */}
       <div className="absolute top-0 left-0 w-full h-px bg-gradient-to-r from-transparent via-border to-transparent" />
       <div className="absolute top-1/4 -left-20 w-80 h-80 bg-accent/5 rounded-full blur-[100px]" />
@@ -98,9 +98,9 @@ export default function Services() {
           ))}
         </div>
 
-        <div className="mt-20 text-center">
-          <p className="text-sm font-bold text-foreground/40 uppercase tracking-[0.4em] mb-6">{services.labels.customPrompt}</p>
-          <Button size="lg" className="rounded-full px-10 h-14 bg-primary hover:opacity-90 font-black uppercase tracking-widest text-xs shadow-xl shadow-primary/20 transition-all hover:-translate-y-1" asChild>
+        <div className="mt-12 md:mt-20 text-center">
+          <p className="text-[10px] md:text-sm font-bold text-foreground/40 uppercase tracking-[0.4em] mb-4 md:mb-6">{services.labels.customPrompt}</p>
+          <Button size="lg" className="rounded-full px-10 h-12 md:h-14 bg-primary hover:opacity-90 font-black uppercase tracking-widest text-[10px] md:text-xs shadow-xl shadow-primary/20 transition-all hover:-translate-y-1" asChild>
             <a href="/#contact">{services.labels.customButton} <Sparkles className="ml-2 w-4 h-4 text-accent" /></a>
           </Button>
         </div>

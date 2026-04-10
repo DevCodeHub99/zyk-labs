@@ -130,32 +130,32 @@ export default function Navbar() {
           isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
         }`}
       >
-        <div className="flex flex-col h-full pt-32 pb-12 px-8 space-y-12 overflow-y-auto">
-          <div className="flex flex-col space-y-2">
+        <div className="flex flex-col h-full pt-20 pb-10 px-8 space-y-8 overflow-y-auto">
+          <div className="flex flex-col">
             {navigation.map((item, idx) => (
               <a
                 key={item.label}
                 href={pathname !== '/' && item.href.startsWith('#') ? `/${item.href}` : item.href}
                 onClick={(e) => onNavClick(e, item.href)}
-                className="flex items-center justify-between text-3xl font-black text-foreground uppercase tracking-tighter hover:text-accent group py-6 border-b border-border/50"
-                style={{ transitionDelay: `${idx * 50}ms` }}
+                className="flex items-center justify-between text-xl font-bold text-foreground uppercase tracking-widest hover:text-accent group py-4 border-b border-border/40"
+                style={{ transitionDelay: `${idx * 40}ms` }}
               >
                 <div className="flex items-center gap-4">
-                  <span className="text-xs text-foreground/20 font-mono tracking-normal">0{idx + 1}</span>
+                  <span className="text-[10px] text-foreground/30 font-mono tracking-normal">0{idx + 1}</span>
                   {item.label}
                 </div>
-                <ArrowUpRight size={24} className="opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
+                <ArrowUpRight size={18} className="opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </a>
             ))}
           </div>
           
-          <div className="mt-auto space-y-8">
-            <div className="flex items-center gap-3 text-xs font-black uppercase tracking-[0.2em] text-accent">
-                <Zap className="w-4 h-4 fill-accent" /> {siteConfig.global.status.intake}
+          <div className="mt-auto space-y-6">
+            <div className="flex items-center gap-3 text-[10px] font-black uppercase tracking-[0.2em] text-accent">
+                <Zap className="w-3.5 h-3.5 fill-accent" /> {siteConfig.global.status.intake}
             </div>
             <Button
               asChild
-              className="w-full h-16 rounded-[2rem] bg-primary text-white text-base font-black uppercase tracking-widest shadow-2xl shadow-primary/20"
+              className="w-full h-12 rounded-2xl bg-primary text-white text-xs font-black uppercase tracking-widest shadow-xl shadow-primary/10"
             >
               <a href="#contact" onClick={(e) => onNavClick(e, '#contact')}>
                 {siteConfig.global.cta.mobile}
