@@ -18,10 +18,12 @@ export default function ContactHook() {
         <div className="max-w-4xl mx-auto space-y-10 md:space-y-16">
 
           <div className="space-y-6">
-            <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-secondary/80 backdrop-blur-md border border-border/50 shadow-sm">
-              <span className="flex h-2 w-2 rounded-full bg-accent animate-pulse" />
-              <span className="text-[10px] font-black uppercase tracking-[0.25em] text-foreground/40">{contact.promo.title}</span>
-            </div>
+            {contact.promo && (
+              <div className="inline-flex items-center gap-3 px-4 py-2 rounded-full bg-secondary/80 backdrop-blur-md border border-border/50 shadow-sm">
+                <span className="flex h-2 w-2 rounded-full bg-accent animate-pulse" />
+                <span className="text-[10px] font-black uppercase tracking-[0.25em] text-foreground/40">{contact.promo.title}</span>
+              </div>
+            )}
 
             <h2 className="text-4xl md:text-7xl lg:text-8xl font-black text-primary tracking-tighter leading-[1] md:leading-[0.9]">
               Shift from Idea to <br />
