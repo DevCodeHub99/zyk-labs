@@ -9,7 +9,7 @@ const Services = dynamic(() => import('@/components/features/landing/Services'))
 const EstimatorTeaser = dynamic(() => import('@/components/features/landing/EstimatorTeaser'))
 const Projects = dynamic(() => import('@/components/features/landing/Projects'))
 const InsightsTeaser = dynamic(() => import('@/components/features/landing/InsightsTeaser'))
-const Pricing = dynamic(() => import('@/components/features/landing/Pricing'))
+const PricingTeaser = dynamic(() => import('@/components/features/landing/PricingTeaser'))
 const Contact = dynamic(() => import('@/components/features/landing/Contact'))
 
 export default function Home() {
@@ -23,7 +23,7 @@ export default function Home() {
       <EstimatorTeaser />
       <Projects />
       <InsightsTeaser />
-      <Pricing />
+      <PricingTeaser />
       <Contact />
       <Footer />
     </main>

@@ -1,11 +1,18 @@
-import { ArrowRight, Check, ChevronRight, RefreshCw, ShieldCheck, LucideIcon } from 'lucide-react'
-import { Button } from '@/components/ui/button'
+
 import { siteConfig } from '@/config/site'
 import SectionHeader from '@/components/shared/SectionHeader'
 import StudioCard from '@/components/shared/StudioCard'
 import { PricingPlan } from '@/types'
+import { ArrowRight, Check, ChevronRight, RefreshCw, ShieldCheck, LucideIcon } from 'lucide-react'
+import { Button } from '@/components/ui/button'
+import StudioPage from '@/components/layout/StudioPage'
+import ContactCTA from '@/components/shared/ContactCTA'
+import { Metadata } from 'next'
 
-/* --- Internal Pricing Components --- */
+export const metadata: Metadata = {
+  title: `Pricing & Plans | ${siteConfig.companyName}`,
+  description: 'Transparent engineering costs for startups. From 2-week MVPs to dedicated monthly support.',
+}
 
 const PricingCard = ({ plan }: { plan: PricingPlan }) => {
   const isCustom = plan.isCustom
@@ -18,7 +25,6 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
       innerClassName="flex flex-col h-full p-6 sm:p-8"
       showGlow={plan.popular}
     >
-      {/* Popular Badge */}
       {plan.badge && (
         <div className="absolute top-5 right-5 z-20">
           <span className={`text-[9px] font-black px-3 py-1 rounded-full uppercase tracking-widest whitespace-nowrap shadow-sm ${plan.popular ? 'bg-accent text-white' : 'bg-primary text-primary-foreground'}`}>
@@ -27,7 +33,6 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
         </div>
       )}
 
-      {/* Header Area */}
       <div className="mb-4 md:mb-6">
         <div className="flex items-center gap-2 mb-1 md:mb-2">
             <h3 className="text-xl md:text-2xl font-black text-primary tracking-tighter uppercase">{plan.name}</h3>
@@ -59,7 +64,6 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
         )}
       </div>
 
-      {/* Feature List */}
       <div className="space-y-3.5 mb-6 md:mb-8 flex-grow">
         <p className="text-[9px] md:text-[10px] font-black uppercase tracking-[0.15em] text-foreground/30">Includes:</p>
         <ul className="space-y-3.5 text-xs text-foreground/70">
@@ -74,7 +78,6 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
         </ul>
       </div>
 
-      {/* Action Block */}
       <div className="mt-auto space-y-4">
         <Button
           size="lg"
@@ -85,7 +88,7 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
           }`}
           asChild
         >
-          <a href="#contact" className="flex items-center justify-center gap-2">
+          <a href="/#contact" className="flex items-center justify-center gap-2">
             {plan.cta}
             {isCustom ? <ChevronRight className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
           </a>
@@ -115,25 +118,20 @@ const TrustFeature = ({ icon: Icon, title, description }: { icon: LucideIcon; ti
   </div>
 )
 
-/* --- Main Pricing Section --- */
-
-export default function Pricing() {
+export default function PricingPage() {
   const { pricing } = siteConfig
   const { plans, description, badge, trustFeatures } = pricing
 
   return (
-    <section id="pricing" className="py-16 md:py-40 bg-background relative overflow-hidden">
-      <div className="absolute top-0 left-0 w-[600px] h-[600px] bg-accent/5 rounded-full blur-[140px] -translate-x-1/2 -translate-y-1/2" />
-      <div className="absolute bottom-0 right-0 w-[600px] h-[600px] bg-primary/5 rounded-full blur-[140px] translate-x-1/2 translate-y-1/2" />
-
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
+    <StudioPage decorColor1="bg-accent/[0.03]">
+      <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-32">
         <SectionHeader 
           badge={badge}
           title={<>{pricing.titleHighlighted.main} <br /><span className="text-accent italic-serif">{pricing.titleHighlighted.accent}</span></>}
           description={description}
         />
 
-        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div className="grid sm:grid-cols-2 lg:grid-cols-4 gap-6 mt-12 md:mt-24">
           {plans.map((plan: PricingPlan) => (
             <PricingCard key={plan.name} plan={plan} />
           ))}
@@ -149,7 +147,13 @@ export default function Pricing() {
             />
           ))}
         </div>
+
+        <ContactCTA 
+           title={<>Have a unique <br /><span className="text-accent italic-serif">product requirement?</span></>}
+           buttonText="Custom Consult"
+           className="mt-20 md:mt-40"
+        />
       </div>
-    </section>
+    </StudioPage>
   )
 }
