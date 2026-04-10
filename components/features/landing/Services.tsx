@@ -25,7 +25,7 @@ const ServiceCard = ({ service, index, isWide }: { service: ServiceItem, index: 
       </div>
 
       <div className="flex items-center gap-4 mb-6 md:mb-8 relative">
-        <div className="w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl bg-secondary flex items-center justify-center text-accent shadow-inner group-hover:bg-accent group-hover:text-white transition-colors duration-500">
+        <div className="w-10 h-10 md:w-12 md:h-12 rounded-full bg-secondary flex items-center justify-center text-accent shadow-inner group-hover:bg-accent group-hover:text-white transition-colors duration-500">
           <IconComponent className="w-5 h-5 md:w-6 md:h-6" />
         </div>
         <div className="h-px bg-border flex-1 opacity-50" />
@@ -100,7 +100,7 @@ export default function Services() {
 
         <div className="mt-12 md:mt-20 text-center">
           <p className="text-[10px] md:text-sm font-bold text-foreground/40 uppercase tracking-[0.4em] mb-4 md:mb-6">{services.labels.customPrompt}</p>
-          <Button size="lg" className="rounded-full px-10 h-12 md:h-14 bg-primary hover:opacity-90 font-black uppercase tracking-widest text-[10px] md:text-xs shadow-xl shadow-primary/20 transition-all hover:-translate-y-1" asChild>
+          <Button variant="studio-primary" size="lg" asChild>
             <a href="/#contact">{services.labels.customButton} <Sparkles className="ml-2 w-4 h-4 text-accent" /></a>
           </Button>
         </div>

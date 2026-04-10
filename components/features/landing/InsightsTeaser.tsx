@@ -1,4 +1,3 @@
-
 'use client'
 
 import { siteConfig } from '@/config/site'
@@ -34,7 +33,7 @@ export default function InsightsTeaser() {
                     <p className="text-foreground/50 text-xs md:text-sm leading-relaxed line-clamp-2">
                         {article.excerpt}
                     </p>
-                    <Button variant="link" className="p-0 h-auto text-[9px] md:text-[10px] font-black uppercase tracking-widest text-primary group-hover:text-accent flex items-center gap-2" asChild>
+                    <Button variant="studio-secondary" size="sm" asChild>
                         <a href={`/insights/${article.slug}`} aria-label={`Read the full article titled: ${article.title}`}>
                             Read Full article <ArrowRight size={14} />
                         </a>
@@ -45,7 +44,7 @@ export default function InsightsTeaser() {
         </div>
 
         <div className="mt-16 text-center">
-            <Button variant="ghost" className="text-[10px] font-black uppercase tracking-widest gap-2 hover:bg-transparent hover:text-accent" asChild>
+            <Button variant="studio-outline" size="lg" asChild>
                 <a href="/insights">Explore All Insights <ArrowRight size={14} /></a>
             </Button>
         </div>

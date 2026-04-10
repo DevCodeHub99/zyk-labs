@@ -1,4 +1,3 @@
-
 import { siteConfig } from '@/config/site'
 import SectionHeader from '@/components/shared/SectionHeader'
 import StudioCard from '@/components/shared/StudioCard'
@@ -116,7 +115,7 @@ export default function BlueprintPage() {
         />
         
         <div className="mt-8 text-center pb-16 md:pb-20">
-            <Button size="lg" variant="ghost" className="rounded-full h-14 md:h-16 px-10 border border-border text-[10px] font-black uppercase tracking-widest hover:bg-secondary" asChild>
+            <Button variant="studio-outline" size="lg" asChild>
                 <a href="/estimate">Run Cost Estimator <ArrowRight size={14} className="ml-2" /></a>
             </Button>
         </div>

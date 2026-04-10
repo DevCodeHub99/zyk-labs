@@ -21,6 +21,7 @@ export default function InsightsPage() {
     <StudioPage decorColor1="bg-accent/[0.03]" decorColor2="bg-accent/[0.01]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-32">
         <SectionHeader 
+          asH1
           badge={insights.badge}
           title={<>Technical <span className="text-accent italic-serif">Intelligence.</span></>}
           description={insights.description}

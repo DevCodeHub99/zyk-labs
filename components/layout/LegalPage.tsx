@@ -26,7 +26,7 @@ export default function LegalPage({ data, title, highlight }: LegalPageProps) {
         <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
             {/* Navigation & Identity Dock */}
             <div className="flex flex-col md:flex-row justify-between items-start md:items-center gap-8 mb-20">
-                <Button asChild variant="ghost" className="-ml-4 h-12 px-6 rounded-2xl bg-secondary/30 backdrop-blur-md border border-border/40 text-[10px] font-black uppercase tracking-[0.2em] hover:bg-secondary transition-all">
+                <Button asChild variant="studio-glass" className="-ml-4 h-12 px-6">
                     <Link href="/" className="flex items-center gap-2">
                         <ArrowLeft size={14} className="text-accent" />
                         Back to Studio

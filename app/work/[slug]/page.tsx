@@ -1,4 +1,3 @@
-
 import Navbar from '@/components/layout/Navbar'
 import Footer from '@/components/layout/Footer'
 import { siteConfig } from '@/config/site'
@@ -51,7 +50,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
         
         {/* Back Link */}
         <div className="mb-12">
-            <Button variant="ghost" className="text-[10px] font-black uppercase tracking-widest gap-2 hover:bg-transparent hover:text-accent p-0" asChild>
+            <Button variant="studio-glass" size="sm" asChild>
                 <a href="/work"><ArrowLeft size={14} /> Back to Portfolio</a>
             </Button>
         </div>
@@ -156,13 +155,13 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                     
                     <div className="pt-4">
                          {project.link ? (
-                            <Button className="w-full h-16 rounded-full bg-accent hover:opacity-90 text-white font-black uppercase tracking-widest text-[10px] shadow-xl shadow-accent/20 group" asChild>
+                            <Button variant="studio-accent" size="lg" showGlow asChild>
                                 <a href={project.link} target="_blank" rel="noopener">
                                     Launch Project <ExternalLink size={14} className="ml-2 group-hover:translate-x-1 group-hover:-translate-y-1 transition-transform" />
                                 </a>
                             </Button>
                          ) : (
-                            <Button disabled className="w-full h-16 rounded-full bg-secondary text-foreground/40 font-black uppercase tracking-widest text-[10px]">
+                            <Button disabled variant="studio-secondary" size="lg" className="w-full">
                                 Private Infrastructure
                             </Button>
                          )}
@@ -175,7 +174,7 @@ export default async function ProjectDetailPage({ params }: PageProps) {
                     <p className="text-xs text-primary-foreground/60 font-medium leading-relaxed">
                         We can blueprint and build a performance-optimized version of this architecture tailored to your business.
                     </p>
-                    <Button variant="link" className="text-accent font-black uppercase tracking-widest text-[10px] p-0 h-auto" asChild>
+                    <Button variant="studio-outline" size="sm" asChild>
                         <a href="/#contact">Project Discovery <ArrowLeft size={12} className="ml-2 rotate-180" /></a>
                     </Button>
                  </div>

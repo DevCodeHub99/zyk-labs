@@ -25,13 +25,14 @@ export default function AboutPage() {
         <div className="grid lg:grid-cols-2 gap-12 lg:gap-24 items-center mb-24 md:mb-40">
             <div className="space-y-6 md:space-y-8">
                 <SectionHeader 
+                    asH1
                     badge="Our Story"
                     title={<>High-Performance Engineering for <span className="text-accent italic-serif">Human Ideas.</span></>}
                     description={`${siteConfig.companyName} was founded to bridge the gap between expensive agencies and unreliable freelance markets.`}
                     align="left"
                     className="mb-0"
                 />
-                <div className="space-y-4 md:space-y-6 text-base md:text-lg text-foreground/70 font-medium leading-relaxed">
+                <div className="space-y-4 md:space-y-6 text-base md:text-lg text-foreground/60 font-medium leading-relaxed">
                     {about.content.map((p: string, i: number) => (
                         <p key={i}>{p}</p>
                     ))}

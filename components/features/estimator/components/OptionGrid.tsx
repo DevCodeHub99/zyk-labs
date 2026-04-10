@@ -39,7 +39,7 @@ export function OptionGrid({ activeStep, selections, onSelect }: OptionGridProps
                 showGlow={isSelected}
                 glowClassName="opacity-20"
               >
-                <div className={`w-10 h-10 md:w-12 md:h-12 rounded-xl md:rounded-2xl flex items-center justify-center transition-colors ${isSelected ? 'bg-accent text-white' : 'bg-secondary text-primary/40 group-hover:bg-primary/5'}`}>
+                <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors ${isSelected ? 'bg-accent text-white' : 'bg-secondary text-primary/40 group-hover:bg-primary/5'}`}>
                   <Icon className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <div>

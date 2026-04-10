@@ -78,7 +78,7 @@ export default function Projects() {
               </div>
 
                <div className="pt-6 md:pt-8 w-full flex justify-center lg:justify-start">
-                <Button size="lg" className="rounded-full bg-accent hover:opacity-90 text-white font-black uppercase tracking-widest text-[10px] md:text-[11px] h-12 md:h-14 px-8 shadow-xl shadow-accent/20 group" asChild>
+                <Button variant="studio-accent" size="lg" asChild>
                   <a href="/work" className="flex items-center gap-3">
                     View Technical Deep-Dives <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                   </a>
@@ -92,7 +92,7 @@ export default function Projects() {
               
               {/* Simple high-fidelity illustration suggest */}
               <div className="absolute inset-0 flex items-center justify-center p-8 md:p-12">
-                 <div className="w-full h-full rounded-2xl border border-white/10 bg-white/5 backdrop-blur-sm flex flex-col overflow-hidden shadow-2xl">
+                 <div className="w-full h-full rounded-[3rem] border border-white/10 bg-white/5 backdrop-blur-sm flex flex-col overflow-hidden shadow-2xl">
                     <div className="h-10 bg-white/10 border-b border-white/10 flex items-center px-4 gap-2">
                        <div className="w-2.5 h-2.5 rounded-full bg-red-500/50"></div>
                        <div className="w-2.5 h-2.5 rounded-full bg-yellow-500/50"></div>

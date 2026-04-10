@@ -31,11 +31,11 @@ export default function PricingTeaser() {
               Transparent project fees and monthly support tiers designed for early-stage founders. No hidden costs, just precise execution.
             </p>
 
-            <div className="pt-4 flex flex-col sm:flex-row justify-center lg:justify-start gap-4">
-               <Button size="lg" className="rounded-full h-14 px-8 bg-primary text-white font-black uppercase tracking-widest text-[10px] shadow-xl shadow-primary/20" asChild>
-                  <a href="/pricing">View All Plans & Breakdown</a>
-               </Button>
-            </div>
+             <div className="pt-4 flex flex-col sm:flex-row justify-center lg:justify-start gap-4 text-center lg:text-left">
+                <Button variant="studio-primary" size="lg" asChild>
+                   <a href="/pricing">View All Plans & Breakdown</a>
+                </Button>
+             </div>
           </div>
 
           {/* Highlighted Plan Card */}
@@ -74,7 +74,7 @@ export default function PricingTeaser() {
                 ))}
               </ul>
 
-              <Button className="w-full h-14 rounded-2xl bg-accent hover:opacity-90 text-white font-black uppercase tracking-widest text-[10px] shadow-xl shadow-accent/20 transition-all hover:-translate-y-1 group" asChild>
+              <Button variant="studio-accent" size="lg" asChild>
                 <a href="/pricing" className="flex items-center justify-center gap-3">
                   Check Coverage <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
                 </a>

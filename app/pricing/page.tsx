@@ -80,15 +80,12 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
 
       <div className="mt-auto space-y-4">
         <Button
-          size="lg"
-          className={`w-full h-14 rounded-2xl font-black uppercase tracking-widest text-[10px] transition-all ${
-            plan.popular ? 'bg-accent hover:opacity-90 text-white shadow-xl shadow-accent/20 hover:-translate-y-0.5' : 
-            isCustom ? 'bg-primary hover:bg-primary/90 text-primary-foreground shadow-lg' : 
-            'bg-primary/5 hover:bg-primary/10 text-primary border border-primary/20'
-          }`}
           asChild
+          size="lg"
+          variant={plan.popular ? 'studio-accent' : isCustom ? 'studio-primary' : 'studio-secondary'}
+          className="w-full"
         >
-          <a href="/#contact" className="flex items-center justify-center gap-2">
+          <a href="/contact" className="flex items-center justify-center gap-2">
             {plan.cta}
             {isCustom ? <ChevronRight className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
           </a>
@@ -96,7 +93,7 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
         {plan.trust && (
           <div className="flex items-center justify-center gap-2 px-4 py-2 bg-secondary/30 rounded-full">
             <ShieldCheck className="w-3 h-3 text-accent" />
-            <span className="text-[9px] text-foreground/40 font-black uppercase tracking-widest leading-none">
+            <span className="text-[9px] text-foreground/60 font-black uppercase tracking-widest leading-none">
               {plan.trust}
             </span>
           </div>
@@ -126,6 +123,7 @@ export default function PricingPage() {
     <StudioPage decorColor1="bg-accent/[0.03]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-32">
         <SectionHeader 
+          asH1
           badge={badge}
           title={<>{pricing.titleHighlighted.main} <br /><span className="text-accent italic-serif">{pricing.titleHighlighted.accent}</span></>}
           description={description}

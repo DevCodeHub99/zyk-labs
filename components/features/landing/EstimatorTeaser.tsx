@@ -13,7 +13,7 @@ export default function EstimatorTeaser() {
         <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-[800px] h-[800px] bg-accent/[0.03] rounded-full blur-[120px] pointer-events-none" />
         
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 relative z-10">
-            <StudioCard className="border-accent/20 p-6 md:p-20 overflow-hidden" innerClassName="flex flex-col lg:flex-row items-center gap-10 lg:gap-12 text-center lg:text-left">
+            <StudioCard className="border-accent/20 p-8 md:p-14 overflow-hidden" innerClassName="flex flex-col lg:flex-row items-center gap-10 lg:gap-12 text-center lg:text-left">
                 
                 <div className="absolute top-0 right-0 p-10 md:p-20 opacity-[0.03] pointer-events-none">
                     <Calculator className="w-48 h-48 md:w-[300px] md:h-[300px] text-primary" />
@@ -25,8 +25,8 @@ export default function EstimatorTeaser() {
                         <span className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-accent">Self-Service Roadmap</span>
                     </div>
                     
-                    <h2 className="text-3xl md:text-7xl font-black text-primary tracking-tighter leading-[1.1] md:leading-none italic-serif">
-                        Get Your Ballpark <br />
+                    <h2 className="text-3xl md:text-6xl font-black text-primary tracking-tighter leading-[1.1] md:leading-none italic-serif">
+                        Get Your Estimate <br />
                         <span className="text-accent italic-serif">Cost in 60s.</span>
                     </h2>
                     
@@ -35,7 +35,7 @@ export default function EstimatorTeaser() {
                     </p>
 
                     <div className="pt-2 md:pt-4">
-                        <Button size="lg" className="w-full sm:w-auto h-14 md:h-20 rounded-full px-12 bg-accent hover:opacity-90 text-white font-black uppercase tracking-[0.2em] text-xs md:text-sm shadow-2xl shadow-accent/40 group transition-all hover:-translate-y-1" asChild>
+                        <Button variant="studio-accent" size="lg" showGlow asChild>
                             <a href="/estimate" className="flex items-center justify-center gap-4">
                                 Start Estimation <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-2 transition-transform" />
                             </a>
@@ -50,7 +50,7 @@ export default function EstimatorTeaser() {
                         { label: 'Features', val: 'Costed' },
                         { label: 'Roadmap', val: 'Ready' }
                     ].map((item, idx) => (
-                        <div key={idx} className="p-4 md:p-6 rounded-2xl md:rounded-3xl bg-secondary/30 backdrop-blur-sm border border-border/50 text-center">
+                        <div key={idx} className="p-4 md:p-6 rounded-full bg-secondary/30 backdrop-blur-sm border border-border/50 text-center">
                             <p className="text-[8px] md:text-[10px] font-black text-foreground/30 uppercase tracking-widest mb-1">{item.label}</p>
                             <p className="text-sm md:text-lg font-black text-primary uppercase">{item.val}</p>
                         </div>

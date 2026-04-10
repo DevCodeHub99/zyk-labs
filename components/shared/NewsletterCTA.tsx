@@ -105,9 +105,10 @@ export default function NewsletterCTA({ variant = 'full' }: NewsletterCTAProps) 
             required
           />
           <Button 
+            variant="studio-primary"
             type="submit"
             disabled={isSubmitting || isSuccess}
-            className="rounded-full h-12 md:h-14 px-8 bg-primary text-white font-black uppercase tracking-widest text-[9px] md:text-[10px] shadow-xl shadow-primary/20 disabled:scale-95 transition-all"
+            className="sm:w-auto"
           >
             {isSubmitting ? <Loader2 className="w-4 h-4 animate-spin" /> : isSuccess ? "Subscribed" : "Subscribe"}
           </Button>

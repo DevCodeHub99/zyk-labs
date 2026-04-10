@@ -25,10 +25,11 @@ export function Navigation({
   return (
     <div className="flex items-center justify-between pt-8 border-t border-border/40">
       <Button
-        variant="ghost"
+        variant="studio-outline"
+        size="sm"
         onClick={onPrev}
         disabled={currentStep === 0}
-        className="text-[10px] font-black uppercase tracking-widest gap-2 disabled:opacity-0"
+        className="disabled:opacity-0 rounded-full"
       >
         <ChevronLeft className="w-4 h-4" /> Back
       </Button>
@@ -40,10 +41,11 @@ export function Navigation({
         </div>
         
         <Button
+          variant="studio-primary"
           size="lg"
           onClick={onNext}
           disabled={!isStepValid}
-          className="rounded-full px-8 h-14 bg-primary hover:opacity-90 font-black uppercase tracking-widest text-[10px] gap-2 shadow-xl shadow-primary/20"
+          className="gap-2"
         >
           {isLastStep ? 'Build Roadmap' : 'Next Step'}
           <ChevronRight className="w-4 h-4" />

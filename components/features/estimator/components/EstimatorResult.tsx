@@ -1,4 +1,3 @@
-
 'use client'
 
 import React from 'react'
@@ -52,19 +51,20 @@ export function EstimatorResult({ displayTotal, timeline, scale, onReset }: Esti
         <div className="h-px w-20 md:w-24 bg-accent/20 mx-auto" />
 
         <div className="grid grid-cols-2 gap-3 md:gap-4 text-left">
-          <div className="p-3 md:p-4 rounded-xl md:rounded-2xl bg-secondary/30">
+          <div className="p-3 md:p-4 rounded-full bg-secondary/30">
             <p className="text-[8px] md:text-[9px] font-black text-foreground/40 uppercase tracking-widest mb-1">Est. Duration</p>
             <p className="text-xs md:text-sm font-black text-primary uppercase">{getDuration()}</p>
           </div>
-          <div className="p-3 md:p-4 rounded-xl md:rounded-2xl bg-secondary/30">
+          <div className="p-3 md:p-4 rounded-full bg-secondary/30">
             <p className="text-[8px] md:text-[9px] font-black text-foreground/40 uppercase tracking-widest mb-1">Project Scale</p>
             <p className="text-xs md:text-sm font-black text-primary uppercase">{scale || 'Standard'}</p>
           </div>
         </div>
 
         <Button 
-          size="lg" 
-          className="w-full h-14 md:h-20 rounded-full bg-accent hover:opacity-90 text-white font-black uppercase tracking-[0.2em] text-xs md:text-sm shadow-2xl shadow-accent/30 mt-2 md:mt-4 group"
+          variant="studio-accent"
+          size="xl" 
+          showGlow
           asChild
         >
           <a href="/#contact" className="flex items-center justify-center gap-4">
@@ -78,9 +78,9 @@ export function EstimatorResult({ displayTotal, timeline, scale, onReset }: Esti
       </StudioCard>
 
       <Button 
-        variant="link" 
+        variant="studio-outline" 
+        size="sm"
         onClick={onReset}
-        className="text-[9px] md:text-[10px] font-black uppercase tracking-widest text-foreground/40"
       >
         Start Over
       </Button>

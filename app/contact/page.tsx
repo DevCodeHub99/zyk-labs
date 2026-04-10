@@ -49,11 +49,12 @@ const BookingSection = () => (
     <div className="flex flex-col items-center justify-center space-y-6 md:space-y-8 mt-4 lg:mt-0 relative z-10">
       <div className="w-full p-6 md:p-10 bg-secondary/10 backdrop-blur-sm rounded-[2rem] md:rounded-[3rem] border border-border/50 text-center shadow-inner">
         <Button
-          size="lg"
+          variant="studio-accent"
+          size="xl"
           data-cal-namespace="30min"
           data-cal-link={`${process.env.NEXT_PUBLIC_CAL_LINK || "zyklabs/30min"}`}
           data-cal-config='{"layout":"month_view"}'
-          className="w-full h-16 md:h-20 rounded-full bg-accent hover:opacity-90 text-white font-black uppercase tracking-[0.2em] text-xs md:text-sm shadow-2xl shadow-accent/30 transition-all hover:-translate-y-1 flex items-center justify-center gap-4 group"
+          className="w-full flex items-center justify-center gap-4 group"
         >
           Book Now <ArrowRight className="w-4 h-4 md:w-5 md:h-5 group-hover:translate-x-1 transition-transform" />
         </Button>

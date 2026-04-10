@@ -3,6 +3,7 @@
 import { useState, useEffect, useCallback } from 'react'
 import { Menu, X, Moon, Sun, ChevronRight, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
+import { motion, AnimatePresence } from 'framer-motion'
 import Logo from '@/components/shared/Logo'
 import { siteConfig } from '@/config/site'
 import { handleScrollTo } from '@/lib/scroll-to'
@@ -54,11 +55,11 @@ export default function Navbar() {
       <div 
         className={`max-w-7xl mx-auto transition-all duration-500 ease-in-out ${
           isScrolled 
-          ? 'bg-background/80 backdrop-blur-xl border border-border/50 shadow-2xl shadow-black/5 rounded-[2rem] px-6 py-2' 
+          ? 'bg-background/80 backdrop-blur-xl border border-border/50 shadow-2xl shadow-black/5 rounded-[2rem] px-6 py-2.5' 
           : 'bg-transparent py-2 px-0'
         }`}
       >
-        <div className="flex justify-between items-center lg:grid lg:grid-cols-[180px_1fr_180px]">
+        <div className="flex justify-between items-center lg:grid lg:grid-cols-[auto_1fr_auto]">
           {/* Logo — left */}
           <div className="flex items-center">
             <Logo size="sm" className="transition-transform hover:scale-105 duration-300" />
@@ -80,21 +81,30 @@ export default function Navbar() {
           </div>
 
           {/* Desktop Actions — right */}
-          <div className="hidden lg:flex items-center gap-4 xl:gap-6 justify-end">
-            <div className="w-8 h-8 flex items-center justify-center">
-              {isMounted && (
-                <button
-                  onClick={toggleTheme}
-                  className="p-2 rounded-xl bg-secondary/30 hover:bg-secondary transition-all text-foreground/50 hover:text-foreground"
-                  aria-label="Toggle theme"
-                >
-                  {isDark ? <Sun size={15} /> : <Moon size={15} />}
-                </button>
-              )}
-            </div>
+          <div className="hidden lg:flex items-center gap-1.5 xl:gap-2 justify-end">
+            {isMounted && (
+              <button
+                onClick={toggleTheme}
+                className="relative p-3 rounded-full bg-secondary/30 hover:bg-secondary transition-all text-foreground/50 hover:text-foreground flex items-center justify-center overflow-hidden"
+                aria-label="Toggle theme"
+              >
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={isDark ? 'sun' : 'moon'}
+                    initial={{ y: 20, opacity: 0, rotate: -90 }}
+                    animate={{ y: 0, opacity: 1, rotate: 0 }}
+                    exit={{ y: -20, opacity: 0, rotate: 90 }}
+                    transition={{ duration: 0.3, ease: 'backOut' }}
+                  >
+                    {isDark ? <Sun size={14} /> : <Moon size={14} />}
+                  </motion.div>
+                </AnimatePresence>
+              </button>
+            )}
             <Button
               asChild
-              className="group h-11 px-6 xl:px-8 rounded-full bg-primary hover:opacity-90 text-primary-foreground font-black uppercase tracking-widest text-[9px] xl:text-[10px] shadow-xl shadow-primary/20 transition-all hover:-translate-y-0.5"
+              variant="studio-primary"
+              className="h-11"
             >
               <a href="/contact" className="flex items-center gap-2">
                 {siteConfig.global.cta.contact} <ChevronRight className="w-3 h-3 transition-transform group-hover:translate-x-1" />
@@ -107,19 +117,29 @@ export default function Navbar() {
             {isMounted && (
                 <button
                 onClick={toggleTheme}
-                className="p-2 rounded-xl bg-secondary/40 text-foreground/70"
+                className="relative p-3 rounded-full bg-secondary/40 text-foreground/70 overflow-hidden"
                 aria-label="Toggle theme"
                 >
-                {isDark ? <Sun size={17} /> : <Moon size={17} />}
+                <AnimatePresence mode="wait">
+                  <motion.div
+                    key={isDark ? 'sun-mobile' : 'moon-mobile'}
+                    initial={{ y: 20, opacity: 0 }}
+                    animate={{ y: 0, opacity: 1 }}
+                    exit={{ y: -20, opacity: 0 }}
+                    transition={{ duration: 0.3 }}
+                  >
+                    {isDark ? <Sun size={16} /> : <Moon size={16} />}
+                  </motion.div>
+                </AnimatePresence>
                 </button>
             )}
-            <button
-              onClick={() => setIsOpen(!isOpen)}
-              className={`p-2 rounded-xl transition-all ${isOpen ? 'bg-primary text-white' : 'bg-secondary/40 text-foreground'}`}
-              aria-label={isOpen ? 'Close menu' : 'Open menu'}
-            >
-              {isOpen ? <X size={20} /> : <Menu size={20} />}
-            </button>
+              <button
+                onClick={() => setIsOpen(!isOpen)}
+                className={`p-2 rounded-full transition-all ${isOpen ? 'bg-primary text-white' : 'bg-secondary/40 text-foreground'}`}
+                aria-label={isOpen ? 'Close menu' : 'Open menu'}
+              >
+                {isOpen ? <X size={20} /> : <Menu size={20} />}
+              </button>
           </div>
         </div>
       </div>
@@ -155,7 +175,8 @@ export default function Navbar() {
             </div>
             <Button
               asChild
-              className="w-full h-12 rounded-2xl bg-primary text-white text-xs font-black uppercase tracking-widest shadow-xl shadow-primary/10"
+              variant="studio-primary"
+              className="w-full h-14"
             >
               <a href="/contact" onClick={closeMenu}>
                 {siteConfig.global.cta.mobile}

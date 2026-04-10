@@ -47,7 +47,7 @@ export default function ContactCTA({
         </p>
 
         <div className="flex justify-center pt-2 md:pt-4">
-          <Button size="lg" className="rounded-full h-14 md:h-16 px-10 bg-primary hover:opacity-90 text-white font-black uppercase tracking-widest text-[10px] md:text-xs shadow-2xl shadow-primary/20 transition-all hover:-translate-y-1" asChild>
+          <Button variant="studio-primary" size="lg" asChild>
             <a href={buttonHref} className="flex items-center gap-3">
               {buttonText} <ArrowRight size={16} />
             </a>

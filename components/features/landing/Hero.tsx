@@ -29,14 +29,14 @@ export default function Hero() {
                {hero.title.second} <span className="text-accent italic-serif">{hero.title.highlight}</span>
             </h1>
 
-            <p className="text-sm sm:text-xl md:text-2xl text-foreground/50 max-w-3xl mx-auto leading-relaxed font-medium px-4 md:px-0 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
+            <p className="text-sm sm:text-xl md:text-2xl text-foreground/60 max-w-3xl mx-auto leading-relaxed font-medium px-4 md:px-0 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-100">
               {hero.description}
             </p>
           </div>
 
           {/* Premium CTAs */}
           <div className="flex flex-col sm:flex-row gap-4 md:gap-6 justify-center w-full max-w-md mx-auto pt-4 animate-in fade-in slide-in-from-bottom-4 duration-700 delay-200">
-            <Button asChild size="lg" className="h-14 md:h-16 px-10 rounded-full bg-accent hover:opacity-90 text-white font-black uppercase tracking-widest text-[10px] md:text-xs shadow-2xl shadow-accent/20 transition-all hover:-translate-y-1">
+            <Button asChild size="lg" variant="studio-accent" showGlow>
               <a href={hero.cta.primary.href} className="flex items-center gap-3">
                 {hero.cta.primary.text} <ArrowRight className="w-4 h-4 md:w-5 md:h-5" />
               </a>
@@ -44,7 +44,7 @@ export default function Hero() {
             <Button
               asChild
               size="lg"
-              className="h-14 md:h-16 px-10 rounded-full border border-foreground/10 bg-card/40 backdrop-blur-sm hover:bg-foreground/5 text-foreground font-black uppercase tracking-widest text-[10px] md:text-xs transition-all hover:-translate-y-1"
+              variant="studio-glass"
             >
               <a href={hero.cta.secondary.href}>
                 {hero.cta.secondary.text}

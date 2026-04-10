@@ -26,12 +26,12 @@ export default function NotFound() {
         </motion.div>
 
         <div className="flex flex-col sm:flex-row items-center justify-center gap-4 pt-8">
-          <Button variant="outline" className="w-full sm:w-auto rounded-full px-8 font-black uppercase tracking-widest text-[10px]" asChild>
+          <Button variant="studio-outline" size="sm" asChild>
             <Link href="/" className="flex items-center gap-2">
               <ArrowLeft size={14} /> Go Back
             </Link>
           </Button>
-          <Button className="w-full sm:w-auto rounded-full px-8 font-black uppercase tracking-widest text-[10px]" asChild>
+          <Button variant="studio-primary" size="sm" asChild>
             <Link href="/" className="flex items-center gap-2">
               <Home size={14} /> Back to Studio
             </Link>

@@ -17,9 +17,10 @@ function SubmitButton() {
 
   return (
     <Button 
+      variant="studio-primary"
       type="submit" 
       disabled={pending} 
-      className="w-full h-16 rounded-full bg-primary hover:opacity-90 text-primary-foreground font-black uppercase tracking-widest text-[10px] shadow-xl transition-all"
+      className="w-full h-16 rounded-full"
     >
       {pending ? global.cta.processing : global.cta.submit}
     </Button>
@@ -35,7 +36,7 @@ const SuccessState = ({ message, onReset }: { message: string, onReset: () => vo
       <h3 className="text-2xl font-black text-primary tracking-tighter uppercase italic-serif">Request Received</h3>
       <p className="text-sm text-foreground/60 font-medium max-w-xs mx-auto">{message}</p>
     </div>
-    <Button onClick={onReset} variant="ghost" className="text-accent font-black uppercase tracking-[0.2em] text-[10px] hover:bg-accent/10">
+    <Button onClick={onReset} variant="studio-outline" className="h-10 px-6">
       Send Another Brief
     </Button>
   </div>
@@ -106,7 +107,7 @@ export default function ContactForm() {
                 key={cat} 
                 type="button" 
                 onClick={() => setSelectedCategory(cat)} 
-                className={`px-4 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all border ${selectedCategory === cat ? 'bg-primary text-primary-foreground border-primary' : 'bg-secondary/40 text-foreground/40 border-transparent hover:border-accent/40'}`}
+                className={`px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-widest transition-all border ${selectedCategory === cat ? 'bg-primary text-primary-foreground border-primary' : 'bg-secondary/40 text-foreground/40 border-transparent hover:border-accent/40'}`}
               >
                 {cat}
               </button>
@@ -124,7 +125,7 @@ export default function ContactForm() {
                 key={b} 
                 type="button" 
                 onClick={() => setSelectedBudget(b)} 
-                className={`px-4 py-2 rounded-xl text-[9px] font-black uppercase tracking-widest transition-all border ${selectedBudget === b ? 'bg-accent text-white border-accent' : 'bg-secondary/40 text-foreground/40 border-transparent hover:border-accent/40'}`}
+                className={`px-4 py-2 rounded-full text-[9px] font-black uppercase tracking-widest transition-all border ${selectedBudget === b ? 'bg-accent text-white border-accent' : 'bg-secondary/40 text-foreground/40 border-transparent hover:border-accent/40'}`}
               >
                 {b}
               </button>
@@ -142,7 +143,7 @@ export default function ContactForm() {
             name="message" 
             required 
             rows={3} 
-            className={`w-full bg-background border ${state?.errors?.message ? 'border-red-500/50' : 'border-border focus:border-accent'} rounded-2xl px-5 py-5 text-sm font-bold outline-none transition-all resize-none`}
+            className={`w-full bg-background border ${state?.errors?.message ? 'border-red-500/50' : 'border-border focus:border-accent'} rounded-[2.5rem] px-6 py-6 text-sm font-bold outline-none transition-all resize-none`}
             placeholder="Core problem, required features, or constraints..." 
           />
         </div>

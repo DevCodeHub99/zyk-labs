@@ -21,6 +21,7 @@ export default function WorkPage() {
     <StudioPage decorColor1="bg-accent/[0.02]">
       <div className="container mx-auto px-4 sm:px-6 lg:px-8 py-16 md:py-24">
         <SectionHeader 
+          asH1
           badge="Product Showcase"
           title={<>Built for <span className="text-accent italic-serif">Performance.</span></>}
           description="A curation of high-velocity builds, from founder MVPs to enterprise-grade internal tools."

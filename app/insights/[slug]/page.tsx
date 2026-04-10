@@ -110,7 +110,7 @@ export default async function InsightDetailPage({ params }: PageProps) {
         
         {/* Back Link */}
         <div className="mb-12 flex items-center justify-between">
-            <Button variant="ghost" className="text-[10px] font-black uppercase tracking-widest gap-2 hover:bg-transparent hover:text-accent p-0" asChild>
+            <Button variant="studio-glass" size="sm" asChild>
                 <a href="/insights"><ArrowLeft size={14} /> Back to Insights</a>
             </Button>
             <div className="flex items-center gap-4">
@@ -214,7 +214,7 @@ export default async function InsightDetailPage({ params }: PageProps) {
                             <p className="text-primary-foreground/60 max-w-xl font-medium leading-relaxed">
                                 We can implement this specialized technical architecture for your product in 2-4 weeks. Book a roadmap session to see how it fits.
                             </p>
-                            <Button className="h-16 px-10 rounded-full bg-accent text-white font-black uppercase tracking-widest text-xs shadow-xl shadow-accent/20 group/btn" asChild>
+                            <Button variant="studio-accent" size="lg" showGlow asChild>
                                 <a href="/estimate" className="flex items-center gap-3">
                                     Start Cost Breakdown <ChevronRight className="w-4 h-4 group-hover/btn:translate-x-1 transition-transform" />
                                 </a>
