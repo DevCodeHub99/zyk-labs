@@ -6,6 +6,7 @@ import { Analytics } from "@vercel/analytics/react"
 import { SpeedInsights } from "@vercel/speed-insights/next"
 import { siteConstants } from '@/config/site'
 import CustomCursor from '@/components/ui/CustomCursor'
+import EventOverlay from '@/components/shared/EventOverlay'
 import Script from 'next/script'
 
 import './globals.css'
@@ -374,6 +375,7 @@ export default function RootLayout({
         )}
 
         <CustomCursor />
+        <EventOverlay />
         {children}
         <Toaster />
         <Analytics />
