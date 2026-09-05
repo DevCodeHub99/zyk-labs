@@ -21,7 +21,7 @@ const buttonVariants = cva(
         
         // Studio Semantic System - High Impact & Contrast
         'studio-primary': 'bg-primary text-primary-foreground border border-primary-foreground/10 shadow-lg shadow-primary/10 hover:shadow-primary/20 hover:-translate-y-1 active:translate-y-0 rounded-full',
-        'studio-secondary': 'bg-secondary text-secondary-foreground border border-foreground/5 hover:bg-secondary/80 hover:-translate-y-0.5 active:translate-y-0 rounded-full',
+        'studio-secondary': 'bg-secondary/70 text-foreground border border-border hover:bg-primary hover:text-primary-foreground hover:border-primary shadow-sm hover:shadow-md hover:-translate-y-0.5 active:translate-y-0 rounded-full transition-all duration-300',
         'studio-accent': 'bg-accent text-accent-foreground shadow-xl shadow-accent/20 hover:shadow-accent/40 hover:-translate-y-1 active:translate-y-0 rounded-full',
         'studio-glass': 'bg-foreground/[0.03] border border-foreground/10 text-foreground backdrop-blur-md hover:bg-foreground/[0.08] hover:-translate-y-0.5 active:translate-y-0 rounded-full',
         'studio-outline': 'border-2 border-foreground/10 bg-transparent text-foreground hover:bg-foreground hover:text-background hover:border-foreground hover:-translate-y-0.5 active:translate-y-0 rounded-full',
@@ -53,7 +53,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, showGlow = false, ...props }, ref) => {
     const Comp = asChild ? Slot : 'button'
     return (
-      <div className={cn("relative inline-block w-full group/btn-container", className)}>
+      <div className="relative inline-block w-full group/btn-container">
         {showGlow && (
            <div className={cn(
              "absolute inset-0 blur-2xl opacity-0 group-hover/btn-container:opacity-40 transition-opacity duration-500 rounded-full pointer-events-none",
@@ -61,7 +61,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
            )} />
         )}
         <Comp
-          className={cn(buttonVariants({ variant, size, className: "w-full" }))}
+          className={cn(buttonVariants({ variant, size, className }))}
           ref={ref}
           {...props}
         />

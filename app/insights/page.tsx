@@ -72,9 +72,9 @@ export default function InsightsPage() {
                     </div>
                 </div>
 
-                <Button variant="ghost" className="w-full h-11 md:h-12 rounded-xl border border-border/50 text-[10px] font-black uppercase tracking-widest group/btn hover:bg-primary hover:text-white transition-all" asChild>
-                    <a href={`/insights/${article.slug}`}>
-                        Read Insight <ArrowRight size={14} className="ml-2 group-hover/btn:translate-x-1 transition-transform" />
+                <Button variant="studio-secondary" size="default" className="w-full text-[10px] font-black uppercase tracking-widest" asChild>
+                    <a href={`/insights/${article.slug}`} className="flex items-center justify-center gap-2 group/btn w-full">
+                        Read Insight <ArrowRight size={14} className="transition-transform duration-300 group-hover/btn:translate-x-1.5" />
                     </a>
                 </Button>
               </div>

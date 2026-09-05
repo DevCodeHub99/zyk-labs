@@ -173,37 +173,73 @@ export default async function InsightDetailPage({ params }: PageProps) {
                 </div>
             </div>
 
-            {/* Article Content Simulation */}
+            {/* Article Content */}
             <div className="max-w-3xl mx-auto space-y-12">
                 <p className="text-xl md:text-2xl text-primary font-medium leading-relaxed italic-serif border-l-4 border-accent pl-8 py-2">
-                    {article.excerpt}
+                    {article.content?.intro || article.excerpt}
                 </p>
 
-                <div className="prose prose-invert prose-p:text-foreground/70 prose-p:text-lg prose-p:leading-relaxed prose-headings:text-primary prose-headings:font-black prose-headings:uppercase prose-headings:tracking-widest prose-headings:italic-serif space-y-8">
-                    <h2 className="text-2xl uppercase">The Problem with Traditional Outsourcing</h2>
-                    <p>
-                        Most early-stage founders get priced out by large agencies or burned by unreliable freelancers. In the current engineering landscape, developer velocity is often sacrificed for process, or quality is lost in the translation of requirement documents. 
-                    </p>
-                    <p>
-                        At Zyklabs, we've identified that "Founder-Led Engineering" is the only way to ship at scale without accumulating massive technical debt in the first 90 days.
-                    </p>
+                {article.content?.sections ? (
+                    <div className="space-y-12">
+                        {article.content.sections.map((section, sIdx) => (
+                            <div key={sIdx} className="space-y-6">
+                                <h2 className="text-2xl md:text-3xl font-black text-primary uppercase tracking-tight italic-serif">
+                                    {section.heading}
+                                </h2>
 
-                    <h2 className="text-2xl uppercase">Architecting for Velocity</h2>
-                    <p>
-                        Building a high-performance SaaS in 2026 requires a shift from monolithic thinking to granular, edge-first architectures. By leveraging Next.js Server Components and atomic design principles, we reduce the initial TTI (Time to Interactive) to sub-400ms levels.
-                    </p>
-                    <ul className="space-y-4 not-prose">
-                        {[
-                            'Stateless Authentication for rapid scaling',
-                            'No-Hydration UI components for mobile performance',
-                            'Direct-to-Postgres Edge functions'
-                        ].map(item => (
-                            <li key={item} className="flex items-center gap-3 text-sm font-bold text-foreground/70">
-                                <CheckCircle2 className="text-accent" /> {item}
-                            </li>
+                                {section.paragraphs.map((para, pIdx) => (
+                                    <p key={pIdx} className="text-foreground/80 text-lg leading-relaxed font-normal">
+                                        {para}
+                                    </p>
+                                ))}
+
+                                {section.quote && (
+                                    <blockquote className="my-6 p-6 md:p-8 rounded-3xl bg-secondary/40 border-l-4 border-accent italic text-primary font-medium text-lg md:text-xl leading-relaxed">
+                                        &ldquo;{section.quote}&rdquo;
+                                    </blockquote>
+                                )}
+
+                                {section.bulletPoints && section.bulletPoints.length > 0 && (
+                                    <ul className="space-y-3.5 my-6 bg-secondary/20 p-6 md:p-8 rounded-3xl border border-border/60">
+                                        {section.bulletPoints.map((item, bIdx) => (
+                                            <li key={bIdx} className="flex items-start gap-3.5 text-base font-medium text-foreground/85 leading-relaxed">
+                                                <CheckCircle2 className="text-accent shrink-0 mt-1" size={18} />
+                                                <span>{item}</span>
+                                            </li>
+                                        ))}
+                                    </ul>
+                                )}
+                            </div>
                         ))}
-                    </ul>
-                </div>
+                    </div>
+                ) : (
+                    <div className="prose prose-invert prose-p:text-foreground/70 prose-p:text-lg prose-p:leading-relaxed prose-headings:text-primary prose-headings:font-black prose-headings:uppercase prose-headings:tracking-widest prose-headings:italic-serif space-y-8">
+                        <p>{article.excerpt}</p>
+                    </div>
+                )}
+
+                {article.content?.summaryTakeaways && article.content.summaryTakeaways.length > 0 && (
+                    <div className="my-12 p-8 md:p-10 rounded-[2.5rem] bg-gradient-to-br from-accent/10 via-secondary/30 to-background border border-accent/20 space-y-6">
+                        <div className="flex items-center gap-3">
+                            <div className="w-9 h-9 rounded-full bg-accent/20 flex items-center justify-center text-accent">
+                                <CheckCircle2 size={20} />
+                            </div>
+                            <h3 className="text-xl md:text-2xl font-black uppercase tracking-wider text-primary italic-serif">
+                                Key Technical Takeaways
+                            </h3>
+                        </div>
+                        <div className="grid gap-4 pt-2">
+                            {article.content.summaryTakeaways.map((takeaway, idx) => (
+                                <div key={idx} className="flex items-start gap-3.5 text-foreground/90 font-medium leading-relaxed text-base">
+                                    <span className="w-6 h-6 rounded-full bg-accent/20 text-accent text-xs font-black flex items-center justify-center shrink-0 mt-0.5">
+                                        {idx + 1}
+                                    </span>
+                                    <span>{takeaway}</span>
+                                </div>
+                            ))}
+                        </div>
+                    </div>
+                )}
 
                 <div className="pt-16 border-t border-border/50">
                     <div className="p-12 rounded-[3.5rem] bg-primary text-primary-foreground relative overflow-hidden group">

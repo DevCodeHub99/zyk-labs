@@ -40,6 +40,19 @@ export interface ProjectItem {
     link: string
 }
 
+export interface ArticleSection {
+    heading: string
+    paragraphs: string[]
+    bulletPoints?: string[]
+    quote?: string
+}
+
+export interface ArticleContent {
+    intro: string
+    sections: ArticleSection[]
+    summaryTakeaways: string[]
+}
+
 export interface ArticleItem {
     slug: string
     category: string
@@ -48,6 +61,7 @@ export interface ArticleItem {
     date: string
     author: string
     readTime: string
+    content?: ArticleContent
 }
 
 export interface TeamMember {
