@@ -317,28 +317,28 @@ export const siteConfig: SiteConfig = {
         titleHighlighted: { main: 'Meet the', accent: 'Studio.' },
         description: 'A dedicated engineering team committed to bringing your ideas to life.',
         members: [
-            {
-                name: 'Nishant Verma', role: 'Full Stack Engineer',
-                image: '/nishant.png',
-                bio: `I build with a focus on how things actually work in the real world. As a Full-Stack Engineer with an operator's mindset, I prioritize product feasibility and practical execution over abstract theory. My goal is always to move from idea to monetized, scalable reality as efficiently as possible.`,
-                social: [
-                    { icon: Github, href: 'https://github.com/nishant4510' },
-                    { icon: Linkedin, href: 'https://www.linkedin.com/in/nishant-verma-566116200' },
-                    { icon: Instagram, href: 'https://instagram.com/nishantverma' },
-                ],
-                initials: 'NV', bg: 'bg-accent',
-            },
-            {
-                name: 'Vikas Kumar', role: 'Full-Stack Engineer',
-                image: '/vikas.png',
-                bio: `A product focused engineer who thinks in systems. Beyond writing code, I focus on building scalable architectures and future-proof SaaS products. Whether it's crafting AI-driven tools or refining core infrastructure, I’m driven by making complex technology feel simple and reliable for the long term.`,
-                social: [
-                    { icon: Github, href: 'https://github.com/devcodehub99' },
-                    { icon: Linkedin, href: 'https://www.linkedin.com/in/devcodehub99' },
-                    { icon: Twitter, href: 'https://x.com/devcodehub99' },
-                ],
-                initials: 'VK', bg: 'bg-teal-500',
-            },
+            // {
+            //     name: 'Nishant Verma', role: 'Full Stack Engineer',
+            //     image: '/nishant.png',
+            //     bio: `I build with a focus on how things actually work in the real world. As a Full-Stack Engineer with an operator's mindset, I prioritize product feasibility and practical execution over abstract theory. My goal is always to move from idea to monetized, scalable reality as efficiently as possible.`,
+            //     social: [
+            //         { icon: Github, href: 'https://github.com/nishant4510' },
+            //         { icon: Linkedin, href: 'https://www.linkedin.com/in/nishant-verma-566116200' },
+            //         { icon: Instagram, href: 'https://instagram.com/nishantverma' },
+            //     ],
+            //     initials: 'NV', bg: 'bg-accent',
+            // },
+            // {
+            //     name: 'Vikas Kumar', role: 'Full-Stack Engineer',
+            //     image: '/vikas.png',
+            //     bio: `A product focused engineer who thinks in systems. Beyond writing code, I focus on building scalable architectures and future-proof SaaS products. Whether it's crafting AI-driven tools or refining core infrastructure, I’m driven by making complex technology feel simple and reliable for the long term.`,
+            //     social: [
+            //         { icon: Github, href: 'https://github.com/devcodehub99' },
+            //         { icon: Linkedin, href: 'https://www.linkedin.com/in/devcodehub99' },
+            //         { icon: Twitter, href: 'https://x.com/devcodehub99' },
+            //     ],
+            //     initials: 'VK', bg: 'bg-teal-500',
+            // },
         ],
         about: {
             badge: "Our Story",

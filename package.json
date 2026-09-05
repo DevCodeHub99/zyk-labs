@@ -9,8 +9,6 @@
   },
   "dependencies": {
     "@calcom/embed-react": "^1.5.3",
-    "@event-overlay/core": "^1.0.1",
-    "@event-overlay/independence-day": "^1.0.1",
     "@radix-ui/react-slot": "1.1.1",
     "@vercel/analytics": "^1.6.1",
     "@vercel/speed-insights": "^1.3.1",
