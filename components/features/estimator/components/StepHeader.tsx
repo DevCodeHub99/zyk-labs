@@ -1,8 +1,8 @@
-
 'use client'
 
 import { motion } from 'framer-motion'
 import React from 'react'
+import CurrencySwitcher from '@/components/ui/CurrencySwitcher'
 
 interface StepHeaderProps {
   currentStep: number
@@ -14,7 +14,7 @@ interface StepHeaderProps {
 export function StepHeader({ currentStep, totalSteps, title, displayTotal }: StepHeaderProps) {
   return (
     <div className="space-y-6">
-      <div className="flex justify-between items-end">
+      <div className="flex justify-between items-end gap-4">
         <div className="space-y-1">
           <p className="text-[10px] font-black uppercase tracking-[0.3em] text-accent">
             Step {currentStep + 1} of {totalSteps}
@@ -23,15 +23,18 @@ export function StepHeader({ currentStep, totalSteps, title, displayTotal }: Ste
             {title}
           </h2>
         </div>
-        <div className="text-right hidden md:block">
-          <p className="text-[10px] font-black uppercase tracking-widest text-foreground/30 mb-1">Live Ballpark</p>
-          <p className="text-2xl font-black text-primary">{displayTotal}</p>
+        <div className="flex items-center gap-3">
+          <CurrencySwitcher variant="dropdown" />
+          <div className="text-right hidden md:block">
+            <p className="text-[10px] font-black uppercase tracking-widest text-foreground/30 mb-0.5">Live Ballpark</p>
+            <p className="text-2xl font-black text-primary leading-tight">{displayTotal}</p>
+          </div>
         </div>
       </div>
 
       {/* Progress Bar */}
       <div className="h-1.5 w-full bg-secondary/50 rounded-full overflow-hidden">
-        <motion.div 
+        <motion.div
           className="h-full bg-accent"
           initial={{ width: 0 }}
           animate={{ width: `${((currentStep + 1) / totalSteps) * 100}%` }}
