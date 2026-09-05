@@ -60,11 +60,14 @@ export interface TeamMember {
     bg: string
 }
 
+export type CurrencyCode = 'USD' | 'INR' | 'EUR' | 'GBP'
+export type MultiCurrencyPrice = Record<CurrencyCode, string>
+
 export interface PricingPlan {
     name: string
     tagline: string
     description: string
-    price: string
+    price: string | MultiCurrencyPrice
     period: string
     billing: string
     popular: boolean

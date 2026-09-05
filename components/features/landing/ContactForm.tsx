@@ -1,12 +1,12 @@
-
 'use client'
 
-import React, { useActionState, useState } from 'react'
+import React, { useActionState, useState, useEffect } from 'react'
 import { siteConfig } from '@/config/site'
 import { Button } from '@/components/ui/button'
 import { useFormStatus } from 'react-dom'
 import { submitContactForm } from '@/app/actions/contact'
 import { CheckCircle2, AlertCircle } from 'lucide-react'
+import { useCurrency } from '@/context/CurrencyContext'
 
 /**
  * Submit button component using useFormStatus for progressive enhancement and loading states.
@@ -44,7 +44,8 @@ const SuccessState = ({ message, onReset }: { message: string, onReset: () => vo
 
 export default function ContactForm() {
   const { contact } = siteConfig
-  const { categories, budgets } = contact
+  const { categories } = contact
+  const { budgets } = useCurrency()
   
   // React 19 / Next.js Action State
   const [state, formAction] = useActionState(submitContactForm, null)
@@ -52,6 +53,13 @@ export default function ContactForm() {
   // Local state for toggles (category/budget)
   const [selectedCategory, setSelectedCategory] = useState(categories[0])
   const [selectedBudget, setSelectedBudget] = useState(budgets[0])
+
+  // Sync selected budget when currency / budget tiers change
+  useEffect(() => {
+    if (!budgets.includes(selectedBudget)) {
+      setSelectedBudget(budgets[0])
+    }
+  }, [budgets, selectedBudget])
 
   if (state?.status === 'success') {
     return <SuccessState message={state.message} onReset={() => window.location.reload()} />

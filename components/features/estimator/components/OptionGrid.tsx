@@ -1,12 +1,13 @@
-
 'use client'
 
 import React from 'react'
 import { motion, AnimatePresence } from 'framer-motion'
 import { Check } from 'lucide-react'
 import StudioCard from '@/components/shared/StudioCard'
-import { formatCurrency, Selection } from '../hooks/useEstimator'
+import { Selection } from '../hooks/useEstimator'
 import { EstimatorStep, EstimatorOption } from '@/types'
+import { useCurrency } from '@/context/CurrencyContext'
+import { ESTIMATOR_PRICES_BY_CURRENCY } from '@/config/currencies'
 
 interface OptionGridProps {
   activeStep: EstimatorStep
@@ -15,14 +16,19 @@ interface OptionGridProps {
 }
 
 export function OptionGrid({ activeStep, selections, onSelect }: OptionGridProps) {
+  const { currency, formatAmount } = useCurrency()
+
   return (
     <div className="grid grid-cols-1 md:grid-cols-3 gap-4">
       <AnimatePresence mode="wait">
         {activeStep.options.map((option: EstimatorOption) => {
           const Icon = option.icon
-          const isSelected = activeStep.multiSelect 
+          const isSelected = activeStep.multiSelect
             ? (selections[activeStep.id] as string[])?.includes(option.id)
             : selections[activeStep.id] === option.id
+
+          const priceVal = option.price ? (ESTIMATOR_PRICES_BY_CURRENCY[option.id]?.[currency] ?? option.price) : null
+          const baseVal = option.basePrice ? (ESTIMATOR_PRICES_BY_CURRENCY[option.id]?.[currency] ?? option.basePrice) : null
 
           return (
             <motion.button
@@ -33,27 +39,37 @@ export function OptionGrid({ activeStep, selections, onSelect }: OptionGridProps
               onClick={() => onSelect(option.id)}
               className="text-left group"
             >
-              <StudioCard 
-                className={`h-full p-5 md:p-6 transition-all duration-300 ${isSelected ? 'border-accent bg-accent/[0.03]' : 'hover:border-primary/20'}`}
+              <StudioCard
+                className={`h-full p-5 md:p-6 transition-all duration-300 ${
+                  isSelected ? 'border-accent bg-accent/[0.03]' : 'hover:border-primary/20'
+                }`}
                 innerClassName="space-y-3 md:space-y-4"
                 showGlow={isSelected}
                 glowClassName="opacity-20"
               >
-                <div className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors ${isSelected ? 'bg-accent text-white' : 'bg-secondary text-primary/40 group-hover:bg-primary/5'}`}>
+                <div
+                  className={`w-10 h-10 md:w-12 md:h-12 rounded-full flex items-center justify-center transition-colors ${
+                    isSelected ? 'bg-accent text-white' : 'bg-secondary text-primary/40 group-hover:bg-primary/5'
+                  }`}
+                >
                   <Icon className="w-5 h-5 md:w-6 md:h-6" />
                 </div>
                 <div>
-                  <h4 className={`text-[13px] md:text-sm font-black uppercase tracking-widest mb-0.5 md:mb-1 ${isSelected ? 'text-accent' : 'text-primary'}`}>
+                  <h4
+                    className={`text-[13px] md:text-sm font-black uppercase tracking-widest mb-0.5 md:mb-1 ${
+                      isSelected ? 'text-accent' : 'text-primary'
+                    }`}
+                  >
                     {option.label}
                   </h4>
-                  {option.price && (
+                  {priceVal !== null && (
                     <p className="text-[9px] md:text-[10px] font-bold text-foreground/40 uppercase tracking-tighter">
-                      + {formatCurrency(option.price)}
+                      + {formatAmount(priceVal)}
                     </p>
                   )}
-                  {option.basePrice && (
+                  {baseVal !== null && (
                     <p className="text-[9px] md:text-[10px] font-bold text-foreground/40 uppercase tracking-tighter">
-                      Base: {formatCurrency(option.basePrice)}
+                      Base: {formatAmount(baseVal)}
                     </p>
                   )}
                 </div>

@@ -5,6 +5,7 @@ import { Menu, X, Moon, Sun, ChevronRight, Zap } from 'lucide-react'
 import { Button } from '@/components/ui/button'
 import { motion, AnimatePresence } from 'framer-motion'
 import Logo from '@/components/shared/Logo'
+import CurrencySwitcher from '@/components/ui/CurrencySwitcher'
 import { siteConfig } from '@/config/site'
 import { handleScrollTo } from '@/lib/scroll-to'
 import { usePathname } from 'next/navigation'
@@ -82,6 +83,7 @@ export default function Navbar() {
 
           {/* Desktop Actions — right */}
           <div className="hidden lg:flex items-center gap-1.5 xl:gap-2 justify-end">
+            <CurrencySwitcher />
             {isMounted && (
               <button
                 onClick={toggleTheme}
@@ -150,7 +152,7 @@ export default function Navbar() {
           isOpen ? 'opacity-100 translate-y-0' : 'opacity-0 -translate-y-full pointer-events-none'
         }`}
       >
-        <div className="flex flex-col h-full pt-20 pb-10 px-8 space-y-8 overflow-y-auto">
+        <div className="flex flex-col h-full pt-20 pb-10 px-8 space-y-6 overflow-y-auto">
           <div className="flex flex-col">
             {navigation.map((item, idx) => (
               <a
@@ -167,6 +169,12 @@ export default function Navbar() {
                 <ArrowUpRight size={18} className="opacity-0 -translate-x-4 group-hover:opacity-100 group-hover:translate-x-0 transition-all" />
               </a>
             ))}
+          </div>
+
+          {/* Mobile Currency Selector */}
+          <div className="flex items-center justify-between py-3 border-b border-border/40">
+            <span className="text-[10px] font-black uppercase tracking-[0.2em] text-foreground/50">Currency</span>
+            <CurrencySwitcher variant="pills" />
           </div>
           
           <div className="mt-auto space-y-6">
