@@ -324,7 +324,7 @@ export const siteConfig: SiteConfig = {
                     'SEO, Performance & Security Audit',
                     'Custom Timeline & Scope',
                 ],
-                cta: "Let's Discuss My Project",
+                cta: "Let's Discuss!",
                 trust: 'Free scoping call · No commitment required',
             },
         ],

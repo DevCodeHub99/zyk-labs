@@ -21,10 +21,10 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
   return (
     <StudioCard
       className={`transition-all duration-500 hover:-translate-y-2 group ${
-        plan.popular ? 'border-accent/40 md:scale-105 z-20 shadow-accent/10' : ''
+        plan.popular ? 'border-2 border-accent/60 md:-translate-y-2 z-20 shadow-xl shadow-accent/15' : ''
       }`}
-      glowClassName={plan.popular ? 'opacity-10' : 'opacity-0'}
-      innerClassName="flex flex-col h-full p-6 sm:p-8"
+      glowClassName={plan.popular ? 'opacity-15' : 'opacity-0'}
+      innerClassName="flex flex-col h-full p-6 sm:p-7"
       showGlow={plan.popular}
     >
       {plan.badge && (
@@ -100,25 +100,26 @@ const PricingCard = ({ plan }: { plan: PricingPlan }) => {
         </ul>
       </div>
 
-      <div className="mt-auto space-y-4">
+      <div className="mt-auto space-y-3 pt-2">
         <Button
           asChild
-          size="lg"
           variant={plan.popular ? 'studio-accent' : isCustom ? 'studio-primary' : 'studio-secondary'}
-          className="w-full"
+          className="w-full h-12 text-[10px] font-black uppercase tracking-wider rounded-full shadow-none"
         >
-          <a href="/contact" className="flex items-center justify-center gap-2">
-            {plan.cta}
-            {isCustom ? <ChevronRight className="w-4 h-4" /> : <ArrowRight className="w-4 h-4" />}
+          <a href="/contact" className="flex items-center justify-center gap-2 w-full h-full px-4">
+            <span className="truncate">{plan.cta}</span>
+            <ArrowRight className="w-3.5 h-3.5 flex-shrink-0" />
           </a>
         </Button>
-        {plan.trust && (
-          <div className="flex items-center justify-center gap-2 px-4 py-2 bg-secondary/30 rounded-full">
-            <ShieldCheck className="w-3 h-3 text-accent" />
-            <span className="text-[9px] text-foreground/60 font-black uppercase tracking-widest leading-none">
+        {plan.trust ? (
+          <div className="h-10 flex items-center justify-center gap-1.5 px-3 py-1 bg-secondary/30 rounded-full text-center">
+            <ShieldCheck className="w-3 h-3 text-accent flex-shrink-0" />
+            <span className="text-[8.5px] text-foreground/60 font-black uppercase tracking-wider leading-tight">
               {plan.trust}
             </span>
           </div>
+        ) : (
+          <div className="h-10" />
         )}
       </div>
     </StudioCard>

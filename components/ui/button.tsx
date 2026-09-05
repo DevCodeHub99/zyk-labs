@@ -53,7 +53,7 @@ const Button = React.forwardRef<HTMLButtonElement, ButtonProps>(
   ({ className, variant, size, asChild = false, showGlow = false, ...props }, ref) => {
     const Comp = asChild ? Slot : 'button'
     return (
-      <div className={cn("relative inline-block w-full sm:w-auto group/btn-container", className)}>
+      <div className={cn("relative inline-block w-full group/btn-container", className)}>
         {showGlow && (
            <div className={cn(
              "absolute inset-0 blur-2xl opacity-0 group-hover/btn-container:opacity-40 transition-opacity duration-500 rounded-full pointer-events-none",
